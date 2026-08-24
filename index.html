@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barbara Iwańska — Portfolio</title>
+<style>
+:root{
+  --bg:#FDFCFA; --card:#FDFCFA; --ink:#14100C; --mut:#6B6560; --line:#DCD8D2;
+  --pad:76px; --gap:140px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.65; color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+
+/* --- przełącznik języka --- */
+html.en .t-pl{display:none;}
+html:not(.en) .t-en{display:none;}
+
+.wrap{max-width:1560px; margin:0 auto; padding:0 var(--pad);}
+.card{padding:0; margin:0 0 var(--gap) 0;}
+#gora{padding-top:clamp(40px,6vw,72px);}
+
+/* --- etykiety w nawiasach --- */
+.tag{
+  font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--mut); margin:0 0 28px 0;
+}
+.cap{
+  font-size:11px; letter-spacing:.07em; color:var(--mut);
+  margin:10px 0 0 0; line-height:1.5;
+}
+
+/* --- nagłówek --- */
+.topbar{display:flex; justify-content:space-between; align-items:flex-start; gap:32px; flex-wrap:wrap;}
+h1{
+  font-size:clamp(44px,7vw,104px); font-weight:600; letter-spacing:.02em;
+  text-transform:uppercase; margin:0; line-height:1.02;
+}
+.ident{text-align:right; font-size:13px; line-height:1.9; color:#2c2e33; letter-spacing:.02em;}
+nav{display:flex; gap:20px; align-items:center; font-size:11px; letter-spacing:.14em; text-transform:uppercase; margin-top:14px; justify-content:flex-end; flex-wrap:wrap;}
+nav a{text-decoration:none; color:var(--mut);}
+nav a:hover{color:var(--ink);}
+.langsw{display:flex; gap:6px; align-items:center; color:var(--mut);}
+.langsw button{
+  background:none; border:0; padding:0 2px; cursor:pointer; font:inherit;
+  letter-spacing:.14em; color:var(--mut);
+}
+.langsw button.on{color:var(--ink); font-weight:700;}
+
+.hero-space{height:clamp(90px,14vw,220px);}
+
+/* --- pasek działów na całą szerokość --- */
+.navbar{
+  display:flex; justify-content:space-evenly; gap:18px 26px; flex-wrap:wrap; margin-top:44px;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+}
+.navbar a{color:var(--mut); text-decoration:none;}
+.navbar a:hover{color:var(--ink);}
+
+/* --- nagłówek sekcji: wersaliki │ kreska │ link ze strzałką --- */
+.sechead{display:flex; align-items:center; gap:20px; margin:0 0 36px 0;}
+.sechead .st{
+  margin:0; font-size:clamp(21px,2.3vw,33px); font-weight:600;
+  letter-spacing:.02em; text-transform:uppercase; line-height:1.05;
+}
+.sechead .vr{width:1px; align-self:stretch; background:var(--line); flex:0 0 auto;}
+.sechead .more{font-size:13px; letter-spacing:.02em; color:var(--ink); text-decoration:none;}
+.sechead .note{font-size:13px; letter-spacing:.02em; color:var(--mut);}
+.sechead .more::after{content:" \2192";}
+.sechead .more:hover{color:var(--mut);}
+.sechead .cnt{margin-left:auto; font-size:11px; letter-spacing:.12em; color:var(--mut); font-variant-numeric:tabular-nums;}
+
+/* --- pasek nad case study: numer po lewej, licznik po prawej --- */
+.csbar{display:flex; align-items:baseline; justify-content:space-between; margin:0 0 18px 0;}
+.csbar .num{margin:0;}
+.csbar .cnt{font-size:11px; letter-spacing:.12em; color:var(--mut); font-variant-numeric:tabular-nums;}
+
+/* --- otwarcie case study: lead obok kadru, nie pod nim --- */
+.opener{
+  display:grid; grid-template-columns:minmax(0,13fr) minmax(0,7fr);
+  gap:clamp(26px,3.2vw,54px); align-items:end; margin:0 0 44px 0;
+}
+.opener figure{margin:0;}
+.opener figure img{max-height:clamp(400px,56vh,640px); width:auto;}
+.opener .opener-txt{padding-bottom:6px;}
+.opener .lead{margin:0;}
+
+/* --- hero na całą szerokość, tekst wyśrodkowany na kadrze --- */
+.hero{position:relative; margin:0 calc(var(--pad) * -1); background:#EFEDE9; overflow:hidden;}
+.hero img{width:100%; height:clamp(360px,62vh,720px); object-fit:cover;}
+.hero-txt{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center; gap:12px;
+  padding:24px; color:#FDFCFA;
+  background:linear-gradient(180deg,rgba(20,16,12,.34) 0%,rgba(20,16,12,.58) 100%);
+  text-shadow:0 1px 14px rgba(20,16,12,.5);
+}
+.hero-txt p{margin:0;}
+.hero-txt .lbl{font-size:11px; letter-spacing:.18em; text-transform:uppercase; opacity:.9;}
+.hero-txt h2{
+  margin:0; font-size:clamp(26px,4.4vw,62px); font-weight:600;
+  text-transform:uppercase; letter-spacing:.01em; line-height:1.05;
+}
+.hero-txt .m{font-size:12px; letter-spacing:.12em; text-transform:uppercase;}
+.hero-txt .go{
+  margin-top:10px; font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  text-decoration:none; color:inherit;
+}
+.hero-txt .go::after{content:" \2192";}
+.hero-cap{margin:10px 0 var(--gap) 0;}
+
+/* --- siatka kafli --- */
+.tiles{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+.tile{text-decoration:none; color:inherit; display:block;}
+.tile .cap{margin:0 0 10px 0; text-transform:uppercase; letter-spacing:.1em; color:var(--ink);}
+.tile .frame{aspect-ratio:4/5; overflow:hidden; background:#EFEDE9;}
+.tile img{width:100%; height:100%; object-fit:cover; transition:opacity .35s;}
+.tile:hover img{opacity:.84;}
+.tile .frame.empty{background:none;}
+
+/* --- o mnie --- */
+.about{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:end;}
+.about .lead{font-size:19px; line-height:1.6;}
+.rule{height:1px; background:var(--line); margin:0 0 26px 0;}
+
+/* --- case study --- */
+.num{font-size:11px; letter-spacing:.16em; color:var(--mut); margin-bottom:18px;}
+h2{font-size:clamp(30px,3.6vw,52px); font-weight:600; letter-spacing:.01em; line-height:1.1; margin:0 0 14px 0;}
+.meta{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin:0 0 44px 0;}
+.lead{font-size:21px; line-height:1.5; max-width:24em; margin:0 0 44px 0;}
+figure{margin:0 0 44px 0;}
+figure.tall img{max-height:760px; width:auto; margin:0 auto;}
+
+.body{display:grid; grid-template-columns:repeat(3,1fr); gap:48px; margin:0 0 52px 0;}
+.body h3{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:700; margin:0 0 12px 0; padding-bottom:8px; border-bottom:1px solid var(--line);}
+.body p{margin:0 0 10px 0; font-size:15px;}
+.body ul{margin:0; padding-left:16px; font-size:15px;}
+.body li{margin-bottom:7px;}
+.body li::marker{color:#B9B4AD;}
+
+.gal{display:flex; flex-wrap:wrap; align-items:flex-start; gap:26px; --gh:clamp(220px,23vw,370px);}
+.gal figure{margin:0; flex:0 1 calc(var(--gh) * var(--r,1.5)); min-width:0; max-width:100%;}
+.gal figure img{width:100%; height:auto;}
+.credits{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); font-size:12px; letter-spacing:.03em; color:var(--mut);}
+.credits strong{color:var(--ink); font-weight:600;}
+
+/* --- zakres --- */
+.tag .sub{display:block; margin-top:4px;}
+.scope{
+  font-size:clamp(28px,4.4vw,66px); font-weight:600; line-height:1.06;
+  letter-spacing:.005em; text-transform:uppercase; margin:0; max-width:18em;
+}
+.scope-note{
+  font-size:15px; letter-spacing:.02em; color:var(--mut);
+  margin:52px 0 52px 0; padding-top:20px; border-top:1px solid var(--line);
+}
+
+/* --- Zakres: jedyna ciemna płaszczyzna na stronie --- */
+#kompetencje{
+  background:var(--ink); color:#FDFCFA;
+  margin:0 calc(var(--pad) * -1) var(--gap);
+  padding:clamp(54px,7vw,104px) var(--pad);
+}
+#kompetencje .sechead .st{color:#FDFCFA;}
+#kompetencje .sechead .vr{background:rgba(253,252,250,.34);}
+#kompetencje .sechead .note{color:rgba(253,252,250,.62);}
+#kompetencje .scope-note{color:rgba(253,252,250,.62); border-top-color:rgba(253,252,250,.20);}
+#kompetencje .three h3{color:#FDFCFA;}
+#kompetencje .three p{color:rgba(253,252,250,.74);}
+
+/* --- kompetencje / doświadczenie --- */
+.three{display:grid; grid-template-columns:repeat(3,1fr); gap:56px;}
+.three h3{font-size:19px; font-weight:600; margin:0 0 12px 0;}
+.three p{font-size:15px; margin:0; color:#3a3a3a;}
+
+.cv-row{display:grid; grid-template-columns:150px 1fr; gap:0 28px; padding:20px 0; border-top:1px solid var(--line);}
+.cv-row:last-of-type{border-bottom:1px solid var(--line);}
+.cv-when{font-size:12px; letter-spacing:.06em; color:var(--mut);}
+.cv-what strong{display:block; font-size:17px; font-weight:600;}
+.cv-what span{font-size:14px; color:#4a4a4a;}
+.btn{
+  display:inline-block; margin-top:32px; text-decoration:none;
+  font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+}
+.btn::after{content:" \2192";}
+.btn:hover{color:var(--mut);}
+
+/* --- kontakt --- */
+.contact{display:flex; gap:44px; flex-wrap:wrap; font-size:19px;}
+.contact a{text-decoration:none; border-bottom:1px solid var(--line);}
+footer.legal{color:#5c5c5c; font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding:0 4px 24px; text-align:center;}
+
+@media (max-width:1100px){
+  :root{--pad:44px; --gap:104px;}
+  .tiles{grid-template-columns:repeat(3,1fr);}
+  .opener{grid-template-columns:1fr; align-items:start; gap:26px;}
+  .gal{--gh:clamp(190px,30vw,300px);}
+  .body{grid-template-columns:1fr; gap:32px;}
+  .three{grid-template-columns:1fr; gap:34px;}
+  .about{grid-template-columns:1fr; gap:32px;}
+}
+@media (max-width:680px){
+  :root{--pad:22px; --gap:72px;}
+  .tiles{grid-template-columns:repeat(2,1fr); gap:14px;}
+  .gal{gap:18px;}
+  .gal figure{flex:1 1 100%;}
+  .sechead{gap:14px; margin-bottom:26px;}
+  .navbar{justify-content:flex-start; gap:14px 22px; margin-top:30px;}
+  .cv-row{grid-template-columns:1fr; gap:6px;}
+  .ident{text-align:left;}
+  nav{justify-content:flex-start;}
+}
+@media print{
+  body{background:#fff;}
+  .hero{margin-left:0; margin-right:0;}
+  .hero img{height:auto;}
+  .hero-txt{position:static; color:var(--ink); background:none; padding:14px 0 0;}
+  #kompetencje{background:none; color:var(--ink); margin-left:0; margin-right:0; padding:32px;}
+  #kompetencje .sechead .st,#kompetencje .three h3{color:var(--ink);}
+  #kompetencje .three p,#kompetencje .scope-note{color:var(--mut);}
+  .wrap{padding:0; max-width:none;}
+  .card{margin-bottom:0; padding:32px; page-break-after:always;}
+  nav,.langsw{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ============ NAGŁÓWEK ============ -->
+<section class="card" id="gora">
+  <div class="topbar">
+    <div>
+      <h1>Barbara<br>Iwańska</h1>
+    </div>
+    <div>
+      <div class="ident">
+        <span class="t-pl">Strategia produktu i marki</span><span class="t-en">Product &amp; Brand Strategy</span><br>
+        <span class="t-pl">Warszawa</span><span class="t-en">Warsaw</span><br>
+        bas.iwanska@gmail.com<br>
+        +48 698 928 600
+      </div>
+      <nav>
+        <div class="langsw">
+          <button data-lang="pl" class="on">PL</button><span>/</span><button data-lang="en">EN</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="#prace"><span class="t-pl">Prace</span><span class="t-en">Work</span></a>
+    <a href="#o-mnie"><span class="t-pl">Sylwetka</span><span class="t-en">Profile</span></a>
+    <a href="#kompetencje"><span class="t-pl">Zakres</span><span class="t-en">Scope</span></a>
+    <a href="#doswiadczenie"><span class="t-pl">Doświadczenie</span><span class="t-en">Experience</span></a>
+    <a href="#kontakt"><span class="t-pl">Kontakt</span><span class="t-en">Contact</span></a>
+  </div>
+
+  <figure class="hero">
+    <img src="chmielna%2078/01-hero.jpg" alt="Lobby apart-hotelu Golden Tulip przy Chmielnej 78">
+    <div class="hero-txt">
+      <p class="lbl"><span class="t-pl">[ Wybrany projekt ]</span><span class="t-en">[ Selected project ]</span></p>
+      <h2>Golden Tulip &middot; Chmielna 78</h2>
+      <p class="m t-pl">Fit-out wnętrz apart-hotelu na 321 jednostek</p>
+      <p class="m t-en">Interior fit-out of a 321-unit apart-hotel</p>
+      <p class="m">Marvipol Development &middot; Gdańsk &middot; 2023&ndash;2025</p>
+      <a class="go" href="#p1"><span class="t-pl">Zobacz projekt</span><span class="t-en">View project</span></a>
+    </div>
+  </figure>
+  <p class="cap hero-cap"><span class="t-pl">Lobby z windami &mdash; wizualizacja</span><span class="t-en">Lift lobby &mdash; visualisation</span></p>
+
+  <div id="prace">
+    <div class="sechead">
+      <p class="st"><span class="t-pl">Prace</span><span class="t-en">Work</span></p>
+      <span class="vr"></span>
+      <a class="more" href="#p1"><span class="t-pl">Wszystkie (4)</span><span class="t-en">All (4)</span></a>
+    </div>
+    <div class="tiles">
+      <a class="tile" href="#p1">
+        <p class="cap">Chmielna 78 · Gdańsk</p>
+        <div class="frame"><img src="chmielna%2078/01-hero.jpg" alt="Golden Tulip Chmielna 78"></div>
+      </a>
+      <a class="tile" href="#p2">
+        <p class="cap">B SIDES · Mokotowska 61</p>
+        <div class="frame"><img src="03-b-sides/01-hero.jpg" alt="B SIDES"></div>
+      </a>
+      <a class="tile" href="#p3">
+        <p class="cap"><span class="t-pl">Biuro sprzedaży · Toruńska 20</span><span class="t-en">Sales office · Toruńska 20</span></p>
+        <div class="frame"><img src="04-torunska-20/01-hero.jpg" alt="Biuro sprzedaży Toruńska 20"></div>
+      </a>
+      <a class="tile" href="#p4">
+        <p class="cap">Rotunda Dynasy · M07</p>
+        <div class="frame"><img src="05-rotunda-dynasy/01-hero.jpg" alt="Rotunda Dynasy M07"></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O MNIE ============ -->
+<section class="card" id="o-mnie">
+  <div class="sechead">
+    <p class="st"><span class="t-pl">Sylwetka</span><span class="t-en">Profile</span></p>
+    <span class="vr"></span>
+    <a class="more" href="#kontakt"><span class="t-pl">Napisz</span><span class="t-en">Get in touch</span></a>
+  </div>
+  <div class="about">
+    <div>
+      <div class="rule"></div>
+      <p class="lead t-pl">
+        Projektuję produkty mieszkaniowe i hotelowe — od koncepcji marki, przez narrację sprzedażową,
+        po prowadzenie realizacji wnętrz. Pięć lat na styku dewelopmentu, biznesu i sztuki.
+      </p>
+      <p class="lead t-en">
+        I design residential and hospitality products — from brand concept, through sales narrative,
+        to leading interior delivery. Five years at the intersection of development, business and art.
+      </p>
+    </div>
+    <div>
+      <p class="t-pl">
+        Buduję marki inwestycji od podstaw i doprowadzam wnętrza do realizacji. Płynnie poruszam się
+        między światem inżynierów, finansów i designu — potrafię przełożyć obietnicę produktu na zestawienie
+        materiałowe, a zestawienie materiałowe z powrotem na język, którym inwestycja mówi do kupującego.
+        Fundamentem mojej pracy jest oś relacji <strong>człowiek — materia — system</strong>.
+      </p>
+      <p class="t-en">
+        I build investment brands from scratch and carry interiors through to delivery. I move fluently
+        between engineers, finance and design — translating a product promise into a material schedule,
+        and that schedule back into the language an investment uses to speak to its buyer.
+        My work is grounded in the relationship between <strong>people — material — system</strong>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 · CHMIELNA 78 ============ -->
+<section class="card" id="p1">
+  <div class="csbar"><p class="num">[ 01 ]</p><span class="cnt">1 / 4</span></div>
+  <h2><span class="t-pl">Golden Tulip · Chmielna 78</span><span class="t-en">Golden Tulip · Chmielna 78</span></h2>
+  <p class="meta">
+    Marvipol Development ·
+    <span class="t-pl">Specjalistka ds. koordynacji projektów inwestycyjnych</span><span class="t-en">Investment Project Coordination Specialist</span>
+    · 2023–2025 · <span class="t-pl">Gdańsk</span><span class="t-en">Gdańsk, Poland</span>
+  </p>
+
+  <div class="opener">
+    <figure>
+      <img src="chmielna%2078/01-hero.jpg" alt="Lobby">
+      <p class="cap"><span class="t-pl">Lobby z windami — wizualizacja</span><span class="t-en">Lift lobby — visualisation</span></p>
+    </figure>
+    <div class="opener-txt">
+      <p class="lead t-pl">Fit-out wnętrz apart-hotelu na 321 jednostek — części wspólne i lokale.</p>
+      <p class="lead t-en">Interior fit-out of a 321-unit apart-hotel — common areas and units.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div>
+      <h3><span class="t-pl">Kontekst</span><span class="t-en">Context</span></h3>
+      <p class="t-pl">Golden Tulip przy Chmielnej 78 w Gdańsku to inwestycja apart-hotelowa licząca 321 jednostek mieszkalnych. Standard premium trzeba było utrzymać przy budżecie, który w trakcie realizacji wymagał zawężenia. Najprostsza droga — obniżenie klasy materiałów — była wykluczona, bo obietnica produktu opierała się właśnie na jakości wykończenia.</p>
+      <p class="t-en">Golden Tulip at Chmielna 78 in Gdańsk is an apart-hotel investment of 321 residential units. The premium standard had to hold within a budget that narrowed during delivery. The simplest route — downgrading materials — was ruled out, because the product promise rested precisely on the quality of the finish.</p>
+    </div>
+    <div>
+      <h3><span class="t-pl">Zakres</span><span class="t-en">Scope</span></h3>
+      <ul class="t-pl">
+        <li>Odpowiadałam za realizację fit-outu wnętrz: lobby, recepcji, komunikacji, stref usługowych i wnętrz lokali</li>
+        <li>Prowadziłam proces optymalizacji materiałowej oraz negocjacje z dostawcami; decyzje zapadały wspólnie z Zarządem</li>
+        <li>Nadzorowałam współpracę z biurami projektowymi i wykonawcami</li>
+        <li>Odpowiadałam za koncepcję i architekturę narracji katalogu sprzedażowego</li>
+        <li>Opracowywałam raporty i prezentacje strategiczne dla Zarządu</li>
+        <li>Reprezentowałam firmę na spotkaniach z interesariuszami</li>
+      </ul>
+      <ul class="t-en">
+        <li>Led the delivery of the interior fit-out: lobby, reception, circulation, service zones and unit interiors</li>
+        <li>Ran material optimisation and supplier negotiations; decisions taken jointly with the Board</li>
+        <li>Supervised cooperation with design offices and contractors</li>
+        <li>Owned the concept and narrative architecture of the sales catalogue</li>
+        <li>Prepared strategic reports and presentations for the Board</li>
+        <li>Represented the company in stakeholder meetings</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="t-pl">Efekt</span><span class="t-en">Outcome</span></h3>
+      <ul class="t-pl">
+        <li>321 jednostek objętych zakresem inwestycji</li>
+        <li>Utrzymanie standardu premium mimo zawężenia budżetu — dzięki optymalizacji rozwiązań materiałowych zamiast obniżenia klasy wykończenia</li>
+        <li>Katalog sprzedażowy i materiały komunikacyjne wdrożone w kanałach inwestycji</li>
+      </ul>
+      <ul class="t-en">
+        <li>321 units within the investment scope</li>
+        <li>Premium standard maintained despite a narrowed budget — through material optimisation rather than a downgrade of finish class</li>
+        <li>Sales catalogue and communication materials rolled out across the investment’s channels</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gal">
+    <figure class="wide" style="--r:1.5">
+      <img src="chmielna%2078/02-galeria/01.jpg" alt="Pokój">
+      <p class="cap"><span class="t-pl">Pokój — motyw podświetlonego łuku, wizualizacja</span><span class="t-en">Guest room — backlit arch motif, visualisation</span></p>
+    </figure>
+    <figure class="wide" style="--r:1.5">
+      <img src="chmielna%2078/02-galeria/02.jpg" alt="Pokój, wariant">
+      <p class="cap"><span class="t-pl">Pokój, wariant aranżacji — wizualizacja</span><span class="t-en">Guest room, alternative layout — visualisation</span></p>
+    </figure>
+    <figure class="wide" style="--r:1.499">
+      <img src="chmielna%2078/02-galeria/03.jpg" alt="Recepcja">
+      <p class="cap"><span class="t-pl">Recepcja w identyfikacji UNIQUE Hotels &amp; Apartments — wizualizacja</span><span class="t-en">Reception in UNIQUE Hotels &amp; Apartments identity — visualisation</span></p>
+    </figure>
+    <figure style="--r:1.603">
+      <img src="chmielna%2078/02-galeria/04.jpg" alt="Elewacja o zmierzchu">
+      <p class="cap"><span class="t-pl">Elewacja o zmierzchu — wizualizacja</span><span class="t-en">Façade at dusk — visualisation</span></p>
+    </figure>
+    <figure style="--r:1.599">
+      <img src="chmielna%2078/02-galeria/05.jpg" alt="Elewacja">
+      <p class="cap"><span class="t-pl">Elewacja od strony ulicy — wizualizacja</span><span class="t-en">Street façade — visualisation</span></p>
+    </figure>
+    <figure style="--r:1.085">
+      <img src="chmielna%2078/03-rysunki/rzut-01.png" alt="Rzut">
+      <p class="cap"><span class="t-pl">Rzut jednostki z metrażami</span><span class="t-en">Unit plan with areas</span></p>
+    </figure>
+    <figure style="--r:0.79">
+      <img src="chmielna%2078/03-rysunki/rzut-02.png" alt="Rzut">
+      <p class="cap"><span class="t-pl">Rzut jednostki z metrażami</span><span class="t-en">Unit plan with areas</span></p>
+    </figure>
+  </div>
+
+  <!-- Zdjęcia z budowy leżą w `chmielna 78/04-proces/`. Świadomie ich tu nie ma:
+       obok wizualizacji wypadają surowo i psują spójność sekcji. Gdybyś chciała je pokazać,
+       wystarczy wkleić poniższy blok z powrotem do galerii:
+    <figure class="wide">
+      <img src="chmielna%2078/04-proces/01.jpg" alt="Postęp prac">
+      <p class="cap"><span class="t-pl">Postęp prac, listopad 2025</span><span class="t-en">Construction progress, November 2025</span></p>
+    </figure>
+  -->
+
+  <p class="credits">
+    <span class="t-pl"><strong>Współpraca.</strong> Teksty katalogu: dział marketingu Marvipol Development, we współpracy z autorką koncepcji. Materiały wizualne: Marvipol Development.</span>
+    <span class="t-en"><strong>Collaboration.</strong> Catalogue copy: Marvipol Development marketing team, with the author of the concept. Visual material: Marvipol Development.</span>
+  </p>
+</section>
+
+<!-- ============ 02 · B SIDES ============ -->
+<section class="card" id="p2">
+  <div class="csbar"><p class="num">[ 02 ]</p><span class="cnt">2 / 4</span></div>
+  <h2>B SIDES · Mokotowska 61</h2>
+  <p class="meta">
+    Zofia Strumiłło STUDIO ·
+    <span class="t-pl">Project Manager, współautorka projektu</span><span class="t-en">Project Manager, co-author of the design</span>
+    · 2021–2022 · <span class="t-pl">Warszawa</span><span class="t-en">Warsaw</span>
+  </p>
+
+  <div class="opener">
+    <figure>
+      <img src="03-b-sides/01-hero.jpg" alt="Mural">
+      <p class="cap"><span class="t-pl">Mural Magdaleny Łapińskiej-Rozenbaum, nawiązujący do motywu wełny</span><span class="t-en">Mural by Magdalena Łapińska-Rozenbaum, referencing the wool motif</span></p>
+    </figure>
+    <div class="opener-txt">
+      <p class="lead t-pl">Showroom marki wełnianej w kamienicy z 1918 roku — współautorstwo projektu, wykończenie i wdrożenie.</p>
+      <p class="lead t-en">A wool brand’s showroom in a 1918 tenement — co-authored design, finishes and delivery.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div>
+      <h3><span class="t-pl">Kontekst</span><span class="t-en">Context</span></h3>
+      <p class="t-pl">Ponad 100 m² w warszawskiej kamienicy z 1918 roku, stropy wysokie na cztery metry, dębowy parkiet. Przestrzeń miała nieść wartości marki: ponadczasową jakość, rzemiosło, lokalność i etyczne podejście do zwierząt — a jednocześnie dawać domowy komfort w nowoczesnym wydaniu.</p>
+      <p class="t-en">Over 100 m² in a Warsaw tenement from 1918, four-metre ceilings, oak parquet. The space had to carry the brand’s values — timeless quality, craft, locality and an ethical approach to animals — while offering domestic comfort in a contemporary register.</p>
+    </div>
+    <div>
+      <h3><span class="t-pl">Zakres</span><span class="t-en">Scope</span></h3>
+      <ul class="t-pl">
+        <li>Współtworzyłam projekt wnętrza w zespole studia</li>
+        <li>Odpowiadałam za projekt wykończenia i jego wdrożenie</li>
+        <li>Zarządzałam pełnym cyklem projektu — od koncepcji po otwarcie butiku</li>
+        <li>Kontrolowałam budżet i dobór materiałów pod kątem jakości, estetyki i aspektów środowiskowych</li>
+        <li>Przygotowywałam dokumentację projektową i prezentacje wspierające decyzje inwestycyjne</li>
+        <li>Koordynowałam wykonawców, dostawców i twórców zaangażowanych w realizację</li>
+      </ul>
+      <ul class="t-en">
+        <li>Co-authored the interior design within the studio team</li>
+        <li>Owned the finishes design and its implementation</li>
+        <li>Managed the full project cycle — from concept to the boutique opening</li>
+        <li>Controlled the budget and material selection for quality, aesthetics and environmental criteria</li>
+        <li>Prepared design documentation and presentations supporting investment decisions</li>
+        <li>Coordinated contractors, suppliers and the makers involved in delivery</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="t-pl">Efekt</span><span class="t-en">Outcome</span></h3>
+      <ul class="t-pl">
+        <li>Otwarcie butiku 22 listopada 2022</li>
+        <li>Ponad 100 m² przestrzeni handlowej w obiekcie zabytkowym</li>
+      </ul>
+      <ul class="t-en">
+        <li>Boutique opened on 22 November 2022</li>
+        <li>Over 100 m² of retail space in a listed building</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gal">
+    <figure style="--r:1.501">
+      <img src="03-b-sides/02-galeria/01.jpg" alt="Wnętrze showroomu">
+      <p class="cap"><span class="t-pl">Wnętrze showroomu — stropy 4 m, dębowy parkiet</span><span class="t-en">Showroom interior — 4 m ceilings, oak parquet</span></p>
+    </figure>
+    <figure style="--r:0.667">
+      <img src="03-b-sides/02-galeria/02.jpg" alt="Ekspozycja dzianin">
+      <p class="cap"><span class="t-pl">Ekspozycja dzianin przy granatowej kotarze</span><span class="t-en">Knitwear display against the navy curtain</span></p>
+    </figure>
+    <figure style="--r:0.667">
+      <img src="03-b-sides/02-galeria/03.jpg" alt="Półki ekspozycyjne">
+      <p class="cap"><span class="t-pl">Wnękowe półki ekspozycyjne — detal</span><span class="t-en">Recessed display shelving — detail</span></p>
+    </figure>
+    <figure style="--r:0.667">
+      <img src="03-b-sides/02-galeria/04.jpg" alt="Instalacja roślinna">
+      <p class="cap"><span class="t-pl">Instalacja kwiatowo-warzywna CosmosPlantea</span><span class="t-en">Floral-vegetable installation by CosmosPlantea</span></p>
+    </figure>
+    <figure style="--r:0.667">
+      <img src="03-b-sides/02-galeria/05.jpg" alt="Stół na otwarcie">
+      <p class="cap"><span class="t-pl">Stół przygotowany na otwarcie butiku</span><span class="t-en">Table set for the opening</span></p>
+    </figure>
+    <figure style="--r:0.75">
+      <img src="03-b-sides/02-galeria/06.jpg" alt="Otwarcie butiku">
+      <p class="cap"><span class="t-pl">Otwarcie, 22 listopada 2022</span><span class="t-en">Opening, 22 November 2022</span></p>
+    </figure>
+  </div>
+
+  <p class="credits">
+    <span class="t-pl"><strong>Współpraca.</strong> Projekt wnętrza: Zofia Strumiłło STUDIO — Zofia Strumiłło, Barbara Iwańska · Projekt wykończenia i wdrożenie: Barbara Iwańska · Mural: Magdalena Łapińska-Rozenbaum · Oświetlenie: Chors · Zieleń: Bujnie, CosmosPlantea · Fotografie: @w_srodku</span>
+    <span class="t-en"><strong>Collaboration.</strong> Interior design: Zofia Strumiłło STUDIO — Zofia Strumiłło, Barbara Iwańska · Finishes design and delivery: Barbara Iwańska · Mural: Magdalena Łapińska-Rozenbaum · Lighting: Chors · Planting: Bujnie, CosmosPlantea · Photography: @w_srodku</span>
+  </p>
+</section>
+
+<!-- ============ 03 · TORUŃSKA 20 ============ -->
+<section class="card" id="p3">
+  <div class="csbar"><p class="num">[ 03 ]</p><span class="cnt">3 / 4</span></div>
+  <h2><span class="t-pl">Biuro sprzedaży · Toruńska 20</span><span class="t-en">Sales office · Toruńska 20</span></h2>
+  <p class="meta">
+    Marvipol Development ·
+    <span class="t-pl">Prowadzenie projektu, instalacja świetlna</span><span class="t-en">Project lead, lighting installation</span>
+    · <span class="t-pl">Warszawa</span><span class="t-en">Warsaw</span>
+  </p>
+
+  <div class="opener">
+    <figure class="tall">
+      <img src="04-torunska-20/01-hero.jpg" alt="Open space z instalacją świetlną">
+      <p class="cap"><span class="t-pl">Open space z półkolistą lampą</span><span class="t-en">Open space with the semicircular luminaire</span></p>
+    </figure>
+    <div class="opener-txt">
+      <p class="lead t-pl">Biuro sprzedaży dwóch inwestycji — prowadzenie projektu i instalacja świetlna.</p>
+      <p class="lead t-en">A sales office serving two investments — project lead and lighting installation.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div>
+      <h3><span class="t-pl">Kontekst</span><span class="t-en">Context</span></h3>
+      <p class="t-pl">Biuro sprzedaży przy Toruńskiej 20 obsługiwało dwie inwestycje jednocześnie. Przestrzeń musiała więc unieść dwie narracje produktowe naraz, nie stając się przy tym neutralnym tłem dla żadnej z nich. Spójności nadaje jej światło — powtarzalny motyw łuku i okręgu, prowadzony przez całe wnętrze.</p>
+      <p class="t-en">The sales office at Toruńska 20 served two investments at once. The space therefore had to carry two product narratives simultaneously without becoming a neutral backdrop to either. Light gives it coherence — a recurring arc-and-circle motif carried through the whole interior.</p>
+    </div>
+    <div>
+      <h3><span class="t-pl">Zakres</span><span class="t-en">Scope</span></h3>
+      <ul class="t-pl">
+        <li>Prowadziłam projekt od strony inwestora, w zespole odpowiedzialnym za realizację</li>
+        <li>Odpowiadałam za instalację świetlną — dobór, koordynację z producentem i wdrożenie</li>
+        <li>Koordynowałam współpracę z biurem projektowym, wykonawcami i dostawcami</li>
+      </ul>
+      <ul class="t-en">
+        <li>Led the project on the investor’s side, within the delivery team</li>
+        <li>Owned the lighting installation — selection, coordination with the manufacturer and implementation</li>
+        <li>Coordinated the design office, contractors and suppliers</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="t-pl">Efekt</span><span class="t-en">Outcome</span></h3>
+      <ul class="t-pl">
+        <li>Biuro sprzedaży obsługujące dwie inwestycje w jednej przestrzeni</li>
+        <li>Instalacja świetlna jako element rozpoznawczy wnętrza</li>
+      </ul>
+      <ul class="t-en">
+        <li>One space serving the sales process of two investments</li>
+        <li>The lighting installation as the interior’s signature element</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gal">
+    <figure style="--r:0.75">
+      <img src="04-torunska-20/02-galeria/01.jpg" alt="Elewacja nocą">
+      <p class="cap"><span class="t-pl">Elewacja nocą — świecące wnętrze widziane z ulicy</span><span class="t-en">Façade at night — the lit interior seen from the street</span></p>
+    </figure>
+    <figure style="--r:0.75">
+      <img src="04-torunska-20/02-galeria/02.jpg" alt="Wejście">
+      <p class="cap"><span class="t-pl">Wejście z zielenią</span><span class="t-en">Entrance with planting</span></p>
+    </figure>
+    <figure style="--r:0.75">
+      <img src="04-torunska-20/02-galeria/03.jpg" alt="Korytarz">
+      <p class="cap"><span class="t-pl">Korytarz wzdłuż przeszkleń o zmierzchu</span><span class="t-en">Corridor along the glazing at dusk</span></p>
+    </figure>
+    <figure style="--r:0.75">
+      <img src="04-torunska-20/02-galeria/04.jpg" alt="Detal — protea">
+      <p class="cap"><span class="t-pl">Detal — protea przy półkolistej lampie</span><span class="t-en">Detail — protea beside the semicircular luminaire</span></p>
+    </figure>
+    <figure style="--r:0.75">
+      <img src="04-torunska-20/02-galeria/05.jpg" alt="Okrągła instalacja świetlna">
+      <p class="cap"><span class="t-pl">Okrągła instalacja świetlna nad stanowiskiem pracy</span><span class="t-en">Circular light installation above a workstation</span></p>
+    </figure>
+    <figure style="--r:0.75">
+      <img src="04-torunska-20/02-galeria/06.jpg" alt="Lampa nad stołem">
+      <p class="cap"><span class="t-pl">Półkolista lampa nad stołem, widok przez szkło</span><span class="t-en">Semicircular luminaire above the table, seen through glass</span></p>
+    </figure>
+    <figure style="--r:0.75">
+      <img src="04-torunska-20/02-galeria/07.jpg" alt="Podświetlone lustro">
+      <p class="cap"><span class="t-pl">Podświetlone lustro na terakocie</span><span class="t-en">Backlit mirror on terracotta tile</span></p>
+    </figure>
+  </div>
+
+  <p class="credits">
+    <span class="t-pl"><strong>Współpraca.</strong> Projekt wnętrza: Design Anatomy.</span>
+    <span class="t-en"><strong>Collaboration.</strong> Interior design: Design Anatomy.</span>
+  </p>
+</section>
+
+<!-- ============ 04 · ROTUNDA DYNASY M07 ============ -->
+<section class="card" id="p4">
+  <div class="csbar"><p class="num">[ 04 ]</p><span class="cnt">4 / 4</span></div>
+  <h2>Rotunda Dynasy · M07</h2>
+  <p class="meta">
+    Marvipol Development ·
+    <span class="t-pl">Prowadzenie procesu realizacji</span><span class="t-en">Delivery process lead</span>
+    · <span class="t-pl">Powiśle, Warszawa</span><span class="t-en">Powiśle, Warsaw</span>
+  </p>
+
+  <div class="opener">
+    <figure>
+      <img src="05-rotunda-dynasy/01-hero.jpg" alt="Salon">
+      <p class="cap"><span class="t-pl">Salon</span><span class="t-en">Living room</span></p>
+    </figure>
+    <div class="opener-txt">
+      <p class="lead t-pl">Mieszkanie pokazowe w inwestycji na Powiślu — prowadzenie procesu realizacji.</p>
+      <p class="lead t-en">A show apartment in a Powiśle investment — leading the delivery process.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div>
+      <h3><span class="t-pl">Kontekst</span><span class="t-en">Context</span></h3>
+      <p class="t-pl">Rotunda Dynasy to kameralna inwestycja w sercu Powiśla, wzniesiona na historycznych murach. Mieszkanie M07 miało pełnić funkcję pokazową — przekonywać nie metrażem, lecz sposobem życia, jaki ten metraż umożliwia. Projekt powstał w zewnętrznej pracowni; moim zadaniem było doprowadzenie go do realizacji w założonym standardzie i budżecie.</p>
+      <p class="t-en">Rotunda Dynasy is an intimate investment in the heart of Powiśle, raised on historic walls. Apartment M07 was to serve as the show unit — persuading not by floor area but by the way of living that area makes possible. The design came from an external studio; my task was to carry it through to delivery at the assumed standard and budget.</p>
+    </div>
+    <div>
+      <h3><span class="t-pl">Zakres</span><span class="t-en">Scope</span></h3>
+      <ul class="t-pl">
+        <li>Prowadziłam cały proces realizacji mieszkania pokazowego</li>
+        <li>Odpowiadałam za akceptację materiałów i rozwiązań wykończeniowych</li>
+        <li>Prowadziłam optymalizację kosztową i brałam udział w negocjacjach z wykonawcami</li>
+        <li>Koordynowałam współpracę pracowni projektowej z wykonawcami</li>
+      </ul>
+      <ul class="t-en">
+        <li>Led the entire delivery process of the show apartment</li>
+        <li>Owned the approval of materials and finishing solutions</li>
+        <li>Ran cost optimisation and took part in contractor negotiations</li>
+        <li>Coordinated the design studio with the contractors</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="t-pl">Efekt</span><span class="t-en">Outcome</span></h3>
+      <ul class="t-pl">
+        <li>Mieszkanie pokazowe zrealizowane i wykorzystywane w komunikacji sprzedażowej inwestycji</li>
+      </ul>
+      <ul class="t-en">
+        <li>Show apartment delivered and used in the investment’s sales communication</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gal">
+    <figure class="wide" style="--r:1.499">
+      <img src="05-rotunda-dynasy/02-galeria/01.jpg" alt="Jadalnia">
+      <p class="cap"><span class="t-pl">Jadalnia z aneksem kuchennym</span><span class="t-en">Dining area with kitchenette</span></p>
+    </figure>
+    <figure class="wide" style="--r:1.499">
+      <img src="05-rotunda-dynasy/02-galeria/02.jpg" alt="Sypialnia">
+      <p class="cap"><span class="t-pl">Sypialnia</span><span class="t-en">Bedroom</span></p>
+    </figure>
+    <figure style="--r:0.667">
+      <img src="05-rotunda-dynasy/02-galeria/03.jpg" alt="Korytarz">
+      <p class="cap"><span class="t-pl">Korytarz z linią światła</span><span class="t-en">Corridor with a line of light</span></p>
+    </figure>
+    <figure style="--r:0.667">
+      <img src="05-rotunda-dynasy/02-galeria/07.jpg" alt="Detal">
+      <p class="cap"><span class="t-pl">Detal — kamienny blat</span><span class="t-en">Detail — stone countertop</span></p>
+    </figure>
+    <figure class="wide" style="--r:1.499">
+      <img src="05-rotunda-dynasy/02-galeria/04.jpg" alt="Łazienka">
+      <p class="cap"><span class="t-pl">Łazienka — podwójna umywalka</span><span class="t-en">Bathroom — double vanity</span></p>
+    </figure>
+    <figure class="wide" style="--r:1.499">
+      <img src="05-rotunda-dynasy/02-galeria/05.jpg" alt="Łazienka w firanach">
+      <p class="cap"><span class="t-pl">Łazienka w firanach</span><span class="t-en">Bathroom behind sheer curtains</span></p>
+    </figure>
+    <figure class="wide" style="--r:1.499">
+      <img src="05-rotunda-dynasy/02-galeria/06.jpg" alt="Detal kuchni">
+      <p class="cap"><span class="t-pl">Detal kuchni — kamień</span><span class="t-en">Kitchen detail — stone</span></p>
+    </figure>
+    <figure class="wide" style="--r:1.115">
+      <img src="05-rotunda-dynasy/03-rysunki/rzut-m07.png" alt="Rzut M07">
+      <p class="cap"><span class="t-pl">Rzut mieszkania M07</span><span class="t-en">Floor plan, apartment M07</span></p>
+    </figure>
+  </div>
+
+  <p class="credits">
+    <span class="t-pl"><strong>Współpraca.</strong> Projekt wnętrza: Jakub Skowroński · Fotografie: mat. Marvipol Development.</span>
+    <span class="t-en"><strong>Collaboration.</strong> Interior design: Jakub Skowroński · Photography: courtesy of Marvipol Development.</span>
+  </p>
+</section>
+
+<!-- ============ ZAKRES / KOMPETENCJE ============ -->
+<section class="card" id="kompetencje">
+  <div class="sechead">
+    <p class="st"><span class="t-pl">Zakres</span><span class="t-en">Scope</span></p>
+    <span class="vr"></span>
+    <span class="note"><span class="t-pl">(Autorstwo / Realizacja)</span><span class="t-en">(Authorship / Delivery)</span></span>
+  </div>
+
+  <p class="scope t-pl">Strategia produktu. Branding i naming. Narracja sprzedażowa. Projekt wnętrz. Prowadzenie realizacji. Art branding.</p>
+  <p class="scope t-en">Product strategy. Branding &amp; naming. Sales narrative. Interior design. Delivery &amp; fit-out. Art branding.</p>
+
+  <p class="scope-note">
+    <span class="t-pl">Od nazwy do odbioru technicznego.</span><span class="t-en">From the name to the handover.</span>
+  </p>
+
+  <div class="three">
+    <div>
+      <h3><span class="t-pl">Strategia produktu i marki</span><span class="t-en">Product &amp; brand strategy</span></h3>
+      <p class="t-pl">Naming, identyfikacja wizualna, architektura narracji, copywriting katalogów sprzedażowych. Pozycjonowanie inwestycji w segmencie premium.</p>
+      <p class="t-en">Naming, visual identity, narrative architecture, sales-catalogue copywriting. Positioning investments in the premium segment.</p>
+    </div>
+    <div>
+      <h3><span class="t-pl">Prowadzenie realizacji</span><span class="t-en">Delivery leadership</span></h3>
+      <p class="t-pl">Budżet, przetargi, negocjacje z dostawcami, optymalizacja materiałowa, nadzór nad wykończeniem. Dokumentacja projektowa i raportowanie do Zarządu.</p>
+      <p class="t-en">Budget, tenders, supplier negotiations, material optimisation, supervision of finishing works. Design documentation and Board-level reporting.</p>
+    </div>
+    <div>
+      <h3><span class="t-pl">Kuratela i art branding</span><span class="t-en">Curation &amp; art branding</span></h3>
+      <p class="t-pl">Współpraca z artystami, kuratela programów wystawienniczych, wykorzystanie sztuki jako narzędzia PR budującego organiczne zasięgi.</p>
+      <p class="t-en">Working with artists, curating exhibition programmes, using art as a PR instrument that builds organic reach.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOŚWIADCZENIE ============ -->
+<section class="card" id="doswiadczenie">
+  <div class="sechead">
+    <p class="st"><span class="t-pl">Doświadczenie</span><span class="t-en">Experience</span></p>
+    <span class="vr"></span>
+    <a class="more" href="cv-2026-web.pdf" download><span class="t-pl">Pobierz pełne CV</span><span class="t-en">Download full CV</span></a>
+  </div>
+
+  <div class="cv-row">
+    <div class="cv-when"><span class="t-pl">sierpień 2025 — obecnie</span><span class="t-en">Aug 2025 — present</span></div>
+    <div class="cv-what">
+      <strong>Bracka 3 sp. z o.o.</strong>
+      <span class="t-pl">Ekspert ds. Koncepcji i Strategii Produktu</span><span class="t-en">Product Concept &amp; Strategy Expert</span>
+    </div>
+  </div>
+  <div class="cv-row">
+    <div class="cv-when"><span class="t-pl">listopad 2023 — sierpień 2025</span><span class="t-en">Nov 2023 — Aug 2025</span></div>
+    <div class="cv-what">
+      <strong>Marvipol Development</strong>
+      <span class="t-pl">Specjalistka ds. koordynacji projektów inwestycyjnych · Dział Przygotowania Inwestycji</span><span class="t-en">Investment Project Coordination Specialist · Investment Preparation Department</span>
+    </div>
+  </div>
+  <div class="cv-row">
+    <div class="cv-when">2021 — 2022</div>
+    <div class="cv-what">
+      <strong>Zofia Strumiłło STUDIO</strong>
+      <span class="t-pl">Project Manager</span><span class="t-en">Project Manager</span>
+    </div>
+  </div>
+  <div class="cv-row">
+    <div class="cv-when"><span class="t-pl">2024 — marzec 2027</span><span class="t-en">2024 — Mar 2027</span></div>
+    <div class="cv-what">
+      <strong><span class="t-pl">Akademia Sztuk Pięknych w Warszawie</span><span class="t-en">Academy of Fine Arts in Warsaw</span></strong>
+      <span class="t-pl">Wydział Wzornictwa: Projektowanie i Badania · studia magisterskie</span><span class="t-en">Faculty of Design: Design &amp; Research · MA</span>
+    </div>
+  </div>
+  <div class="cv-row">
+    <div class="cv-when"><span class="t-pl">2018 — wrzesień 2023</span><span class="t-en">2018 — Sep 2023</span></div>
+    <div class="cv-what">
+      <strong><span class="t-pl">Akademia Sztuk Pięknych w Warszawie / Leeds Beckett University, UK</span><span class="t-en">Academy of Fine Arts in Warsaw / Leeds Beckett University, UK</span></strong>
+      <span class="t-pl">Wydział Architektury Wnętrz / Design · studia magisterskie</span><span class="t-en">Faculty of Interior Architecture / Design · MA</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ KONTAKT ============ -->
+<section class="card" id="kontakt">
+  <div class="sechead">
+    <p class="st"><span class="t-pl">Kontakt</span><span class="t-en">Contact</span></p>
+    <span class="vr"></span>
+    <a class="more" href="mailto:bas.iwanska@gmail.com"><span class="t-pl">Napisz</span><span class="t-en">Get in touch</span></a>
+  </div>
+  <div class="contact">
+    <a href="mailto:bas.iwanska@gmail.com">bas.iwanska@gmail.com</a>
+    <a href="tel:+48698928600">+48 698 928 600</a>
+    <span><span class="t-pl">Warszawa</span><span class="t-en">Warsaw</span></span>
+  </div>
+</section>
+
+<footer class="legal">
+  <span class="t-pl">Barbara Iwańska · Portfolio 2026 · Angielski C1 · Hiszpański A2 · Polski ojczysty</span>
+  <span class="t-en">Barbara Iwańska · Portfolio 2026 · English C1 · Spanish A2 · Polish native</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var btns=document.querySelectorAll('.langsw button');
+  function set(lang){
+    root.classList.toggle('en', lang==='en');
+    root.setAttribute('lang', lang);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.lang===lang); });
+    try{ localStorage.setItem('bi-lang', lang); }catch(e){}
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.lang); }); });
+  var saved=null; try{ saved=localStorage.getItem('bi-lang'); }catch(e){}
+  if(saved) set(saved);
+})();
+</script>
+</body>
+</html>
