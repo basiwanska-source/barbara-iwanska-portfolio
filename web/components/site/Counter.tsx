@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { animate, utils } from "animejs";
 
 export function Counter({ value, suffix = "", className }: { value: number; suffix?: string; className?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -16,5 +16,5 @@ export function Counter({ value, suffix = "", className }: { value: number; suff
     io.observe(el);
     return () => io.disconnect();
   }, [value, suffix]);
-  return <span ref={ref} className={className}>0{suffix}</span>;
+  return <b ref={ref} className={className}>0{suffix}</b>;
 }

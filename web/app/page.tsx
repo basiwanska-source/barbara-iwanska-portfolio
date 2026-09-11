@@ -1,25 +1,25 @@
-import { About } from "@/components/site/About";
-import { Contact } from "@/components/site/Contact";
+import { ContactSection } from "@/components/site/ContactSection";
 import { Hero } from "@/components/site/Hero";
-import { Marquee } from "@/components/site/Marquee";
-import { ProjectIndex } from "@/components/site/ProjectIndex";
-import { ProjectSection } from "@/components/site/ProjectSection";
-import { SiteNav } from "@/components/site/SiteNav";
-import { projects, runners } from "@/lib/site";
+import { Intro } from "@/components/site/Intro";
+import { ProjectBlock } from "@/components/site/ProjectBlock";
+import { ProjectsCarousel } from "@/components/site/ProjectsCarousel";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { projects } from "@/lib/site";
 
 export default function Home() {
+  const slides = projects.filter((p) => p.hero && ["rotunda-m07", "golden-tulip", "kolobrzeg", "form-space", "b-sides"].includes(p.slug));
   return (
     <>
-      <SiteNav />
-      <main>
-        <Hero />
-        <Marquee items={runners} />
-        <About />
-        <ProjectIndex />
-        {projects.map((p, i) => <ProjectSection key={p.slug} p={p} flip={i % 2 === 1} />)}
-        <Marquee items={runners} reverse />
+      <SiteHeader />
+      <main className="site-main">
+        <Hero slides={slides} />
+        <Intro />
+        <ProjectsCarousel />
+        {projects.map((p, i) => <ProjectBlock key={p.slug} p={p} flip={i % 2 === 1} />)}
+        <ContactSection />
       </main>
-      <Contact />
+      <SiteFooter />
     </>
   );
 }

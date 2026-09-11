@@ -22,7 +22,7 @@ export default async function Strona({ params }: PageProps<"/strona/[n]">) {
   const prev = p.n > 1 ? p.n - 1 : null;
   const next = p.n < TOTAL ? p.n + 1 : null;
   return (
-    <>
+    <div className="broszura">
       <Nav standalone />
       <main className="px-4 py-6 sm:px-6">
         <Sheet p={p} standalone />
@@ -32,6 +32,6 @@ export default async function Strona({ params }: PageProps<"/strona/[n]">) {
           {next ? <Link href={`/strona/${next}`} className="hover:text-accent">{pad(next)} →</Link> : <span />}
         </div>
       </main>
-    </>
+    </div>
   );
 }
