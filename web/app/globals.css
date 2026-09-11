@@ -28,3 +28,14 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font-sans); f
 .runner { font-family: var(--font-display); letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.62rem; color: var(--muted); }
 .page-sheet { background: var(--paper); border: 1px solid var(--line); }
 .ph { background: repeating-linear-gradient(135deg, #ece7e0 0 8px, #f4f1ec 8px 16px); border: 1px solid var(--line); }
+
+/* ── strona www ── */
+.marquee-track { display: inline-flex; gap: 0; animation: marquee 60s linear infinite; will-change: transform; }
+.marquee-track > span { padding-right: 0; }
+.marquee-reverse { animation-direction: reverse; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.hero-img { animation: heroZoom 14s ease-out both; }
+@keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track, .hero-img { animation: none; } }
+::selection { background: var(--accent); color: var(--paper); }

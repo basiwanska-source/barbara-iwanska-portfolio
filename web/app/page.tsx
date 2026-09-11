@@ -1,19 +1,25 @@
-import { Nav } from "@/components/Nav";
-import { Sheet } from "@/components/Sheet";
-import { pages } from "@/lib/pages";
+import { About } from "@/components/site/About";
+import { Contact } from "@/components/site/Contact";
+import { Hero } from "@/components/site/Hero";
+import { Marquee } from "@/components/site/Marquee";
+import { ProjectIndex } from "@/components/site/ProjectIndex";
+import { ProjectSection } from "@/components/site/ProjectSection";
+import { SiteNav } from "@/components/site/SiteNav";
+import { projects, runners } from "@/lib/site";
 
 export default function Home() {
   return (
     <>
-      <Nav />
-      <main className="flex flex-col gap-6 px-4 py-6 sm:px-6">
-        {pages.map((p) => (
-          <Sheet key={p.n} p={p} />
-        ))}
+      <SiteNav />
+      <main>
+        <Hero />
+        <Marquee items={runners} />
+        <About />
+        <ProjectIndex />
+        {projects.map((p, i) => <ProjectSection key={p.slug} p={p} flip={i % 2 === 1} />)}
+        <Marquee items={runners} reverse />
       </main>
-      <footer className="mx-auto max-w-5xl px-4 py-10 text-xs text-muted">
-        Barbara Joanna Iwańska · Portfolio · Design Management · 2026 · bas.iwanska@gmail.com · +48 698 928 600
-      </footer>
+      <Contact />
     </>
   );
 }

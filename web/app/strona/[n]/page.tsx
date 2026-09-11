@@ -28,7 +28,7 @@ export default async function Strona({ params }: PageProps<"/strona/[n]">) {
         <Sheet p={p} standalone />
         <div className="mx-auto mt-6 flex max-w-5xl justify-between text-sm">
           {prev ? <Link href={`/strona/${prev}`} className="hover:text-accent">← {pad(prev)}</Link> : <span />}
-          <Link href={`/#strona-${p.n}`} className="text-muted hover:text-accent">cała broszura</Link>
+          <Link href={`/broszura#strona-${p.n}`} className="text-muted hover:text-accent">cała broszura</Link>
           {next ? <Link href={`/strona/${next}`} className="hover:text-accent">{pad(next)} →</Link> : <span />}
         </div>
       </main>
