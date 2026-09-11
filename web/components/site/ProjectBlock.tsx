@@ -25,7 +25,7 @@ export function ProjectBlock({ p, flip }: { p: Project; flip?: boolean }) {
             <h2 style={{ marginTop: 12 }}>{p.title}</h2>
             <p className="lede">{lede}</p>
             {p.meta.length > 0 && <p style={{ fontSize: 13, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 22 }}>{p.meta.slice(0, 3).join(" · ")}</p>}
-            <a className="link-more" href={`#${p.slug}-kadry`}>Kadry</a>
+            <a className="link-more" href={`/portfolio/${p.slug}`}>Zobacz projekt</a>
           </div>
         </section>
       )}
@@ -51,7 +51,7 @@ export function ProjectBlock({ p, flip }: { p: Project; flip?: boolean }) {
           <div className="p-cols">
             <div><span className="label">Kontekst</span><div style={{ marginTop: 10 }}>{p.context.map((t) => <p key={t}>{t}</p>)}</div></div>
             <div><span className="label">Moja rola</span><ul style={{ marginTop: 10 }}>{p.role.map((b) => <li key={b}>{b}</li>)}</ul></div>
-            <div><span className="label">Rezultat</span><p style={{ marginTop: 10 }}>{p.result ?? "—"}</p>{p.credits.length > 0 && <div className="p-credits">{p.credits.map((c) => <p key={c}>{c}</p>)}</div>}<p style={{ marginTop: 14 }}><a className="link-more" href={`/strona/${p.pages[0]}`}>Strony {p.pages[0]}–{p.pages[p.pages.length - 1]} broszury</a></p></div>
+            <div><span className="label">Rezultat</span><p style={{ marginTop: 10 }}>{p.result ?? "—"}</p>{p.credits.length > 0 && <div className="p-credits">{p.credits.map((c) => <p key={c}>{c}</p>)}</div>}<p style={{ marginTop: 14 }}><a className="link-more" href={`/portfolio/${p.slug}`}>Strona projektu</a></p></div>
           </div>
         </details>
       </section>

@@ -38,7 +38,7 @@ export function Hero({ slides }: { slides: Project[] }) {
         <div className="hc-proof"><span className="hc-kicker">Wybrane realizacje</span><ul className="hc-thumbs">
           {slides.map((p, i) => (
             <li key={p.slug} className={i === active ? "on" : ""}>
-              <a href={`#${p.slug}`} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)}>
+              <a href={`/portfolio/${p.slug}`} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)}>
                 <img alt="" loading="lazy" src={p.hero!.src} />
                 <span><b>{String(i + 1).padStart(2, "0")}</b>{p.title.split(" · ")[0]}</span>
               </a>

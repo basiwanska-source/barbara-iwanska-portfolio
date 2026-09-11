@@ -2,10 +2,10 @@ import { projects } from "@/lib/site";
 
 export function SiteFooter() {
   const cols: Record<string, { label: string; href: string }[]> = {
-    Projekty: projects.filter((p) => !p.missing).map((p) => ({ label: p.title.split(" · ")[0], href: `#${p.slug}` })),
+    Projekty: projects.filter((p) => !p.missing).map((p) => ({ label: p.title.split(" · ")[0], href: `/portfolio/${p.slug}` })),
     Portfolio: [
-      { label: "O mnie", href: "#o-mnie" },
-      { label: "Fazy", href: "#fazy" },
+      { label: "O mnie", href: "/#o-mnie" },
+      { label: "Fazy", href: "/#fazy" },
       { label: "Broszura 33 strony", href: "/broszura" },
       { label: "CV (PDF)", href: "/cv-2026-web.pdf" },
     ],

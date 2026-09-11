@@ -3,15 +3,16 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { label: "Kadry", href: "#kadry" },
-  { label: "O mnie", href: "#o-mnie" },
-  { label: "Fazy", href: "#fazy" },
+  { label: "Kadry", href: "/#kadry" },
+  { label: "Projekty", href: "/#golden-tulip" },
+  { label: "O mnie", href: "/#o-mnie" },
+  { label: "Fazy", href: "/#fazy" },
   { label: "Broszura", href: "/broszura" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 
 /** Header: jeden wiersz, fixed. Przezroczysty nad hero (biały tekst), po zjechaniu poniżej hero — biały z kreską. Bez chowania przy scrollu. */
-export function SiteHeader() {
+export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
@@ -29,7 +30,7 @@ export function SiteHeader() {
   }, [menuOpen]);
   return (
     <>
-      <header className={`hdr${solid || menuOpen ? " solid" : ""}`}>
+      <header className={`hdr${solid || menuOpen || solidAlways ? " solid" : ""}`}>
         <div className="shell hdr-row">
           <Link className="site-logo" href="/">Barbara Iwańska</Link>
           <nav className="hdr-nav">

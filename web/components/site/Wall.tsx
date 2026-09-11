@@ -6,7 +6,7 @@ export function Wall() {
     <section className="tight" id="kadry">
       <div className="wall">
         {wall.map((t) => (
-          <a href={`#${t.slug}`} key={t.src} style={{ ["--c" as string]: t.c, ["--r" as string]: t.r }}>
+          <a href={`/portfolio/${t.slug}`} key={t.src} style={{ ["--c" as string]: t.c, ["--r" as string]: t.r }}>
             <img alt={t.project} loading="lazy" src={t.src} />
             <span className="tag">{t.project}</span>
           </a>
