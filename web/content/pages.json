@@ -58,7 +58,7 @@
     "role": "odbiory, komunikacja sprzedażowa, wydarzenia otwierające"
    }
   ],
-  "desc": "Matryca udziału w fazach projektu (koncepcja, projekt, przetargi, realizacja, odbiory). W .indd tabela jest grafiką; treść odtworzona z opisów projektów."
+  "desc": "Matryca udziału w fazach projektu. W .indd tabela jest grafiką (brak tekstu komórek), a plik IDML z repo to inna, wcześniejsza edycja portfolio bez tej strony — treść wierszy pozostaje rekonstrukcją z opisów projektów i wymaga akceptacji autorki."
  },
  {
   "n": 4,
@@ -126,11 +126,11 @@
   "body": [
    "Specjalistka ds. koordynacji projektów inwestycyjnych. Autorka projektu koncepcji hotelu."
   ],
-  "desc": "Otwarcie rozdziału Golden Tulip: metryka inwestycji (321 jednostek, Gdańsk, 2024–2027).",
+  "desc": "Otwarcie rozdziału Golden Tulip: metryka inwestycji (321 jednostek, Gdańsk, 2024–2027). Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
-    "src": "/img/chmielna-78/01-hero.jpg",
-    "alt": "Golden Tulip Chmielna 78 — wizualizacja, mat. Marvipol Development"
+    "src": "/img/chmielna-78/galeria-04.jpg",
+    "alt": "Elewacja o zmierzchu — wizualizacja"
    }
   ]
  },
@@ -154,15 +154,11 @@
    "Rzut LOBBY: wydzielone dwie strefy odpoczynku, strefa wind przysłonięta podświetlaną ścianą RGB, strefa lobby otwiera się na restaurację, komunikacja."
   ],
   "caption": "Wizualizacja · mat. Marvipol Development",
-  "desc": "Koncepcja lobby hotelu: materiał przewodni, instalacje RGB, opis rzutu lobby.",
+  "desc": "Koncepcja lobby hotelu: materiał przewodni, instalacje RGB, opis rzutu lobby. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
-    "src": "/img/chmielna-78/rysunki-rzut-01.png",
-    "alt": "Rzut lobby — strefy odpoczynku, strefa wind, restauracja"
-   },
-   {
-    "src": "/img/chmielna-78/rysunki-rzut-02.png",
-    "alt": "Rzut lobby — układ funkcjonalny"
+    "src": "/img/chmielna-78/01-hero.jpg",
+    "alt": "Lobby z windami — wizualizacja"
    }
   ]
  },
@@ -175,27 +171,23 @@
    "Zakres fit-outu obejmował lobby, recepcję, komunikację, strefy usługowe i wnętrza lokali. Wizualizacje pokazują pokoje w standardzie premium: monochromatyczna baza, akcenty świetlne w łuku, materiały dobrane pod eksploatację hotelową."
   ],
   "caption": "WSPÓŁPRACA — Wizualizacje: arch. Filip Surowiecki, mat. Marvipol Development · Teksty katalogu: dział marketingu Marvipol Development we współpracy z autorką koncepcji.",
-  "desc": "Strefy fit-outu i wizualizacje pokoi; nota o współpracy z arch. Filipem Surowieckim.",
+  "desc": "Strefy fit-outu i wizualizacje pokoi; nota o współpracy z arch. Filipem Surowieckim. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/chmielna-78/galeria-01.jpg",
-    "alt": "Pokój hotelowy — wizualizacja, arch. Filip Surowiecki"
+    "alt": "Pokój — motyw podświetlonego łuku, wizualizacja"
    },
    {
     "src": "/img/chmielna-78/galeria-02.jpg",
-    "alt": "Pokój hotelowy — wizualizacja"
+    "alt": "Pokój, wariant aranżacji — wizualizacja"
    },
    {
     "src": "/img/chmielna-78/galeria-03.jpg",
-    "alt": "Lobby — wizualizacja"
-   },
-   {
-    "src": "/img/chmielna-78/galeria-04.jpg",
-    "alt": "Strefa usługowa — wizualizacja"
+    "alt": "Recepcja w identyfikacji UNIQUE Hotels & Apartments — wizualizacja"
    },
    {
     "src": "/img/chmielna-78/galeria-05.jpg",
-    "alt": "Lokal — wizualizacja"
+    "alt": "Elewacja od strony ulicy — wizualizacja"
    }
   ]
  },
@@ -212,8 +204,18 @@
    "Opracowywałam raporty i prezentacje strategiczne dla Zarządu",
    "Reprezentowałam firmę na spotkaniach z interesariuszami"
   ],
-  "result": "321 jednostek objętych zakresem inwestycji. Standard premium utrzymany mimo zawężenia budżetu — dzięki optymalizacji materiałowej. Obiekt w budowie; oddanie planowane na koniec 2027 roku.",
-  "desc": "Lista odpowiedzialności w Marvipol Development i rezultat projektu Golden Tulip."
+  "result": "321 jednostek objętych zakresem inwestycji. Standard premium utrzymany mimo zawężenia budżetu — dzięki optymalizacji rozwiązań materiałowych zamiast obniżenia klasy wykończenia. Katalog sprzedażowy i materiały komunikacyjne wdrożone w kanałach inwestycji. Obiekt w budowie; oddanie planowane na koniec 2027 roku.",
+  "desc": "Lista odpowiedzialności w Marvipol Development i rezultat projektu Golden Tulip. Podpisy zdjęć z IDML (edycja PL/EN).",
+  "images": [
+   {
+    "src": "/img/chmielna-78/rysunki-rzut-01.png",
+    "alt": "Rzut jednostki z metrażami"
+   },
+   {
+    "src": "/img/chmielna-78/rysunki-rzut-02.png",
+    "alt": "Rzut jednostki z metrażami"
+   }
+  ]
  },
  {
   "n": 10,
@@ -300,11 +302,11 @@
    "Mieszkanie pokazowe",
    "Lokal sprzedany"
   ],
-  "desc": "Otwarcie rozdziału Rotunda Dynasy M07: metryka mieszkania pokazowego.",
+  "desc": "Otwarcie rozdziału Rotunda Dynasy M07: metryka mieszkania pokazowego. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/rotunda-m07/01-hero.jpg",
-    "alt": "Rotunda Dynasy M07 — salon, fot. mat. Marvipol Development"
+    "alt": "Salon"
    }
   ]
  },
@@ -317,15 +319,15 @@
    "Rotunda Dynasy to kameralna inwestycja w sercu Powiśla, wzniesiona na historycznych murach. Mieszkanie M07 miało pełnić funkcję pokazową — przekonywać nie metrażem, lecz sposobem życia, jaki ten metraż umożliwia. Projekt powstał w zewnętrznej pracowni; moim zadaniem było doprowadzenie go do realizacji w założonym standardzie i budżecie.",
    "Mieszkanie pokazowe jest narzędziem sprzedaży, więc punktem wyjścia był profil kupującego na Powiślu i to, które rozwiązania wykończeniowe wytrzymają codzienny ruch zwiedzających."
   ],
-  "desc": "Kontekst i założenia mieszkania pokazowego na Powiślu.",
+  "desc": "Kontekst i założenia mieszkania pokazowego na Powiślu. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/rotunda-m07/galeria-01.jpg",
-    "alt": "Strefa dzienna"
+    "alt": "Jadalnia z aneksem kuchennym"
    },
    {
     "src": "/img/rotunda-m07/galeria-02.jpg",
-    "alt": "Jadalnia"
+    "alt": "Sypialnia"
    }
   ]
  },
@@ -342,23 +344,23 @@
    "Łazienka · projekt wnętrza: Jakub Skowroński · fot. mat. Marvipol Development"
   ],
   "caption": "WSPÓŁPRACA — Projekt wnętrza: Jakub Skowroński · Fotografie: mat. Marvipol Development.",
-  "desc": "Dokumentacja fotograficzna mieszkania (kuchnia, łazienka) z notą o autorze projektu wnętrza.",
+  "desc": "Dokumentacja fotograficzna mieszkania (kuchnia, łazienka) z notą o autorze projektu wnętrza. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
-    "src": "/img/rotunda-m07/galeria-03.jpg",
-    "alt": "Kuchnia i jadalnia · projekt wnętrza: Jakub Skowroński"
-   },
-   {
     "src": "/img/rotunda-m07/galeria-04.jpg",
-    "alt": "Łazienka · umywalka z kamienia na zamówienie"
-   },
-   {
-    "src": "/img/rotunda-m07/galeria-05.jpg",
-    "alt": "Sypialnia"
+    "alt": "Łazienka — podwójna umywalka"
    },
    {
     "src": "/img/rotunda-m07/galeria-06.jpg",
-    "alt": "Detal wykończenia"
+    "alt": "Detal kuchni — kamień"
+   },
+   {
+    "src": "/img/rotunda-m07/galeria-07.jpg",
+    "alt": "Detal — kamienny blat"
+   },
+   {
+    "src": "/img/rotunda-m07/galeria-05.jpg",
+    "alt": "Łazienka w firanach"
    }
   ]
  },
@@ -374,11 +376,11 @@
    "Koordynowałam współpracę pracowni projektowej z wykonawcami"
   ],
   "result": "Mieszkanie pokazowe zrealizowane w założonym standardzie i budżecie; wykorzystywane w komunikacji sprzedażowej inwestycji. Lokal sprzedany.",
-  "desc": "Odpowiedzialności i rezultat: mieszkanie zrealizowane w standardzie i budżecie, sprzedane.",
+  "desc": "Odpowiedzialności i rezultat: mieszkanie zrealizowane w standardzie i budżecie, sprzedane. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
-    "src": "/img/rotunda-m07/galeria-07.jpg",
-    "alt": "Loggia"
+    "src": "/img/rotunda-m07/galeria-03.jpg",
+    "alt": "Korytarz z linią światła"
    }
   ]
  },
@@ -391,11 +393,11 @@
    "Rzut M07 z zaznaczonymi strefami: dzienna z kuchnią i jadalnią, sypialnia, łazienka, loggia 20,5 m². Układ otwarty, prowadzony pod potrzeby prezentacji sprzedażowej."
   ],
   "caption": "Rzut · mat. Marvipol Development",
-  "desc": "Strona z rzutem M07 (w .indd: rzut-m07.png / rzut-m07-jasny.png).",
+  "desc": "Strona z rzutem M07 (w .indd: rzut-m07.png / rzut-m07-jasny.png). Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/rotunda-m07/rysunki-rzut-m07.png",
-    "alt": "Rzut M07 — 109 m² + loggia 20,5 m²"
+    "alt": "Rzut mieszkania M07"
    }
   ]
  },
@@ -408,19 +410,19 @@
    "Biuro sprzedaży przy Toruńskiej 20 obsługiwało dwie inwestycje jednocześnie. Przestrzeń musiała więc unieść dwie narracje produktowe naraz, nie stając się przy tym neutralnym tłem dla żadnej z nich. Spójności nadaje jej światło — powtarzalny motyw łuku i okręgu, prowadzony przez całe wnętrze."
   ],
   "caption": "WSPÓŁPRACA — Projekt wnętrza: Design Anatomy · Fotografie: Barbara Iwańska.",
-  "desc": "Otwarcie rozdziału biura sprzedaży w Gdańsku: dwie narracje produktowe, motyw łuku i okręgu.",
+  "desc": "Otwarcie rozdziału biura sprzedaży w Gdańsku: dwie narracje produktowe, motyw łuku i okręgu. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/torunska-20/01-hero.jpg",
-    "alt": "Biuro sprzedaży Toruńska 20 — instalacja świetlna, fot. Barbara Iwańska"
+    "alt": "Open space z półkolistą lampą"
    },
    {
     "src": "/img/torunska-20/galeria-01.jpg",
-    "alt": "Motyw łuku i okręgu"
+    "alt": "Elewacja nocą — świecące wnętrze widziane z ulicy"
    },
    {
     "src": "/img/torunska-20/galeria-02.jpg",
-    "alt": "Strefa prezentacji"
+    "alt": "Wejście z zielenią"
    }
   ]
  },
@@ -434,28 +436,28 @@
    "Odpowiadałam za instalację świetlną — dobór, koordynację z producentem i wdrożenie",
    "Koordynowałam współpracę z biurem projektowym, wykonawcami i dostawcami"
   ],
-  "result": "Biuro zrealizowane; obsługiwało dwie inwestycje jednocześnie.",
-  "desc": "Odpowiedzialności i rezultat realizacji biura sprzedaży.",
+  "result": "Biuro zrealizowane; obsługiwało dwie inwestycje w jednej przestrzeni. Instalacja świetlna jako element rozpoznawczy wnętrza.",
+  "desc": "Odpowiedzialności i rezultat realizacji biura sprzedaży. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/torunska-20/galeria-03.jpg",
-    "alt": "Instalacja świetlna — detal"
+    "alt": "Korytarz wzdłuż przeszkleń o zmierzchu"
    },
    {
     "src": "/img/torunska-20/galeria-04.jpg",
-    "alt": "Strefa rozmów"
+    "alt": "Detal — protea przy półkolistej lampie"
    },
    {
     "src": "/img/torunska-20/galeria-05.jpg",
-    "alt": "Recepcja"
+    "alt": "Okrągła instalacja świetlna nad stanowiskiem pracy"
    },
    {
     "src": "/img/torunska-20/galeria-06.jpg",
-    "alt": "Makiety inwestycji"
+    "alt": "Półkolista lampa nad stołem, widok przez szkło"
    },
    {
     "src": "/img/torunska-20/galeria-07.jpg",
-    "alt": "Widok ogólny"
+    "alt": "Podświetlone lustro na terakocie"
    }
   ]
  },
@@ -483,11 +485,11 @@
   "body": [
    "Otwarcie butiku 22.11.2022. Ponad 100 m² przestrzeni handlowej w obiekcie zabytkowym."
   ],
-  "desc": "Otwarcie rozdziału B Sides: rola w Zofia Strumiłło Studio, metryka butiku.",
+  "desc": "Otwarcie rozdziału B Sides: rola w Zofia Strumiłło Studio, metryka butiku. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/b-sides/01-hero.jpg",
-    "alt": "B Sides Mokotowska 61 — butik"
+    "alt": "Mural Magdaleny Łapińskiej-Rozenbaum, nawiązujący do motywu wełny"
    }
   ]
  },
@@ -499,15 +501,15 @@
   "body": [
    "Ponad 100 m² w warszawskiej kamienicy z 1918 roku, stropy wysokie na cztery metry, dębowy parkiet. Przestrzeń miała nieść wartości marki: ponadczasową jakość, rzemiosło, lokalność i etyczne podejście do zwierząt — a jednocześnie dawać domowy komfort w nowoczesnym wydaniu."
   ],
-  "desc": "Kontekst projektu butiku B Sides i wartości marki, które wnętrze miało nieść.",
+  "desc": "Kontekst projektu butiku B Sides i wartości marki, które wnętrze miało nieść. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/b-sides/galeria-01.jpg",
-    "alt": "Wnętrze butiku — stropy na cztery metry"
+    "alt": "Wnętrze showroomu — stropy 4 m, dębowy parkiet"
    },
    {
     "src": "/img/b-sides/galeria-02.jpg",
-    "alt": "Ekspozycja"
+    "alt": "Ekspozycja dzianin przy granatowej kotarze"
    }
   ]
  },
@@ -524,15 +526,15 @@
    "Przygotowywałam dokumentację projektową i prezentacje wspierające decyzje inwestycyjne",
    "Koordynowałam wykonawców, dostawców i twórców zaangażowanych w realizację"
   ],
-  "desc": "Lista odpowiedzialności w projekcie B Sides.",
+  "desc": "Lista odpowiedzialności w projekcie B Sides. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/b-sides/galeria-03.jpg",
-    "alt": "Detal wykończenia"
+    "alt": "Wnękowe półki ekspozycyjne — detal"
    },
    {
     "src": "/img/b-sides/galeria-04.jpg",
-    "alt": "Strefa przymierzalni"
+    "alt": "Instalacja kwiatowo-warzywna CosmosPlantea"
    }
   ]
  },
@@ -545,21 +547,19 @@
    "RYSUNKI WYKONAWCZE — przebudowa układu schodów i stropu.",
    "Otwarcie butiku, 22.11.2022. Współudział w przygotowaniu wydarzenia otwierającego."
   ],
-  "captions": [
-   "Rzut wyposażenia · ZStrumillo STUDIO · B Sides · 03.07.2022",
-   "Galeria · stół · instalacja · event"
-  ],
-  "desc": "Rysunki wykonawcze (schody, strop), galeria realizacji i wydarzenie otwierające.",
+  "captions": [],
+  "desc": "Rysunki wykonawcze (schody, strop), galeria realizacji i wydarzenie otwierające. Podpisy zdjęć z IDML (edycja PL/EN).",
   "images": [
    {
     "src": "/img/b-sides/galeria-05.jpg",
-    "alt": "Schody — przebudowa układu"
+    "alt": "Stół przygotowany na otwarcie butiku"
    },
    {
     "src": "/img/b-sides/galeria-06.jpg",
-    "alt": "Otwarcie butiku 22.11.2022"
+    "alt": "Otwarcie, 22 listopada 2022"
    }
-  ]
+  ],
+  "caption": "WSPÓŁPRACA — Projekt wnętrza: Zofia Strumiłło STUDIO — Zofia Strumiłło, Barbara Iwańska · Projekt wykończenia i wdrożenie: Barbara Iwańska · Mural: Magdalena Łapińska-Rozenbaum · Oświetlenie: Chors · Zieleń: Bujnie, CosmosPlantea · Fotografie: @w_srodku"
  },
  {
   "n": 24,

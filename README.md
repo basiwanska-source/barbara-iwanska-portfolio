@@ -25,3 +25,7 @@ budowania i bez serwera — wystarczy kliknąć plik dwa razy.
 - `web/content/pages.json` — jedyne źródło treści 33 stron. `markdown/` generuje `tools/gen_markdown.py`.
 - `tools/text3.py` — dekoder tekstu z binarnego `.indd` (chunki `<len>@<cp1252>` / `<len>\x80<UTF-16LE>`); `tools/prepare_images.py` — zdjęcia z katalogów wyżej → `web/public/img/`. Zależności: `uv sync --group indd`.
 - Materiały Form Space i Kołobrzeg podpięte (strony 10–11 i 24–32). Zostaje Osiedle Senza (str. 19) — brak treści i zdjęć — oraz weryfikacja układu i tabeli faz (str. 3) z `portfolio-barbara-iwanska.idml`. Szczegóły: issue w repo.
+
+## IDML — uwaga
+
+`portfolio-barbara-iwanska.idml` to **inna, wcześniejsza edycja** portfolio („Strategia produktu i marki”, PL/EN, 4 projekty: Chmielna 78, B Sides, Toruńska 20, Rotunda M07; 33 strony przypadkiem). Nie zawiera Form Space, Kołobrzegu, Senzy ani tabeli faz, więc **nie weryfikuje układu** `.indd` „Design Management 2026”. Wykorzystane z niego: dokładne podpisy zdjęć, pełne credity B Sides, wiersze „Efekt”. Parser: `tools/idml_pages.py` → `raw_idml_pages.txt` (gitignored).
