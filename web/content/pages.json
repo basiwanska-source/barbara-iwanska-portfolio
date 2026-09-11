@@ -229,7 +229,21 @@
   "body": [
    "Unique Hotel Kołobrzeg to prestiżowa inwestycja apartamentów inwestycyjnych powstająca w pierwszej linii brzegowej przy ul. Sułkowskiego 7 w Kołobrzegu."
   ],
-  "desc": "Otwarcie rozdziału Unique Hotel Kołobrzeg: metryka (227 jednostek, 5 gwiazdek, operator)."
+  "desc": "Otwarcie rozdziału Unique Hotel Kołobrzeg: metryka (227 jednostek, 5 gwiazdek, operator).",
+  "images": [
+   {
+    "src": "/img/kolobrzeg/01-hero.jpg",
+    "alt": "Unique Hotel Kołobrzeg — wizualizacja bryły o zachodzie słońca, mat. Marvipol Development"
+   },
+   {
+    "src": "/img/kolobrzeg/wizualizacje-01-bryla-od-plazy.jpg",
+    "alt": "Bryła hotelu widziana od strony plaży, wizualizacja KM Rubaszkiewicz"
+   },
+   {
+    "src": "/img/kolobrzeg/wizualizacje-06-dron-od-morza.jpg",
+    "alt": "Ujęcie z drona od strony morza — hotel w pierwszej linii brzegowej"
+   }
+  ]
  },
  {
   "n": 11,
@@ -240,8 +254,40 @@
    "Projekt obejmuje 227 apartamentów wykończonych i wyposażonych pod klucz w standardzie 5-gwiazdkowego hotelu, zarządzanych przez doświadczonego operatora Unique Hotels & Apartments.",
    "Do dyspozycji właścicieli i gości będzie bogata strefa wellness obejmująca SPA z saunami, basen, jacuzzi, restaurację, Beach Bar, gabinety odnowy biologicznej oraz całodobową recepcję. Inwestycja łączy wyjątkową lokalizację nad samym morzem, wysoki standard wykończenia oraz bezobsługowy model inwestycyjny."
   ],
-  "caption": "Wizualizacja · KM Rubaszkiewicz",
-  "desc": "Pełny opis inwestycji w Kołobrzegu i zakres nadzoru projektowego; wizualizacja biura KM Rubaszkiewicz."
+  "desc": "Pełny opis inwestycji w Kołobrzegu i zakres nadzoru projektowego; wizualizacja biura KM Rubaszkiewicz.",
+  "images": [
+   {
+    "src": "/img/kolobrzeg/wizualizacje-08-marvipol-wizualizacja.jpg",
+    "alt": "Wizualizacja inwestycji, mat. Marvipol Development"
+   },
+   {
+    "src": "/img/kolobrzeg/wnetrza-01-lobby.jpg",
+    "alt": "Lobby z całodobową recepcją"
+   },
+   {
+    "src": "/img/kolobrzeg/wnetrza-04-restauracja.jpg",
+    "alt": "Restauracja hotelowa"
+   },
+   {
+    "src": "/img/kolobrzeg/wnetrza-07-basen.jpg",
+    "alt": "Basen w strefie wellness"
+   },
+   {
+    "src": "/img/kolobrzeg/wnetrza-08-strefa-spa.jpg",
+    "alt": "Strefa SPA z saunami"
+   },
+   {
+    "src": "/img/kolobrzeg/wnetrza-09-pokoj.jpg",
+    "alt": "Apartament wykończony pod klucz w standardzie pięciogwiazdkowym"
+   },
+   {
+    "src": "/img/kolobrzeg/wnetrza-12-lazienka.jpg",
+    "alt": "Łazienka w apartamencie"
+   }
+  ],
+  "captions": [
+   "Wizualizacje: KM Rubaszkiewicz · mat. Marvipol Development. Inwestycja w budowie — wnętrza to wizualizacje, nie fotografie realizacji."
+  ]
  },
  {
   "n": 12,
@@ -526,7 +572,13 @@
    "Apart-hotel premium",
    "Kamienica, Warszawa"
   ],
-  "desc": "Otwarcie rozdziału Form Space: rola w B5A, metryka projektu."
+  "desc": "Otwarcie rozdziału Form Space: rola w B5A, metryka projektu.",
+  "images": [
+   {
+    "src": "/img/form-space/01-hero.jpg",
+    "alt": "Form Space — wizualizacja apartamentu w kamienicy przy Nowogrodzkiej 44"
+   }
+  ]
  },
  {
   "n": 25,
@@ -536,7 +588,17 @@
   "body": [
    "Kamienica przy Nowogrodzkiej 44 w Warszawie miała stać się apart-hotelem w segmencie premium. Nie istniała ani nazwa, ani identyfikacja, ani język, którym inwestycja miałaby mówić do przyszłego użytkownika. Wszystko trzeba było zbudować równolegle z koncepcją samego produktu."
   ],
-  "desc": "Kontekst: budowa marki równolegle z koncepcją produktu."
+  "desc": "Kontekst: budowa marki równolegle z koncepcją produktu.",
+  "images": [
+   {
+    "src": "/img/form-space/wnetrza-03-klatka.jpg",
+    "alt": "Kamienica przy Nowogrodzkiej 44 — klatka schodowa"
+   },
+   {
+    "src": "/img/form-space/wnetrza-05-korytarz.jpg",
+    "alt": "Korytarz w kamienicy przy Nowogrodzkiej 44"
+   }
+  ]
  },
  {
   "n": 26,
@@ -551,7 +613,13 @@
    "Odpowiadałam za katalog Form Space: konspekt, strukturę narracyjną, teksty, skład",
    "Nawiązałam współpracę z artystkami i objęłam kuratelę nad programem wystawienniczym"
   ],
-  "desc": "Lista odpowiedzialności w projekcie Form Space."
+  "desc": "Lista odpowiedzialności w projekcie Form Space.",
+  "images": [
+   {
+    "src": "/img/form-space/identyfikacja-01-zalozenia-systemu.jpg",
+    "alt": "Założenia systemu wizualnego Form Space — znak, kolory, typografia, nośniki na jednej planszy"
+   }
+  ]
  },
  {
   "n": 27,
@@ -561,8 +629,32 @@
   "body": [
    "Pozycjonowanie, benchmarki rynkowe, persona gościa, architektura marki, słowa kluczowe i ton głosu, rytm komunikacji — pełna strategia opracowana przed powstaniem nazwy i znaku."
   ],
-  "caption": "KADR Z PREZENTACJI — strategia marki Form Space.",
-  "desc": "Kadry z prezentacji strategii marki (w .indd: strategia-form-space.pdf)."
+  "desc": "Kadry z prezentacji strategii marki (w .indd: strategia-form-space.pdf).",
+  "images": [
+   {
+    "src": "/img/form-space/strategia-01-slowa-kluczowe.jpg",
+    "alt": "Słowa kluczowe marki Form Space"
+   },
+   {
+    "src": "/img/form-space/strategia-02-ton-glosu.jpg",
+    "alt": "Ton głosu marki — co mówimy i czego nie mówimy"
+   },
+   {
+    "src": "/img/form-space/strategia-03-benchmarki.jpg",
+    "alt": "Benchmarki rynkowe — analiza konkurencji w segmencie premium"
+   },
+   {
+    "src": "/img/form-space/strategia-04-pozycjonowanie.jpg",
+    "alt": "Mapa pozycjonowania Form Space na tle rynku"
+   },
+   {
+    "src": "/img/form-space/strategia-05-persona-goscia.jpg",
+    "alt": "Persona gościa — dla kogo tworzymy"
+   }
+  ],
+  "captions": [
+   "Kadry z prezentacji strategii marki Form Space."
+  ]
  },
  {
   "n": 28,
@@ -572,7 +664,29 @@
   "body": [
    "Marka wdrożona wraz z pełną identyfikacją — od druku po stronę. Program wystawienniczy jako narzędzie PR."
   ],
-  "desc": "System wizualny Form Space: nazwa, znak, identyfikacja od druku po stronę."
+  "desc": "System wizualny Form Space: nazwa, znak, identyfikacja od druku po stronę.",
+  "images": [
+   {
+    "src": "/img/form-space/identyfikacja-02-logo-marki.jpg",
+    "alt": "Logo Form Space w wersji podstawowej i odwróconej"
+   },
+   {
+    "src": "/img/form-space/identyfikacja-03-skalowalnosc-logo.jpg",
+    "alt": "Skalowalność znaku — od pełnego logotypu po sygnet"
+   },
+   {
+    "src": "/img/form-space/identyfikacja-04-kolorystyka.jpg",
+    "alt": "Paleta marki Form Space"
+   },
+   {
+    "src": "/img/form-space/identyfikacja-05-liternictwo.jpg",
+    "alt": "Liternictwo i konstrukcja nagłówków"
+   },
+   {
+    "src": "/img/form-space/identyfikacja-06-detal-graficzny.jpg",
+    "alt": "Detal graficzny — kropka i znaczniki systemu"
+   }
+  ]
  },
  {
   "n": 29,
@@ -582,7 +696,40 @@
   "body": [
    "Współpraca z artystkami i kuratela nad programem wystawienniczym. Wystawy w przestrzeni apart-hotelu budują rozpoznawalność marki i dają pretekst do komunikacji."
   ],
-  "desc": "Program wystawienniczy Form Space i jego rola w PR marki."
+  "desc": "Program wystawienniczy Form Space i jego rola w PR marki.",
+  "images": [
+   {
+    "src": "/img/form-space/wystawy-01-cykl-n44.jpg",
+    "alt": "Cykl N°44 — program wspierania młodych artystek i artystów"
+   },
+   {
+    "src": "/img/form-space/wystawy-02-sztuka-we-wnetrzach.jpg",
+    "alt": "Sztuka we wnętrzach — apartament jako galeria"
+   },
+   {
+    "src": "/img/form-space/wystawy-03-plakat-premiera.jpg",
+    "alt": "Plakat zapowiadający premierę wystawy"
+   },
+   {
+    "src": "/img/form-space/prace-artystek-ap1_50x70_img_6927.jpg",
+    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte"
+   },
+   {
+    "src": "/img/form-space/prace-artystek-ap2_100x70_img_6980.jpg",
+    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte"
+   },
+   {
+    "src": "/img/form-space/prace-artystek-ap4_100x70_img_7064.jpg",
+    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte"
+   },
+   {
+    "src": "/img/form-space/wystawy-04-styl-zdjec.jpg",
+    "alt": "Styl zdjęć marki Form Space"
+   }
+  ],
+  "captions": [
+   "Prace z programu wystawienniczego Form Space, fot. Gwen Bolte."
+  ]
  },
  {
   "n": 30,
@@ -592,7 +739,21 @@
   "body": [
    "System wizualny przełożony na tokeny w konwencji shadcn/ui. Dwa motywy: jasny i nocny. Komponenty strony wynikają bezpośrednio z identyfikacji drukowanej."
   ],
-  "desc": "Design system strony Form Space: tokeny, motyw jasny i nocny."
+  "desc": "Design system strony Form Space: tokeny, motyw jasny i nocny.",
+  "images": [
+   {
+    "src": "/img/form-space/design-system-01-tokeny-shadcn.jpg",
+    "alt": "Tokeny design systemu w konwencji shadcn/ui"
+   },
+   {
+    "src": "/img/form-space/design-system-02-komponenty-tryb-jasny.jpg",
+    "alt": "Komponenty interfejsu — tryb jasny"
+   },
+   {
+    "src": "/img/form-space/design-system-03-komponenty-tryb-noc.jpg",
+    "alt": "Komponenty interfejsu — tryb nocny"
+   }
+  ]
  },
  {
   "n": 31,
@@ -602,7 +763,21 @@
   "body": [
    "Strona internetowa Form Space zbudowana na design systemie: karty apartamentów, booking, sekcje narracyjne. Kadry z wersji jasnej i nocnej."
   ],
-  "desc": "Strona internetowa Form Space zbudowana na design systemie."
+  "desc": "Strona internetowa Form Space zbudowana na design systemie.",
+  "images": [
+   {
+    "src": "/img/form-space/www-01-strona-www.jpg",
+    "alt": "Kadr ze strony internetowej Form Space"
+   },
+   {
+    "src": "/img/form-space/www-02-siatka-instagram.jpg",
+    "alt": "Siatka Instagrama zbudowana na systemie wizualnym"
+   },
+   {
+    "src": "/img/form-space/www-03-nosniki.jpg",
+    "alt": "Nośniki marki — kompozycje na podstawie design systemu"
+   }
+  ]
  },
  {
   "n": 32,
@@ -613,7 +788,41 @@
    "Karty apartamentów AP 1, AP 2, AP 3 przygotowane pod booking. Dokumentacja fotograficzna realizacji."
   ],
   "caption": "NOWOGRODZKA 44 · APARTAMENTY — dokumentacja fotograficzna, fot. Barbara Iwańska.",
-  "desc": "Karty apartamentów i dokumentacja fotograficzna Nowogrodzkiej 44."
+  "desc": "Karty apartamentów i dokumentacja fotograficzna Nowogrodzkiej 44.",
+  "images": [
+   {
+    "src": "/img/form-space/apartamenty-01-karta-ap-1.jpg",
+    "alt": "Karta apartamentu AP 1 przygotowana pod booking"
+   },
+   {
+    "src": "/img/form-space/apartamenty-02-karta-ap-2.jpg",
+    "alt": "Karta apartamentu AP 2 przygotowana pod booking"
+   },
+   {
+    "src": "/img/form-space/apartamenty-03-karta-ap-3.jpg",
+    "alt": "Karta apartamentu AP 3 przygotowana pod booking"
+   },
+   {
+    "src": "/img/form-space/apartamenty-04-wizualizacja-salon.jpg",
+    "alt": "Wizualizacja salonu w apartamencie"
+   },
+   {
+    "src": "/img/form-space/apartamenty-05-rzut-l1.jpg",
+    "alt": "Rzut kondygnacji w kolorystyce marki"
+   },
+   {
+    "src": "/img/form-space/apartamenty-06-rzut-l5.jpg",
+    "alt": "Rzut kondygnacji w kolorystyce marki"
+   },
+   {
+    "src": "/img/form-space/wnetrza-01-apartament.jpg",
+    "alt": "Apartament po realizacji, fot. Barbara Iwańska"
+   },
+   {
+    "src": "/img/form-space/wnetrza-04-salon.jpg",
+    "alt": "Salon w apartamencie, fot. Barbara Iwańska"
+   }
+  ]
  },
  {
   "n": 33,
