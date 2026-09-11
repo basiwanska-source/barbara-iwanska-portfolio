@@ -9,7 +9,8 @@ import { Wall } from "@/components/site/Wall";
 import { projects } from "@/lib/site";
 
 export default function Home() {
-  const slides = projects.filter((p) => p.hero && ["rotunda-m07", "golden-tulip", "kolobrzeg", "form-space", "b-sides"].includes(p.slug));
+  const order = ["rotunda-m07", "form-space", "kolobrzeg", "b-sides", "golden-tulip"];
+  const slides = order.map((s) => projects.find((p) => p.slug === s)!).filter((p) => p.hero);
   return (
     <>
       <SiteHeader />
