@@ -1,64 +1,59 @@
-import { Reveal } from "./Reveal";
 import { Track } from "./Track";
 import type { Img, Project } from "@/lib/site";
 
+const isTall = (im: Img) => /torunska-20|b-sides\/galeria-0[2-6]|karta-ap|rzut-l|prace-artystek|wystawy-03/.test(im.src);
+
 function Photo({ im, k }: { im: Img; k: number }) {
   return (
-    <figure className="s-card">
+    <figure className={`s-card${isTall(im) ? " tall" : ""}`}>
       <div className="frame"><img alt={im.alt} loading="lazy" src={im.src} /></div>
       <figcaption className="cap"><b>{String(k + 1).padStart(2, "0")}</b>{im.alt}</figcaption>
     </figure>
   );
 }
 
-/** Projekt = pasmo feature (kadr + kontekst, naprzemiennie) + sekcja w boxie: metryka, trzy kolumny, karuzele kadrów, credity. */
+/** Projekt = pasmo feature (kadr 13/20 + jedno zdanie) → pasek kadrów → szczegóły zwinięte w <details>. */
 export function ProjectBlock({ p, flip }: { p: Project; flip?: boolean }) {
-  const excerpt = p.context[0] ?? "";
+  const lede = (p.context[0] ?? "").split(/(?<=\.)\s/)[0];
   return (
     <>
       {p.hero && (
         <section className={flip ? "feature flip" : "feature"} id={p.slug}>
           <div className="feature-image"><img alt={p.hero.alt} loading="lazy" src={p.hero.src} /></div>
-          <Reveal className="feature-text">
+          <div className="feature-text">
             <span className="label">{p.no} · {p.employer} · {p.period}</span>
             <h2 style={{ marginTop: 12 }}>{p.title}</h2>
-            <p>{excerpt}</p>
-            <a className="link-more" href={`#${p.slug}-szczegoly`}>Zakres i kadry</a>
-          </Reveal>
+            <p className="lede">{lede}</p>
+            {p.meta.length > 0 && <p style={{ fontSize: 13, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 22 }}>{p.meta.slice(0, 3).join(" · ")}</p>}
+            <a className="link-more" href={`#${p.slug}-kadry`}>Kadry</a>
+          </div>
         </section>
       )}
-      <section className="shell" id={`${p.slug}-szczegoly`}>
-        <div className="section-head">
-          <div className="sh-left">
-            <h2>{p.title}</h2>
-            <span className="vr" />
-            <a className="link-more" href={`/strona/${p.pages[0]}`}>Strony {p.pages[0]}–{p.pages[p.pages.length - 1]} broszury</a>
-          </div>
-        </div>
-        {p.meta.length > 0 && <div className="p-meta">{p.meta.map((m) => <span key={m}>{m}</span>)}</div>}
-        {p.missing && <p className="p-note" style={{ marginTop: 18 }}>{p.missing}</p>}
-        <Reveal each className="p-cols">
-          <div><span className="label">Kontekst</span><div style={{ marginTop: 10 }}>{p.context.slice(p.hero ? 1 : 0).map((t) => <p key={t}>{t}</p>)}{p.context.length <= 1 && p.hero ? <p>{excerpt}</p> : null}</div></div>
-          <div><span className="label">Moja rola</span><ul style={{ marginTop: 10 }}>{p.role.map((b) => <li key={b}>{b}</li>)}</ul></div>
-          <div><span className="label">Rezultat</span><p style={{ marginTop: 10 }}>{p.result ?? "—"}</p></div>
-        </Reveal>
+      <section className="shell strip" id={`${p.slug}-kadry`}>
+        {p.missing && !p.hero && (
+          <div className="section-head"><div className="sh-left"><h2>{p.title}</h2><span className="vr" /><span className="label">{p.missing}</span></div></div>
+        )}
         {p.chapters.length > 0
           ? p.chapters.map((c) => (
-              <div className="p-chapter" key={c.title}>
+              <div className="p-chapter" key={c.title} style={{ marginTop: 0, marginBottom: 40 }}>
                 <Track head={<><h3>{c.title}</h3><span className="vr" /><span className="label">{c.images.length} kadrów</span></>}>
                   {c.images.map((im, k) => <Photo im={im} k={k} key={im.src} />)}
                 </Track>
-                {c.body[0] ? <p className="lead" style={{ margin: "18px 0 0" }}>{c.body[0]}</p> : null}
               </div>
             ))
           : p.gallery.length > 0 && (
-              <div className="p-chapter">
-                <Track head={<><h3>Kadry</h3><span className="vr" /><span className="label">{p.gallery.length} zdjęć</span></>}>
-                  {p.gallery.map((im, k) => <Photo im={im} k={k} key={im.src} />)}
-                </Track>
-              </div>
+              <Track head={<><h3 style={{ fontSize: 15, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>{p.title}</h3><span className="vr" /><span className="label">{p.gallery.length} kadrów</span></>}>
+                {p.gallery.map((im, k) => <Photo im={im} k={k} key={im.src} />)}
+              </Track>
             )}
-        {p.credits.length > 0 && <div className="p-credits">{p.credits.map((c) => <p key={c}>{c}</p>)}</div>}
+        <details className="p-details">
+          <summary><span>Kontekst · Moja rola · Rezultat</span></summary>
+          <div className="p-cols">
+            <div><span className="label">Kontekst</span><div style={{ marginTop: 10 }}>{p.context.map((t) => <p key={t}>{t}</p>)}</div></div>
+            <div><span className="label">Moja rola</span><ul style={{ marginTop: 10 }}>{p.role.map((b) => <li key={b}>{b}</li>)}</ul></div>
+            <div><span className="label">Rezultat</span><p style={{ marginTop: 10 }}>{p.result ?? "—"}</p>{p.credits.length > 0 && <div className="p-credits">{p.credits.map((c) => <p key={c}>{c}</p>)}</div>}<p style={{ marginTop: 14 }}><a className="link-more" href={`/strona/${p.pages[0]}`}>Strony {p.pages[0]}–{p.pages[p.pages.length - 1]} broszury</a></p></div>
+          </div>
+        </details>
       </section>
     </>
   );
