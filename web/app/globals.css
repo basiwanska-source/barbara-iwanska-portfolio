@@ -967,11 +967,11 @@ html { scroll-behavior: smooth; }
 .site-main { padding-top: 0; }
 
 /* ── Hero spokojne (Hero.tsx) ── */
-.site-main > section.hc { position: relative; height: 100svh; min-height: 600px; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 4px; }
+.site-main > section.hc { position: relative; height: 100vh; height: 100svh; height: var(--hero-h, 100svh); min-height: 560px; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 4px; }
 .hc-stage { position: absolute; inset: 0; }
 .hc-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity 1s ease; }
-.hc-stage img.on { opacity: 1; animation: hcZoom 16s ease-out both; }
-@keyframes hcZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+.hc-stage img.on { opacity: 1; animation: hcZoom 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes hcZoom { from { transform: scale(1.04); } to { transform: scale(1); } }
 .hc-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(0 0 0 / 0.35), transparent 28%, transparent 55%, rgb(0 0 0 / 0.6)); }
 .hc-ui { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: 34px; padding-bottom: 28px; }
 .hc-kicker { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.85; margin-bottom: 14px; }

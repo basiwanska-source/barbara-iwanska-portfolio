@@ -1,10 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Project } from "@/lib/site";
 
 /** Hero: pełny ekran pod przezroczystym headerem. Kadr z powolnym zoomem, imię, jedna linia, pasek miniatur projektów (hover podmienia kadr, klik → sekcja). */
 export function Hero({ slides }: { slides: Project[] }) {
   const [active, setActive] = useState(0);
+  // Wysokość hero przypięta w px przy załadowaniu: chowanie paska przeglądarki na mobile
+  // zmienia 100vh, a my nie chcemy, żeby kadr zmieniał rozmiar pod palcem. Aktualizacja
+  // tylko gdy zmieni się szerokość (obrót ekranu), nie wysokość.
+  useEffect(() => {
+    let w = window.innerWidth;
+    const pin = () => document.documentElement.style.setProperty("--hero-h", `${window.innerHeight}px`);
+    pin();
+    const onResize = () => {
+      if (window.innerWidth !== w) {
+        w = window.innerWidth;
+        pin();
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
   return (
     <section className="hc" id="top">
       <div className="hc-stage" aria-hidden>
