@@ -1,0 +1,633 @@
+[
+ {
+  "n": 1,
+  "section": "Okładka",
+  "kicker": "PORTFOLIO · DESIGN MANAGEMENT · 2026",
+  "title": "Barbara Joanna Iwańska",
+  "body": [
+   "Design Management: prowadzenie realizacji wnętrz w inwestycjach mieszkaniowych i hotelowych — od zakresu i budżetu, przez akceptacje materiałowe i negocjacje z dostawcami, po odbiory."
+  ],
+  "meta": [
+   "CV · PORTFOLIO",
+   "2026"
+  ],
+  "desc": "Strona tytułowa portfolio: imię i nazwisko, usługa Design Management, rok 2026."
+ },
+ {
+  "n": 2,
+  "section": "O mnie",
+  "kicker": "DESIGN MANAGEMENT",
+  "title": "Prowadzę realizacje wnętrz w inwestycjach mieszkaniowych i hotelowych",
+  "body": [
+   "Prowadzę realizacje wnętrz w inwestycjach mieszkaniowych i hotelowych — od zakresu i budżetu, przez akceptacje materiałowe i negocjacje z dostawcami, po odbiory. Pięć lat na styku dewelopmentu, wykonawstwa i projektu.",
+   "Płynnie poruszam się między światem inżynierów, finansów i designu — potrafię przełożyć obietnicę produktu na zestawienie materiałowe i pilnować, żeby przetrwała spotkanie z budżetem."
+  ],
+  "meta": [
+   "bas.iwanska@gmail.com",
+   "+48 698 928 600"
+  ],
+  "desc": "Manifest zawodowy: kim jestem i co robię jako design managerka. Dane kontaktowe."
+ },
+ {
+  "n": 3,
+  "section": "O mnie",
+  "kicker": "MÓJ UDZIAŁ W FAZACH",
+  "title": "Od koncepcji do odbioru",
+  "body": [
+   "Zakres odpowiedzialności zmienia się z fazą projektu. W koncepcji odpowiadam za strategię produktu i narrację. W projekcie — za akceptacje materiałowe i zgodność z budżetem. W realizacji — za koordynację biur projektowych, wykonawców i dostawców, optymalizację kosztową i odbiory."
+  ],
+  "phases": [
+   {
+    "name": "Koncepcja i strategia",
+    "role": "autorka koncepcji, strategia marki, narracja katalogu"
+   },
+   {
+    "name": "Projekt",
+    "role": "akceptacje materiałowe, zestawienia, kontrola budżetu"
+   },
+   {
+    "name": "Przetargi i negocjacje",
+    "role": "optymalizacja materiałowa, negocjacje z dostawcami i wykonawcami"
+   },
+   {
+    "name": "Realizacja / fit-out",
+    "role": "koordynacja biur projektowych i wykonawców, nadzór projektowy"
+   },
+   {
+    "name": "Odbiory i otwarcie",
+    "role": "odbiory, komunikacja sprzedażowa, wydarzenia otwierające"
+   }
+  ],
+  "desc": "Matryca udziału w fazach projektu (koncepcja, projekt, przetargi, realizacja, odbiory). W .indd tabela jest grafiką; treść odtworzona z opisów projektów."
+ },
+ {
+  "n": 4,
+  "section": "Spis treści",
+  "kicker": "SPIS TREŚCI",
+  "title": "Projekty",
+  "toc": [
+   {
+    "employer": "MARVIPOL DEVELOPMENT",
+    "items": [
+     {
+      "label": "HOTEL GOLDEN TULIP · CHMIELNA 78, GDAŃSK — projekt koncepcji",
+      "page": 5
+     },
+     {
+      "label": "UNIQUE HOTEL KOŁOBRZEG — nadzór projektowy",
+      "page": 10
+     },
+     {
+      "label": "ROTUNDA DYNASY M07, WARSZAWA — nadzór projektowy",
+      "page": 12
+     },
+     {
+      "label": "BIURO SPRZEDAŻY · TORUŃSKA 20, GDAŃSK — realizacja",
+      "page": 17
+     },
+     {
+      "label": "OSIEDLE SENZA — nadzór projektowy",
+      "page": 19
+     }
+    ]
+   },
+   {
+    "employer": "ZOFIA STRUMIŁŁO STUDIO",
+    "items": [
+     {
+      "label": "B SIDES · MOKOTOWSKA 61, WARSZAWA — projekt koncepcji i realizacja",
+      "page": 20
+     }
+    ]
+   },
+   {
+    "employer": "B5A",
+    "items": [
+     {
+      "label": "FORM SPACE · NOWOGRODZKA 44, WARSZAWA — koncepcja, strategia, marka",
+      "page": 24
+     }
+    ]
+   }
+  ],
+  "desc": "Spis treści portfolio pogrupowany wg pracodawców: Marvipol Development, Zofia Strumiłło Studio, B5A."
+ },
+ {
+  "n": 5,
+  "section": "Golden Tulip · Chmielna 78",
+  "kicker": "MARVIPOL DEVELOPMENT · 2023–2025",
+  "title": "Hotel Golden Tulip · Chmielna 78 · Gdańsk",
+  "meta": [
+   "321 jednostek",
+   "Gdańsk",
+   "projekt prowadzony od 2024",
+   "oddanie planowane na koniec 2027"
+  ],
+  "body": [
+   "Specjalistka ds. koordynacji projektów inwestycyjnych. Autorka projektu koncepcji hotelu."
+  ],
+  "desc": "Otwarcie rozdziału Golden Tulip: metryka inwestycji (321 jednostek, Gdańsk, 2024–2027).",
+  "images": [
+   {
+    "src": "/img/chmielna-78/01-hero.jpg",
+    "alt": "Golden Tulip Chmielna 78 — wizualizacja, mat. Marvipol Development"
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "section": "Golden Tulip · Chmielna 78",
+  "kicker": "KONTEKST",
+  "title": "Standard premium przy zawężonym budżecie",
+  "body": [
+   "Jestem autorką projektu koncepcji hotelu. Golden Tulip przy Chmielnej 78 w Gdańsku to inwestycja apart-hotelowa licząca 321 jednostek mieszkalnych. Standard premium trzeba było utrzymać przy budżecie, który w trakcie realizacji wymagał zawężenia. Najprostsza droga — obniżenie klasy materiałów — była wykluczona, bo obietnica produktu opierała się właśnie na jakości wykończenia."
+  ],
+  "desc": "Opis wyzwania: utrzymanie standardu premium mimo cięć budżetowych, bez obniżania klasy materiałów."
+ },
+ {
+  "n": 7,
+  "section": "Golden Tulip · Chmielna 78",
+  "kicker": "PROJEKT LOBBY",
+  "title": "Poliwęglan komorowy i światło RGB",
+  "body": [
+   "Materiał przewodni: poliwęglan komorowy. Projekt skupia się na ubraniu monochromatycznej przestrzeni wewnętrznej w instalacje oświetleniowe RGB.",
+   "Rzut LOBBY: wydzielone dwie strefy odpoczynku, strefa wind przysłonięta podświetlaną ścianą RGB, strefa lobby otwiera się na restaurację, komunikacja."
+  ],
+  "caption": "Wizualizacja · mat. Marvipol Development",
+  "desc": "Koncepcja lobby hotelu: materiał przewodni, instalacje RGB, opis rzutu lobby.",
+  "images": [
+   {
+    "src": "/img/chmielna-78/rysunki-rzut-01.png",
+    "alt": "Rzut lobby — strefy odpoczynku, strefa wind, restauracja"
+   },
+   {
+    "src": "/img/chmielna-78/rysunki-rzut-02.png",
+    "alt": "Rzut lobby — układ funkcjonalny"
+   }
+  ]
+ },
+ {
+  "n": 8,
+  "section": "Golden Tulip · Chmielna 78",
+  "kicker": "STREFY FIT-OUT",
+  "title": "Lobby, recepcja, komunikacja, strefy usługowe, lokale",
+  "body": [
+   "Zakres fit-outu obejmował lobby, recepcję, komunikację, strefy usługowe i wnętrza lokali. Wizualizacje pokazują pokoje w standardzie premium: monochromatyczna baza, akcenty świetlne w łuku, materiały dobrane pod eksploatację hotelową."
+  ],
+  "caption": "WSPÓŁPRACA — Wizualizacje: arch. Filip Surowiecki, mat. Marvipol Development · Teksty katalogu: dział marketingu Marvipol Development we współpracy z autorką koncepcji.",
+  "desc": "Strefy fit-outu i wizualizacje pokoi; nota o współpracy z arch. Filipem Surowieckim.",
+  "images": [
+   {
+    "src": "/img/chmielna-78/galeria-01.jpg",
+    "alt": "Pokój hotelowy — wizualizacja, arch. Filip Surowiecki"
+   },
+   {
+    "src": "/img/chmielna-78/galeria-02.jpg",
+    "alt": "Pokój hotelowy — wizualizacja"
+   },
+   {
+    "src": "/img/chmielna-78/galeria-03.jpg",
+    "alt": "Lobby — wizualizacja"
+   },
+   {
+    "src": "/img/chmielna-78/galeria-04.jpg",
+    "alt": "Strefa usługowa — wizualizacja"
+   },
+   {
+    "src": "/img/chmielna-78/galeria-05.jpg",
+    "alt": "Lokal — wizualizacja"
+   }
+  ]
+ },
+ {
+  "n": 9,
+  "section": "Golden Tulip · Chmielna 78",
+  "kicker": "MOJA ROLA · REZULTAT",
+  "title": "Fit-out, optymalizacja, narracja katalogu",
+  "bullets": [
+   "Odpowiadałam za realizację fit-outu wnętrz: lobby, recepcji, komunikacji, stref usługowych i wnętrz lokali",
+   "Prowadziłam proces optymalizacji materiałowej oraz negocjacje z dostawcami; decyzje zapadały wspólnie z Zarządem",
+   "Nadzorowałam współpracę z biurami projektowymi i wykonawcami",
+   "Odpowiadałam za koncepcję i architekturę narracji katalogu sprzedażowego",
+   "Opracowywałam raporty i prezentacje strategiczne dla Zarządu",
+   "Reprezentowałam firmę na spotkaniach z interesariuszami"
+  ],
+  "result": "321 jednostek objętych zakresem inwestycji. Standard premium utrzymany mimo zawężenia budżetu — dzięki optymalizacji materiałowej. Obiekt w budowie; oddanie planowane na koniec 2027 roku.",
+  "desc": "Lista odpowiedzialności w Marvipol Development i rezultat projektu Golden Tulip."
+ },
+ {
+  "n": 10,
+  "section": "Unique Hotel Kołobrzeg",
+  "kicker": "MARVIPOL DEVELOPMENT · NADZÓR PROJEKTOWY",
+  "title": "Unique Hotel Kołobrzeg · Sułkowskiego 7",
+  "meta": [
+   "227 jednostek",
+   "Kołobrzeg",
+   "Hotel w standardzie 5 gwiazdek",
+   "Operator: Unique Hotels & Apartments"
+  ],
+  "body": [
+   "Unique Hotel Kołobrzeg to prestiżowa inwestycja apartamentów inwestycyjnych powstająca w pierwszej linii brzegowej przy ul. Sułkowskiego 7 w Kołobrzegu."
+  ],
+  "desc": "Otwarcie rozdziału Unique Hotel Kołobrzeg: metryka (227 jednostek, 5 gwiazdek, operator)."
+ },
+ {
+  "n": 11,
+  "section": "Unique Hotel Kołobrzeg",
+  "kicker": "OPIS INWESTYCJI",
+  "title": "227 apartamentów pod klucz w pierwszej linii brzegowej",
+  "body": [
+   "Projekt obejmuje 227 apartamentów wykończonych i wyposażonych pod klucz w standardzie 5-gwiazdkowego hotelu, zarządzanych przez doświadczonego operatora Unique Hotels & Apartments.",
+   "Do dyspozycji właścicieli i gości będzie bogata strefa wellness obejmująca SPA z saunami, basen, jacuzzi, restaurację, Beach Bar, gabinety odnowy biologicznej oraz całodobową recepcję. Inwestycja łączy wyjątkową lokalizację nad samym morzem, wysoki standard wykończenia oraz bezobsługowy model inwestycyjny."
+  ],
+  "caption": "Wizualizacja · KM Rubaszkiewicz",
+  "desc": "Pełny opis inwestycji w Kołobrzegu i zakres nadzoru projektowego; wizualizacja biura KM Rubaszkiewicz."
+ },
+ {
+  "n": 12,
+  "section": "Rotunda Dynasy M07",
+  "kicker": "MARVIPOL DEVELOPMENT · NADZÓR PROJEKTOWY",
+  "title": "Rotunda Dynasy M07 · Warszawa · mieszkanie pokazowe",
+  "meta": [
+   "Powierzchnia 109 m²",
+   "Loggia 20,5 m²",
+   "Mieszkanie pokazowe",
+   "Lokal sprzedany"
+  ],
+  "desc": "Otwarcie rozdziału Rotunda Dynasy M07: metryka mieszkania pokazowego.",
+  "images": [
+   {
+    "src": "/img/rotunda-m07/01-hero.jpg",
+    "alt": "Rotunda Dynasy M07 — salon, fot. mat. Marvipol Development"
+   }
+  ]
+ },
+ {
+  "n": 13,
+  "section": "Rotunda Dynasy M07",
+  "kicker": "KONTEKST",
+  "title": "Przekonywać sposobem życia, nie metrażem",
+  "body": [
+   "Rotunda Dynasy to kameralna inwestycja w sercu Powiśla, wzniesiona na historycznych murach. Mieszkanie M07 miało pełnić funkcję pokazową — przekonywać nie metrażem, lecz sposobem życia, jaki ten metraż umożliwia. Projekt powstał w zewnętrznej pracowni; moim zadaniem było doprowadzenie go do realizacji w założonym standardzie i budżecie.",
+   "Mieszkanie pokazowe jest narzędziem sprzedaży, więc punktem wyjścia był profil kupującego na Powiślu i to, które rozwiązania wykończeniowe wytrzymają codzienny ruch zwiedzających."
+  ],
+  "desc": "Kontekst i założenia mieszkania pokazowego na Powiślu.",
+  "images": [
+   {
+    "src": "/img/rotunda-m07/galeria-01.jpg",
+    "alt": "Strefa dzienna"
+   },
+   {
+    "src": "/img/rotunda-m07/galeria-02.jpg",
+    "alt": "Jadalnia"
+   }
+  ]
+ },
+ {
+  "n": 14,
+  "section": "Rotunda Dynasy M07",
+  "kicker": "PROJEKT M07",
+  "title": "Naturalne materiały jako priorytet",
+  "body": [
+   "Użycie naturalnych materiałów było priorytetem w projekcie mieszkania. Umywalki robione na zamówienie z kamienia."
+  ],
+  "captions": [
+   "Kuchnia i jadalnia · projekt wnętrza: Jakub Skowroński · fot. mat. Marvipol Development",
+   "Łazienka · projekt wnętrza: Jakub Skowroński · fot. mat. Marvipol Development"
+  ],
+  "caption": "WSPÓŁPRACA — Projekt wnętrza: Jakub Skowroński · Fotografie: mat. Marvipol Development.",
+  "desc": "Dokumentacja fotograficzna mieszkania (kuchnia, łazienka) z notą o autorze projektu wnętrza.",
+  "images": [
+   {
+    "src": "/img/rotunda-m07/galeria-03.jpg",
+    "alt": "Kuchnia i jadalnia · projekt wnętrza: Jakub Skowroński"
+   },
+   {
+    "src": "/img/rotunda-m07/galeria-04.jpg",
+    "alt": "Łazienka · umywalka z kamienia na zamówienie"
+   },
+   {
+    "src": "/img/rotunda-m07/galeria-05.jpg",
+    "alt": "Sypialnia"
+   },
+   {
+    "src": "/img/rotunda-m07/galeria-06.jpg",
+    "alt": "Detal wykończenia"
+   }
+  ]
+ },
+ {
+  "n": 15,
+  "section": "Rotunda Dynasy M07",
+  "kicker": "MOJA ROLA · REZULTAT",
+  "title": "Cały proces realizacji mieszkania pokazowego",
+  "bullets": [
+   "Prowadziłam cały proces realizacji mieszkania pokazowego",
+   "Odpowiadałam za akceptację materiałów i rozwiązań wykończeniowych",
+   "Prowadziłam optymalizację kosztową i brałam udział w negocjacjach z wykonawcami",
+   "Koordynowałam współpracę pracowni projektowej z wykonawcami"
+  ],
+  "result": "Mieszkanie pokazowe zrealizowane w założonym standardzie i budżecie; wykorzystywane w komunikacji sprzedażowej inwestycji. Lokal sprzedany.",
+  "desc": "Odpowiedzialności i rezultat: mieszkanie zrealizowane w standardzie i budżecie, sprzedane.",
+  "images": [
+   {
+    "src": "/img/rotunda-m07/galeria-07.jpg",
+    "alt": "Loggia"
+   }
+  ]
+ },
+ {
+  "n": 16,
+  "section": "Rotunda Dynasy M07",
+  "kicker": "RZUT M07",
+  "title": "Rzut mieszkania pokazowego",
+  "body": [
+   "Rzut M07 z zaznaczonymi strefami: dzienna z kuchnią i jadalnią, sypialnia, łazienka, loggia 20,5 m². Układ otwarty, prowadzony pod potrzeby prezentacji sprzedażowej."
+  ],
+  "caption": "Rzut · mat. Marvipol Development",
+  "desc": "Strona z rzutem M07 (w .indd: rzut-m07.png / rzut-m07-jasny.png).",
+  "images": [
+   {
+    "src": "/img/rotunda-m07/rysunki-rzut-m07.png",
+    "alt": "Rzut M07 — 109 m² + loggia 20,5 m²"
+   }
+  ]
+ },
+ {
+  "n": 17,
+  "section": "Biuro sprzedaży · Toruńska 20",
+  "kicker": "MARVIPOL DEVELOPMENT · REALIZACJA",
+  "title": "Biuro sprzedaży · Toruńska 20 · Gdańsk",
+  "body": [
+   "Biuro sprzedaży przy Toruńskiej 20 obsługiwało dwie inwestycje jednocześnie. Przestrzeń musiała więc unieść dwie narracje produktowe naraz, nie stając się przy tym neutralnym tłem dla żadnej z nich. Spójności nadaje jej światło — powtarzalny motyw łuku i okręgu, prowadzony przez całe wnętrze."
+  ],
+  "caption": "WSPÓŁPRACA — Projekt wnętrza: Design Anatomy · Fotografie: Barbara Iwańska.",
+  "desc": "Otwarcie rozdziału biura sprzedaży w Gdańsku: dwie narracje produktowe, motyw łuku i okręgu.",
+  "images": [
+   {
+    "src": "/img/torunska-20/01-hero.jpg",
+    "alt": "Biuro sprzedaży Toruńska 20 — instalacja świetlna, fot. Barbara Iwańska"
+   },
+   {
+    "src": "/img/torunska-20/galeria-01.jpg",
+    "alt": "Motyw łuku i okręgu"
+   },
+   {
+    "src": "/img/torunska-20/galeria-02.jpg",
+    "alt": "Strefa prezentacji"
+   }
+  ]
+ },
+ {
+  "n": 18,
+  "section": "Biuro sprzedaży · Toruńska 20",
+  "kicker": "MOJA ROLA · REZULTAT",
+  "title": "Instalacja świetlna i koordynacja",
+  "bullets": [
+   "Prowadziłam projekt od strony inwestora, w zespole odpowiedzialnym za realizację",
+   "Odpowiadałam za instalację świetlną — dobór, koordynację z producentem i wdrożenie",
+   "Koordynowałam współpracę z biurem projektowym, wykonawcami i dostawcami"
+  ],
+  "result": "Biuro zrealizowane; obsługiwało dwie inwestycje jednocześnie.",
+  "desc": "Odpowiedzialności i rezultat realizacji biura sprzedaży.",
+  "images": [
+   {
+    "src": "/img/torunska-20/galeria-03.jpg",
+    "alt": "Instalacja świetlna — detal"
+   },
+   {
+    "src": "/img/torunska-20/galeria-04.jpg",
+    "alt": "Strefa rozmów"
+   },
+   {
+    "src": "/img/torunska-20/galeria-05.jpg",
+    "alt": "Recepcja"
+   },
+   {
+    "src": "/img/torunska-20/galeria-06.jpg",
+    "alt": "Makiety inwestycji"
+   },
+   {
+    "src": "/img/torunska-20/galeria-07.jpg",
+    "alt": "Widok ogólny"
+   }
+  ]
+ },
+ {
+  "n": 19,
+  "section": "Osiedle Senza",
+  "kicker": "MARVIPOL DEVELOPMENT · NADZÓR PROJEKTOWY",
+  "title": "Osiedle Senza",
+  "body": [
+   "Nadzór projektowy nad częściami wspólnymi osiedla: akceptacje materiałowe, koordynacja biura projektowego z wykonawcami, kontrola zgodności realizacji ze standardem inwestycji."
+  ],
+  "desc": "Osiedle Senza — nadzór projektowy (w .indd tylko pozycja w spisie treści; treść strony do uzupełnienia)."
+ },
+ {
+  "n": 20,
+  "section": "B Sides · Mokotowska 61",
+  "kicker": "ZOFIA STRUMIŁŁO STUDIO · 2021–2022",
+  "title": "B Sides · Mokotowska 61 · Warszawa",
+  "meta": [
+   "Project Manager, współautorka projektu",
+   "2021–2022",
+   "Ponad 100 m² przestrzeni handlowej",
+   "Obiekt zabytkowy"
+  ],
+  "body": [
+   "Otwarcie butiku 22.11.2022. Ponad 100 m² przestrzeni handlowej w obiekcie zabytkowym."
+  ],
+  "desc": "Otwarcie rozdziału B Sides: rola w Zofia Strumiłło Studio, metryka butiku.",
+  "images": [
+   {
+    "src": "/img/b-sides/01-hero.jpg",
+    "alt": "B Sides Mokotowska 61 — butik"
+   }
+  ]
+ },
+ {
+  "n": 21,
+  "section": "B Sides · Mokotowska 61",
+  "kicker": "KONTEKST",
+  "title": "Kamienica z 1918 roku, stropy na cztery metry",
+  "body": [
+   "Ponad 100 m² w warszawskiej kamienicy z 1918 roku, stropy wysokie na cztery metry, dębowy parkiet. Przestrzeń miała nieść wartości marki: ponadczasową jakość, rzemiosło, lokalność i etyczne podejście do zwierząt — a jednocześnie dawać domowy komfort w nowoczesnym wydaniu."
+  ],
+  "desc": "Kontekst projektu butiku B Sides i wartości marki, które wnętrze miało nieść.",
+  "images": [
+   {
+    "src": "/img/b-sides/galeria-01.jpg",
+    "alt": "Wnętrze butiku — stropy na cztery metry"
+   },
+   {
+    "src": "/img/b-sides/galeria-02.jpg",
+    "alt": "Ekspozycja"
+   }
+  ]
+ },
+ {
+  "n": 22,
+  "section": "B Sides · Mokotowska 61",
+  "kicker": "MOJA ROLA",
+  "title": "Pełny cykl projektu — od koncepcji po otwarcie",
+  "bullets": [
+   "Współtworzyłam projekt wnętrza w zespole studia",
+   "Odpowiadałam za projekt wykończenia i jego wdrożenie",
+   "Zarządzałam pełnym cyklem projektu — od koncepcji po otwarcie butiku",
+   "Kontrolowałam budżet i dobór materiałów pod kątem jakości, estetyki i aspektów środowiskowych",
+   "Przygotowywałam dokumentację projektową i prezentacje wspierające decyzje inwestycyjne",
+   "Koordynowałam wykonawców, dostawców i twórców zaangażowanych w realizację"
+  ],
+  "desc": "Lista odpowiedzialności w projekcie B Sides.",
+  "images": [
+   {
+    "src": "/img/b-sides/galeria-03.jpg",
+    "alt": "Detal wykończenia"
+   },
+   {
+    "src": "/img/b-sides/galeria-04.jpg",
+    "alt": "Strefa przymierzalni"
+   }
+  ]
+ },
+ {
+  "n": 23,
+  "section": "B Sides · Mokotowska 61",
+  "kicker": "REALIZACJA · OTWARCIE",
+  "title": "Rysunki wykonawcze i otwarcie butiku",
+  "body": [
+   "RYSUNKI WYKONAWCZE — przebudowa układu schodów i stropu.",
+   "Otwarcie butiku, 22.11.2022. Współudział w przygotowaniu wydarzenia otwierającego."
+  ],
+  "captions": [
+   "Rzut wyposażenia · ZStrumillo STUDIO · B Sides · 03.07.2022",
+   "Galeria · stół · instalacja · event"
+  ],
+  "desc": "Rysunki wykonawcze (schody, strop), galeria realizacji i wydarzenie otwierające.",
+  "images": [
+   {
+    "src": "/img/b-sides/galeria-05.jpg",
+    "alt": "Schody — przebudowa układu"
+   },
+   {
+    "src": "/img/b-sides/galeria-06.jpg",
+    "alt": "Otwarcie butiku 22.11.2022"
+   }
+  ]
+ },
+ {
+  "n": 24,
+  "section": "Form Space · Nowogrodzka 44",
+  "kicker": "B5A · 2025 — OBECNIE",
+  "title": "Form Space · Nowogrodzka 44 · Warszawa",
+  "meta": [
+   "Ekspert ds. Koncepcji i Strategii Produktu",
+   "2025 — obecnie",
+   "Apart-hotel premium",
+   "Kamienica, Warszawa"
+  ],
+  "desc": "Otwarcie rozdziału Form Space: rola w B5A, metryka projektu."
+ },
+ {
+  "n": 25,
+  "section": "Form Space · Nowogrodzka 44",
+  "kicker": "KONTEKST",
+  "title": "Nie istniała nazwa, identyfikacja ani język",
+  "body": [
+   "Kamienica przy Nowogrodzkiej 44 w Warszawie miała stać się apart-hotelem w segmencie premium. Nie istniała ani nazwa, ani identyfikacja, ani język, którym inwestycja miałaby mówić do przyszłego użytkownika. Wszystko trzeba było zbudować równolegle z koncepcją samego produktu."
+  ],
+  "desc": "Kontekst: budowa marki równolegle z koncepcją produktu."
+ },
+ {
+  "n": 26,
+  "section": "Form Space · Nowogrodzka 44",
+  "kicker": "MOJA ROLA",
+  "title": "Koncepcja, strategia, marka, katalog, program wystawienniczy",
+  "bullets": [
+   "Opracowałam koncepcję przestrzeni hospitality w zabytkowej kamienicy",
+   "Przygotowałam pełną strategię: pozycjonowanie, analizę benchmarków rynkowych, personę gościa, architekturę marki, słowa kluczowe i ton głosu, rytm komunikacji",
+   "Stworzyłam nazwę, znak i system wizualny marki — od druku po design system strony",
+   "Przełożyłam system na tokeny w konwencji shadcn/ui — tryb jasny i nocny",
+   "Odpowiadałam za katalog Form Space: konspekt, strukturę narracyjną, teksty, skład",
+   "Nawiązałam współpracę z artystkami i objęłam kuratelę nad programem wystawienniczym"
+  ],
+  "desc": "Lista odpowiedzialności w projekcie Form Space."
+ },
+ {
+  "n": 27,
+  "section": "Form Space · Strategia",
+  "kicker": "STRATEGIA MARKI",
+  "title": "Kadr z prezentacji — strategia marki Form Space",
+  "body": [
+   "Pozycjonowanie, benchmarki rynkowe, persona gościa, architektura marki, słowa kluczowe i ton głosu, rytm komunikacji — pełna strategia opracowana przed powstaniem nazwy i znaku."
+  ],
+  "caption": "KADR Z PREZENTACJI — strategia marki Form Space.",
+  "desc": "Kadry z prezentacji strategii marki (w .indd: strategia-form-space.pdf)."
+ },
+ {
+  "n": 28,
+  "section": "Form Space · System wizualny",
+  "kicker": "SYSTEM WIZUALNY",
+  "title": "Marka wdrożona wraz z pełną identyfikacją",
+  "body": [
+   "Marka wdrożona wraz z pełną identyfikacją — od druku po stronę. Program wystawienniczy jako narzędzie PR."
+  ],
+  "desc": "System wizualny Form Space: nazwa, znak, identyfikacja od druku po stronę."
+ },
+ {
+  "n": 29,
+  "section": "Form Space · System wizualny",
+  "kicker": "SYSTEM WIZUALNY",
+  "title": "Program wystawienniczy jako narzędzie PR",
+  "body": [
+   "Współpraca z artystkami i kuratela nad programem wystawienniczym. Wystawy w przestrzeni apart-hotelu budują rozpoznawalność marki i dają pretekst do komunikacji."
+  ],
+  "desc": "Program wystawienniczy Form Space i jego rola w PR marki."
+ },
+ {
+  "n": 30,
+  "section": "Form Space · Design system",
+  "kicker": "DESIGN SYSTEM",
+  "title": "Tokeny w konwencji shadcn/ui — tryb jasny i nocny",
+  "body": [
+   "System wizualny przełożony na tokeny w konwencji shadcn/ui. Dwa motywy: jasny i nocny. Komponenty strony wynikają bezpośrednio z identyfikacji drukowanej."
+  ],
+  "desc": "Design system strony Form Space: tokeny, motyw jasny i nocny."
+ },
+ {
+  "n": 31,
+  "section": "Form Space · Design system",
+  "kicker": "DESIGN SYSTEM · STRONA INTERNETOWA",
+  "title": "Strona internetowa",
+  "body": [
+   "Strona internetowa Form Space zbudowana na design systemie: karty apartamentów, booking, sekcje narracyjne. Kadry z wersji jasnej i nocnej."
+  ],
+  "desc": "Strona internetowa Form Space zbudowana na design systemie."
+ },
+ {
+  "n": 32,
+  "section": "Form Space · Apartamenty",
+  "kicker": "APARTAMENTY",
+  "title": "Nowogrodzka 44 · Apartamenty",
+  "body": [
+   "Karty apartamentów AP 1, AP 2, AP 3 przygotowane pod booking. Dokumentacja fotograficzna realizacji."
+  ],
+  "caption": "NOWOGRODZKA 44 · APARTAMENTY — dokumentacja fotograficzna, fot. Barbara Iwańska.",
+  "desc": "Karty apartamentów i dokumentacja fotograficzna Nowogrodzkiej 44."
+ },
+ {
+  "n": 33,
+  "section": "Kontakt",
+  "kicker": "KONTAKT",
+  "title": "Barbara Joanna Iwańska",
+  "body": [
+   "Design Management · Koncepcja i strategia produktu · Realizacje wnętrz w inwestycjach mieszkaniowych i hotelowych."
+  ],
+  "meta": [
+   "bas.iwanska@gmail.com",
+   "+48 698 928 600",
+   "Warszawa"
+  ],
+  "desc": "Strona zamykająca: kontakt."
+ }
+]
