@@ -3,11 +3,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { label: "Kadry", href: "/#kadry" },
   { label: "Projekty", href: "/#golden-tulip" },
   { label: "O mnie", href: "/#o-mnie" },
-  { label: "Fazy", href: "/#fazy" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Kontakt", href: "/#kontakt" },
 ];
 
 /** Header: jeden wiersz, fixed. Przezroczysty nad hero (biały tekst), po zjechaniu poniżej hero — biały z kreską. Bez chowania przy scrollu. */
