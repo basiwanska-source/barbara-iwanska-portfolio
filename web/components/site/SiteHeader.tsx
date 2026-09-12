@@ -7,7 +7,6 @@ const NAV = [
   { label: "Projekty", href: "/#golden-tulip" },
   { label: "O mnie", href: "/#o-mnie" },
   { label: "Fazy", href: "/#fazy" },
-  { label: "Broszura", href: "/broszura" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 

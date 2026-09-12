@@ -6,7 +6,7 @@ export function SiteFooter() {
     Portfolio: [
       { label: "O mnie", href: "/#o-mnie" },
       { label: "Fazy", href: "/#fazy" },
-      { label: "Broszura 33 strony", href: "/broszura" },
+      { label: "Broszura 31 stron", href: "/broszura" },
       { label: "CV (PDF)", href: "/cv-2026-web.pdf" },
     ],
     Kontakt: [
