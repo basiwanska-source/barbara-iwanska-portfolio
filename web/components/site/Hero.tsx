@@ -29,7 +29,6 @@ export function Hero({ slides }: { slides: Project[] }) {
       </div>
       <div className="hc-ui shell">
         <div className="hc-text">
-          <span className="hc-kicker">Barbara Iwańska · Warszawa · Portfolio 2026</span>
           <h1 className="hc-title">Design Management</h1>
           <p className="hc-lede">Prowadzę realizacje wnętrz w inwestycjach mieszkaniowych i hotelowych: zakres, budżet, akceptacje materiałowe, negocjacje z dostawcami, odbiory. Dla deweloperów, którzy chcą, żeby obietnica produktu przetrwała spotkanie z budżetem.</p>
         </div>
