@@ -26,12 +26,12 @@
 | 20 | B Sides · Mokotowska 61 | [Pełny cykl projektu — od koncepcji po otwarcie](20.md) | 2 | Lista odpowiedzialności w projekcie B Sides. Podpisy zdjęć z IDML (edycja PL/EN). |
 | 21 | B Sides · Mokotowska 61 | [Rysunki wykonawcze i otwarcie butiku](21.md) | 2 | Rysunki wykonawcze (schody, strop), galeria realizacji i wydarzenie otwierające. Podpisy zdjęć z IDML (edycja PL/EN). |
 | 22 | Form Space · Nowogrodzka 44 | [Form Space · Nowogrodzka 44 · Warszawa](22.md) | 1 | Otwarcie rozdziału Form Space: rola w B5A, metryka projektu. |
-| 23 | Form Space · Nowogrodzka 44 | [Nie istniała nazwa, identyfikacja ani język](23.md) | 2 | Kontekst: budowa marki równolegle z koncepcją produktu. |
+| 23 | Form Space · Nowogrodzka 44 | [Nie istniała nazwa, identyfikacja ani język](23.md) | 0 | Kontekst: budowa marki równolegle z koncepcją produktu. |
 | 24 | Form Space · Nowogrodzka 44 | [Koncepcja, strategia, marka, katalog, program wystawienniczy](24.md) | 1 | Lista odpowiedzialności w projekcie Form Space. |
 | 25 | Form Space · Strategia | [Kadr z prezentacji — strategia marki Form Space](25.md) | 5 | Kadry z prezentacji strategii marki (w .indd: strategia-form-space.pdf). |
 | 26 | Form Space · System wizualny | [Marka wdrożona wraz z pełną identyfikacją](26.md) | 5 | System wizualny Form Space: nazwa, znak, identyfikacja od druku po stronę. |
 | 27 | Form Space · System wizualny | [Program wystawienniczy jako narzędzie PR](27.md) | 7 | Program wystawienniczy Form Space i jego rola w PR marki. |
 | 28 | Form Space · Design system | [Tokeny w konwencji shadcn/ui — tryb jasny i nocny](28.md) | 3 | Design system strony Form Space: tokeny, motyw jasny i nocny. |
 | 29 | Form Space · Design system | [Strona internetowa](29.md) | 3 | Strona internetowa Form Space zbudowana na design systemie. |
-| 30 | Form Space · Apartamenty | [Nowogrodzka 44 · Apartamenty](30.md) | 8 | Karty apartamentów i dokumentacja fotograficzna Nowogrodzkiej 44. |
+| 30 | Form Space · Apartamenty | [Nowogrodzka 44 · Apartamenty](30.md) | 3 | Karty apartamentów i dokumentacja fotograficzna Nowogrodzkiej 44. |
 | 31 | Kontakt | [Barbara Joanna Iwańska](31.md) | 0 | Strona zamykająca: kontakt. |
