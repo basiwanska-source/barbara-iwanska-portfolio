@@ -9,7 +9,7 @@ budowania i bez serwera — wystarczy kliknąć plik dwa razy.
 | --- | --- |
 | `index.html` | Cała strona: treść, style i przełącznik języka PL/EN w jednym pliku. |
 | `cv-2026-web.pdf` | Pełne CV, podlinkowane w sekcji „Doświadczenie". |
-| `chmielna 78/`, `02-form-space/`, `03-b-sides/`, `04-torunska-20/`, `05-rotunda-dynasy/`, `kolobrzeg/` | Zdjęcia i rysunki do case studies. |
+| `chmielna 78/`, `02-form-space/`, `03-b-sides/`, `05-rotunda-dynasy/`, `kolobrzeg/` | Zdjęcia i rysunki do case studies. |
 | `portfolio-barbara-iwanska.idml` | Eksport IDML katalogu — czytelne źródło układu (w odróżnieniu od binarnego `.indd`). |
 
 ## Uwagi
@@ -28,4 +28,4 @@ budowania i bez serwera — wystarczy kliknąć plik dwa razy.
 
 ## IDML — uwaga
 
-`portfolio-barbara-iwanska.idml` to **inna, wcześniejsza edycja** portfolio („Strategia produktu i marki”, PL/EN, 4 projekty: Chmielna 78, B Sides, Toruńska 20, Rotunda M07; 33 strony przypadkiem). Nie zawiera Form Space, Kołobrzegu, Senzy ani tabeli faz, więc **nie weryfikuje układu** `.indd` „Design Management 2026”. Wykorzystane z niego: dokładne podpisy zdjęć, pełne credity B Sides, wiersze „Efekt”. Parser: `tools/idml_pages.py` → `raw_idml_pages.txt` (gitignored).
+`portfolio-barbara-iwanska.idml` to **inna, wcześniejsza edycja** portfolio („Strategia produktu i marki”, PL/EN, 4 projekty: Chmielna 78, B Sides, Toruńska 20, Rotunda M07; 33 strony przypadkiem — Toruńska 20 została w międzyczasie wyjęta z portfolio). Nie zawiera Form Space, Kołobrzegu, Senzy ani tabeli faz, więc **nie weryfikuje układu** `.indd` „Design Management 2026”. Wykorzystane z niego: dokładne podpisy zdjęć, pełne credity B Sides, wiersze „Efekt”. Parser: `tools/idml_pages.py` → `raw_idml_pages.txt` (gitignored).

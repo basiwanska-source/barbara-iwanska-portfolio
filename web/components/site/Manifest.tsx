@@ -1,12 +1,10 @@
 import { Counter } from "./Counter";
-import { manifestImage } from "@/lib/visual";
 import { stats } from "@/lib/site";
 
-/** Manifest: jedno zdanie i liczby na pełnym kadrze — zamiast bloku tekstu. */
+/** Manifest: jedno zdanie i liczby na czarnym polu — zamiast bloku tekstu. */
 export function Manifest() {
   return (
     <section className="manifest" id="o-mnie">
-      <img alt={manifestImage.alt} loading="lazy" src={manifestImage.src} />
       <div className="hero-text shell">
         <p className="subtitle">Design Management</p>
         <h2>Od zakresu i budżetu, przez akceptacje materiałowe, po odbiory.</h2>

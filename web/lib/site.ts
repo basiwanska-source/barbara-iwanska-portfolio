@@ -24,7 +24,6 @@ const GROUPS: { slug: string; match: (s: string) => boolean; employer: string; p
   { slug: "golden-tulip", match: (s) => s.startsWith("Golden Tulip"), employer: "Marvipol Development", period: "2023–2025" },
   { slug: "kolobrzeg", match: (s) => s.startsWith("Unique Hotel"), employer: "Marvipol Development", period: "nadzór projektowy" },
   { slug: "rotunda-m07", match: (s) => s.startsWith("Rotunda"), employer: "Marvipol Development", period: "nadzór projektowy" },
-  { slug: "torunska-20", match: (s) => s.startsWith("Biuro sprzedaży"), employer: "Marvipol Development", period: "realizacja" },
   { slug: "senza", match: (s) => s.startsWith("Osiedle Senza"), employer: "Marvipol Development", period: "nadzór projektowy", missing: "Materiały w przygotowaniu" },
   { slug: "b-sides", match: (s) => s.startsWith("B Sides"), employer: "Zofia Strumiłło Studio", period: "2021–2022" },
   { slug: "form-space", match: (s) => s.startsWith("Form Space"), employer: "B5A", period: "2025 — obecnie" },
@@ -84,12 +83,11 @@ export const runners = [
   "ROTUNDA DYNASY M07 • WARSZAWA • MIESZKANIE POKAZOWE",
   "UNIQUE HOTEL KOŁOBRZEG • SUŁKOWSKIEGO 7",
   "B SIDES • MOKOTOWSKA 61",
-  "BIURO SPRZEDAŻY • TORUŃSKA 20 • GDAŃSK",
 ];
 
 export const stats = [
   { value: 5, suffix: "", label: "lat na styku dewelopmentu, wykonawstwa i projektu" },
   { value: 321, suffix: "", label: "jednostek w fit-oucie Golden Tulip" },
   { value: 227, suffix: "", label: "apartamentów pod nadzorem w Kołobrzegu" },
-  { value: 7, suffix: "", label: "projektów w portfolio" },
+  { value: 6, suffix: "", label: "projektów w portfolio" },
 ];

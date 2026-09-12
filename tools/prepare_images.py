@@ -2,7 +2,7 @@
 from pathlib import Path
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-SRC={'chmielna 78':'chmielna-78','02-form-space':'form-space','03-b-sides':'b-sides','04-torunska-20':'torunska-20','05-rotunda-dynasy':'rotunda-m07','kolobrzeg':'kolobrzeg'}
+SRC={'chmielna 78':'chmielna-78','02-form-space':'form-space','03-b-sides':'b-sides','05-rotunda-dynasy':'rotunda-m07','kolobrzeg':'kolobrzeg'}
 out=ROOT/'web/public/img'
 for src,slug in SRC.items():
     for f in sorted((ROOT/src).rglob('*')):

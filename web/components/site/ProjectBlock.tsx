@@ -1,7 +1,7 @@
 import { Track } from "./Track";
 import type { Img, Project } from "@/lib/site";
 
-const isTall = (im: Img) => /torunska-20|b-sides\/galeria-0[2-6]|karta-ap|rzut-l|prace-artystek|wystawy-03/.test(im.src);
+const isTall = (im: Img) => /b-sides\/galeria-0[2-6]|karta-ap|rzut-l|prace-artystek|wystawy-03/.test(im.src);
 
 function Photo({ im, k }: { im: Img; k: number }) {
   return (

@@ -82,12 +82,8 @@
       "page": 12
      },
      {
-      "label": "BIURO SPRZEDAŻY · TORUŃSKA 20, GDAŃSK — realizacja",
-      "page": 17
-     },
-     {
       "label": "OSIEDLE SENZA — nadzór projektowy",
-      "page": 19
+      "page": 17
      }
     ]
    },
@@ -96,7 +92,7 @@
     "items": [
      {
       "label": "B SIDES · MOKOTOWSKA 61, WARSZAWA — projekt koncepcji i realizacja",
-      "page": 20
+      "page": 18
      }
     ]
    },
@@ -105,7 +101,7 @@
     "items": [
      {
       "label": "FORM SPACE · NOWOGRODZKA 44, WARSZAWA — koncepcja, strategia, marka",
-      "page": 24
+      "page": 22
      }
     ]
    }
@@ -180,10 +176,6 @@
    {
     "src": "/img/chmielna-78/galeria-02.jpg",
     "alt": "Pokój, wariant aranżacji — wizualizacja"
-   },
-   {
-    "src": "/img/chmielna-78/galeria-03.jpg",
-    "alt": "Recepcja w identyfikacji UNIQUE Hotels & Apartments — wizualizacja"
    },
    {
     "src": "/img/chmielna-78/galeria-05.jpg",
@@ -404,66 +396,6 @@
  },
  {
   "n": 17,
-  "section": "Biuro sprzedaży · Toruńska 20",
-  "kicker": "MARVIPOL DEVELOPMENT · REALIZACJA",
-  "title": "Biuro sprzedaży · Toruńska 20 · Gdańsk",
-  "body": [
-   "Biuro sprzedaży przy Toruńskiej 20 obsługiwało dwie inwestycje jednocześnie. Przestrzeń musiała więc unieść dwie narracje produktowe naraz, nie stając się przy tym neutralnym tłem dla żadnej z nich. Spójności nadaje jej światło — powtarzalny motyw łuku i okręgu, prowadzony przez całe wnętrze."
-  ],
-  "caption": "WSPÓŁPRACA — Projekt wnętrza: Design Anatomy · Fotografie: Barbara Iwańska.",
-  "desc": "Otwarcie rozdziału biura sprzedaży w Gdańsku: dwie narracje produktowe, motyw łuku i okręgu. Podpisy zdjęć z IDML (edycja PL/EN).",
-  "images": [
-   {
-    "src": "/img/torunska-20/01-hero.jpg",
-    "alt": "Open space z półkolistą lampą"
-   },
-   {
-    "src": "/img/torunska-20/galeria-01.jpg",
-    "alt": "Elewacja nocą — świecące wnętrze widziane z ulicy"
-   },
-   {
-    "src": "/img/torunska-20/galeria-02.jpg",
-    "alt": "Wejście z zielenią"
-   }
-  ]
- },
- {
-  "n": 18,
-  "section": "Biuro sprzedaży · Toruńska 20",
-  "kicker": "MOJA ROLA · REZULTAT",
-  "title": "Instalacja świetlna i koordynacja",
-  "bullets": [
-   "Prowadziłam projekt od strony inwestora, w zespole odpowiedzialnym za realizację",
-   "Odpowiadałam za instalację świetlną — dobór, koordynację z producentem i wdrożenie",
-   "Koordynowałam współpracę z biurem projektowym, wykonawcami i dostawcami"
-  ],
-  "result": "Biuro zrealizowane; obsługiwało dwie inwestycje w jednej przestrzeni. Instalacja świetlna jako element rozpoznawczy wnętrza.",
-  "desc": "Odpowiedzialności i rezultat realizacji biura sprzedaży. Podpisy zdjęć z IDML (edycja PL/EN).",
-  "images": [
-   {
-    "src": "/img/torunska-20/galeria-03.jpg",
-    "alt": "Korytarz wzdłuż przeszkleń o zmierzchu"
-   },
-   {
-    "src": "/img/torunska-20/galeria-04.jpg",
-    "alt": "Detal — protea przy półkolistej lampie"
-   },
-   {
-    "src": "/img/torunska-20/galeria-05.jpg",
-    "alt": "Okrągła instalacja świetlna nad stanowiskiem pracy"
-   },
-   {
-    "src": "/img/torunska-20/galeria-06.jpg",
-    "alt": "Półkolista lampa nad stołem, widok przez szkło"
-   },
-   {
-    "src": "/img/torunska-20/galeria-07.jpg",
-    "alt": "Podświetlone lustro na terakocie"
-   }
-  ]
- },
- {
-  "n": 19,
   "section": "Osiedle Senza",
   "kicker": "MARVIPOL DEVELOPMENT · NADZÓR PROJEKTOWY",
   "title": "Osiedle Senza",
@@ -473,7 +405,7 @@
   "desc": "Osiedle Senza — nadzór projektowy (w .indd tylko pozycja w spisie treści; treść strony do uzupełnienia)."
  },
  {
-  "n": 20,
+  "n": 18,
   "section": "B Sides · Mokotowska 61",
   "kicker": "ZOFIA STRUMIŁŁO STUDIO · 2021–2022",
   "title": "B Sides · Mokotowska 61 · Warszawa",
@@ -495,7 +427,7 @@
   ]
  },
  {
-  "n": 21,
+  "n": 19,
   "section": "B Sides · Mokotowska 61",
   "kicker": "KONTEKST",
   "title": "Kamienica z 1918 roku, stropy na cztery metry",
@@ -515,7 +447,7 @@
   ]
  },
  {
-  "n": 22,
+  "n": 20,
   "section": "B Sides · Mokotowska 61",
   "kicker": "MOJA ROLA",
   "title": "Pełny cykl projektu — od koncepcji po otwarcie",
@@ -540,7 +472,7 @@
   ]
  },
  {
-  "n": 23,
+  "n": 21,
   "section": "B Sides · Mokotowska 61",
   "kicker": "REALIZACJA · OTWARCIE",
   "title": "Rysunki wykonawcze i otwarcie butiku",
@@ -563,7 +495,7 @@
   "caption": "WSPÓŁPRACA — Projekt wnętrza: Zofia Strumiłło STUDIO — Zofia Strumiłło, Barbara Iwańska · Projekt wykończenia i wdrożenie: Barbara Iwańska · Mural: Magdalena Łapińska-Rozenbaum · Oświetlenie: Chors · Zieleń: Bujnie, CosmosPlantea · Fotografie: @w_srodku"
  },
  {
-  "n": 24,
+  "n": 22,
   "section": "Form Space · Nowogrodzka 44",
   "kicker": "B5A · 2025 — OBECNIE",
   "title": "Form Space · Nowogrodzka 44 · Warszawa",
@@ -582,7 +514,7 @@
   ]
  },
  {
-  "n": 25,
+  "n": 23,
   "section": "Form Space · Nowogrodzka 44",
   "kicker": "KONTEKST",
   "title": "Nie istniała nazwa, identyfikacja ani język",
@@ -602,7 +534,7 @@
   ]
  },
  {
-  "n": 26,
+  "n": 24,
   "section": "Form Space · Nowogrodzka 44",
   "kicker": "MOJA ROLA",
   "title": "Koncepcja, strategia, marka, katalog, program wystawienniczy",
@@ -624,7 +556,7 @@
   "result": "Marka wdrożona wraz z pełną identyfikacją — od druku po stronę. Program wystawienniczy jako narzędzie PR."
  },
  {
-  "n": 27,
+  "n": 25,
   "section": "Form Space · Strategia",
   "kicker": "STRATEGIA MARKI",
   "title": "Kadr z prezentacji — strategia marki Form Space",
@@ -659,7 +591,7 @@
   ]
  },
  {
-  "n": 28,
+  "n": 26,
   "section": "Form Space · System wizualny",
   "kicker": "SYSTEM WIZUALNY",
   "title": "Marka wdrożona wraz z pełną identyfikacją",
@@ -691,7 +623,7 @@
   ]
  },
  {
-  "n": 29,
+  "n": 27,
   "section": "Form Space · System wizualny",
   "kicker": "SYSTEM WIZUALNY",
   "title": "Program wystawienniczy jako narzędzie PR",
@@ -734,7 +666,7 @@
   ]
  },
  {
-  "n": 30,
+  "n": 28,
   "section": "Form Space · Design system",
   "kicker": "DESIGN SYSTEM",
   "title": "Tokeny w konwencji shadcn/ui — tryb jasny i nocny",
@@ -758,7 +690,7 @@
   ]
  },
  {
-  "n": 31,
+  "n": 29,
   "section": "Form Space · Design system",
   "kicker": "DESIGN SYSTEM · STRONA INTERNETOWA",
   "title": "Strona internetowa",
@@ -782,7 +714,7 @@
   ]
  },
  {
-  "n": 32,
+  "n": 30,
   "section": "Form Space · Apartamenty",
   "kicker": "APARTAMENTY",
   "title": "Nowogrodzka 44 · Apartamenty",
@@ -827,7 +759,7 @@
   ]
  },
  {
-  "n": 33,
+  "n": 31,
   "section": "Kontakt",
   "kicker": "KONTAKT",
   "title": "Barbara Joanna Iwańska",
