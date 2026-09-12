@@ -126,7 +126,9 @@
   "images": [
    {
     "src": "/img/chmielna-78/galeria-04.jpg",
-    "alt": "Elewacja o zmierzchu — wizualizacja"
+    "alt": "Elewacja o zmierzchu — wizualizacja",
+    "w": 1800,
+    "h": 1123
    }
   ]
  },
@@ -154,7 +156,9 @@
   "images": [
    {
     "src": "/img/chmielna-78/01-hero.jpg",
-    "alt": "Lobby z windami — wizualizacja"
+    "alt": "Lobby z windami — wizualizacja",
+    "w": 1800,
+    "h": 1202
    }
   ]
  },
@@ -171,15 +175,21 @@
   "images": [
    {
     "src": "/img/chmielna-78/galeria-01.jpg",
-    "alt": "Pokój — motyw podświetlonego łuku, wizualizacja"
+    "alt": "Pokój — motyw podświetlonego łuku, wizualizacja",
+    "w": 1800,
+    "h": 1200
    },
    {
     "src": "/img/chmielna-78/galeria-02.jpg",
-    "alt": "Pokój, wariant aranżacji — wizualizacja"
+    "alt": "Pokój, wariant aranżacji — wizualizacja",
+    "w": 1800,
+    "h": 1200
    },
    {
     "src": "/img/chmielna-78/galeria-05.jpg",
-    "alt": "Elewacja od strony ulicy — wizualizacja"
+    "alt": "Elewacja od strony ulicy — wizualizacja",
+    "w": 1800,
+    "h": 1126
    }
   ]
  },
@@ -201,11 +211,15 @@
   "images": [
    {
     "src": "/img/chmielna-78/rysunki-rzut-01.png",
-    "alt": "Rzut jednostki z metrażami"
+    "alt": "Rzut jednostki z metrażami",
+    "w": 768,
+    "h": 708
    },
    {
     "src": "/img/chmielna-78/rysunki-rzut-02.png",
-    "alt": "Rzut jednostki z metrażami"
+    "alt": "Rzut jednostki z metrażami",
+    "w": 768,
+    "h": 972
    }
   ]
  },
@@ -227,15 +241,21 @@
   "images": [
    {
     "src": "/img/kolobrzeg/01-hero.jpg",
-    "alt": "Unique Hotel Kołobrzeg — wizualizacja bryły o zachodzie słońca, mat. Marvipol Development"
+    "alt": "Unique Hotel Kołobrzeg — wizualizacja bryły o zachodzie słońca, mat. Marvipol Development",
+    "w": 1800,
+    "h": 1350
    },
    {
     "src": "/img/kolobrzeg/wizualizacje-01-bryla-od-plazy.jpg",
-    "alt": "Bryła hotelu widziana od strony plaży, wizualizacja KM Rubaszkiewicz"
+    "alt": "Bryła hotelu widziana od strony plaży, wizualizacja KM Rubaszkiewicz",
+    "w": 1800,
+    "h": 1272
    },
    {
     "src": "/img/kolobrzeg/wizualizacje-06-dron-od-morza.jpg",
-    "alt": "Ujęcie z drona od strony morza — hotel w pierwszej linii brzegowej"
+    "alt": "Ujęcie z drona od strony morza — hotel w pierwszej linii brzegowej",
+    "w": 1800,
+    "h": 1351
    }
   ]
  },
@@ -252,31 +272,45 @@
   "images": [
    {
     "src": "/img/kolobrzeg/wizualizacje-08-marvipol-wizualizacja.jpg",
-    "alt": "Wizualizacja inwestycji, mat. Marvipol Development"
+    "alt": "Wizualizacja inwestycji, mat. Marvipol Development",
+    "w": 1800,
+    "h": 1350
    },
    {
     "src": "/img/kolobrzeg/wnetrza-01-lobby.jpg",
-    "alt": "Lobby z całodobową recepcją"
+    "alt": "Lobby z całodobową recepcją",
+    "w": 1800,
+    "h": 1125
    },
    {
     "src": "/img/kolobrzeg/wnetrza-04-restauracja.jpg",
-    "alt": "Restauracja hotelowa"
+    "alt": "Restauracja hotelowa",
+    "w": 1800,
+    "h": 1125
    },
    {
     "src": "/img/kolobrzeg/wnetrza-07-basen.jpg",
-    "alt": "Basen w strefie wellness"
+    "alt": "Basen w strefie wellness",
+    "w": 1680,
+    "h": 1050
    },
    {
     "src": "/img/kolobrzeg/wnetrza-08-strefa-spa.jpg",
-    "alt": "Strefa SPA z saunami"
+    "alt": "Strefa SPA z saunami",
+    "w": 1680,
+    "h": 1050
    },
    {
     "src": "/img/kolobrzeg/wnetrza-09-pokoj.jpg",
-    "alt": "Apartament wykończony pod klucz w standardzie pięciogwiazdkowym"
+    "alt": "Apartament wykończony pod klucz w standardzie pięciogwiazdkowym",
+    "w": 1800,
+    "h": 1125
    },
    {
     "src": "/img/kolobrzeg/wnetrza-12-lazienka.jpg",
-    "alt": "Łazienka w apartamencie"
+    "alt": "Łazienka w apartamencie",
+    "w": 1100,
+    "h": 1760
    }
   ],
   "captions": [
@@ -299,7 +333,9 @@
   "images": [
    {
     "src": "/img/rotunda-m07/01-hero.jpg",
-    "alt": "Salon"
+    "alt": "Salon",
+    "w": 1800,
+    "h": 1201
    }
   ]
  },
@@ -316,11 +352,15 @@
   "images": [
    {
     "src": "/img/rotunda-m07/galeria-01.jpg",
-    "alt": "Jadalnia z aneksem kuchennym"
+    "alt": "Jadalnia z aneksem kuchennym",
+    "w": 1800,
+    "h": 1201
    },
    {
     "src": "/img/rotunda-m07/galeria-02.jpg",
-    "alt": "Sypialnia"
+    "alt": "Sypialnia",
+    "w": 1800,
+    "h": 1201
    }
   ]
  },
@@ -341,19 +381,27 @@
   "images": [
    {
     "src": "/img/rotunda-m07/galeria-04.jpg",
-    "alt": "Łazienka — podwójna umywalka"
+    "alt": "Łazienka — podwójna umywalka",
+    "w": 1800,
+    "h": 1201
    },
    {
     "src": "/img/rotunda-m07/galeria-06.jpg",
-    "alt": "Detal kuchni — kamień"
+    "alt": "Detal kuchni — kamień",
+    "w": 1800,
+    "h": 1201
    },
    {
     "src": "/img/rotunda-m07/galeria-07.jpg",
-    "alt": "Detal — kamienny blat"
+    "alt": "Detal — kamienny blat",
+    "w": 1201,
+    "h": 1800
    },
    {
     "src": "/img/rotunda-m07/galeria-05.jpg",
-    "alt": "Łazienka w firanach"
+    "alt": "Łazienka w firanach",
+    "w": 1800,
+    "h": 1201
    }
   ]
  },
@@ -373,7 +421,9 @@
   "images": [
    {
     "src": "/img/rotunda-m07/galeria-03.jpg",
-    "alt": "Korytarz z linią światła"
+    "alt": "Korytarz z linią światła",
+    "w": 1201,
+    "h": 1800
    }
   ]
  },
@@ -390,7 +440,9 @@
   "images": [
    {
     "src": "/img/rotunda-m07/rysunki-rzut-m07.png",
-    "alt": "Rzut mieszkania M07"
+    "alt": "Rzut mieszkania M07",
+    "w": 1800,
+    "h": 1614
    }
   ]
  },
@@ -422,7 +474,9 @@
   "images": [
    {
     "src": "/img/b-sides/01-hero.jpg",
-    "alt": "Mural Magdaleny Łapińskiej-Rozenbaum, nawiązujący do motywu wełny"
+    "alt": "Mural Magdaleny Łapińskiej-Rozenbaum, nawiązujący do motywu wełny",
+    "w": 1242,
+    "h": 965
    }
   ]
  },
@@ -438,11 +492,15 @@
   "images": [
    {
     "src": "/img/b-sides/galeria-01.jpg",
-    "alt": "Wnętrze showroomu — stropy 4 m, dębowy parkiet"
+    "alt": "Wnętrze showroomu — stropy 4 m, dębowy parkiet",
+    "w": 800,
+    "h": 533
    },
    {
     "src": "/img/b-sides/galeria-02.jpg",
-    "alt": "Ekspozycja dzianin przy granatowej kotarze"
+    "alt": "Ekspozycja dzianin przy granatowej kotarze",
+    "w": 1000,
+    "h": 1500
    }
   ]
  },
@@ -463,11 +521,15 @@
   "images": [
    {
     "src": "/img/b-sides/galeria-03.jpg",
-    "alt": "Wnękowe półki ekspozycyjne — detal"
+    "alt": "Wnękowe półki ekspozycyjne — detal",
+    "w": 1000,
+    "h": 1500
    },
    {
     "src": "/img/b-sides/galeria-04.jpg",
-    "alt": "Instalacja kwiatowo-warzywna CosmosPlantea"
+    "alt": "Instalacja kwiatowo-warzywna CosmosPlantea",
+    "w": 1000,
+    "h": 1500
    }
   ]
  },
@@ -485,11 +547,15 @@
   "images": [
    {
     "src": "/img/b-sides/galeria-05.jpg",
-    "alt": "Stół przygotowany na otwarcie butiku"
+    "alt": "Stół przygotowany na otwarcie butiku",
+    "w": 1000,
+    "h": 1500
    },
    {
     "src": "/img/b-sides/galeria-06.jpg",
-    "alt": "Otwarcie, 22 listopada 2022"
+    "alt": "Otwarcie, 22 listopada 2022",
+    "w": 1241,
+    "h": 1654
    }
   ],
   "caption": "WSPÓŁPRACA — Projekt wnętrza: Zofia Strumiłło STUDIO — Zofia Strumiłło, Barbara Iwańska · Projekt wykończenia i wdrożenie: Barbara Iwańska · Mural: Magdalena Łapińska-Rozenbaum · Oświetlenie: Chors · Zieleń: Bujnie, CosmosPlantea · Fotografie: @w_srodku"
@@ -509,7 +575,9 @@
   "images": [
    {
     "src": "/img/form-space/01-hero.jpg",
-    "alt": "Form Space — wizualizacja apartamentu w kamienicy przy Nowogrodzkiej 44"
+    "alt": "Form Space — wizualizacja apartamentu w kamienicy przy Nowogrodzkiej 44",
+    "w": 1800,
+    "h": 1202
    }
   ]
  },
@@ -540,7 +608,9 @@
   "images": [
    {
     "src": "/img/form-space/identyfikacja-01-zalozenia-systemu.jpg",
-    "alt": "Założenia systemu wizualnego Form Space — znak, kolory, typografia, nośniki na jednej planszy"
+    "alt": "Założenia systemu wizualnego Form Space — znak, kolory, typografia, nośniki na jednej planszy",
+    "w": 1800,
+    "h": 1273
    }
   ],
   "result": "Marka wdrożona wraz z pełną identyfikacją — od druku po stronę. Program wystawienniczy jako narzędzie PR."
@@ -557,23 +627,33 @@
   "images": [
    {
     "src": "/img/form-space/strategia-01-slowa-kluczowe.jpg",
-    "alt": "Słowa kluczowe marki Form Space"
+    "alt": "Słowa kluczowe marki Form Space",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/strategia-02-ton-glosu.jpg",
-    "alt": "Ton głosu marki — co mówimy i czego nie mówimy"
+    "alt": "Ton głosu marki — co mówimy i czego nie mówimy",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/strategia-03-benchmarki.jpg",
-    "alt": "Benchmarki rynkowe — analiza konkurencji w segmencie premium"
+    "alt": "Benchmarki rynkowe — analiza konkurencji w segmencie premium",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/strategia-04-pozycjonowanie.jpg",
-    "alt": "Mapa pozycjonowania Form Space na tle rynku"
+    "alt": "Mapa pozycjonowania Form Space na tle rynku",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/strategia-05-persona-goscia.jpg",
-    "alt": "Persona gościa — dla kogo tworzymy"
+    "alt": "Persona gościa — dla kogo tworzymy",
+    "w": 1800,
+    "h": 1273
    }
   ],
   "captions": [
@@ -592,23 +672,33 @@
   "images": [
    {
     "src": "/img/form-space/identyfikacja-02-logo-marki.jpg",
-    "alt": "Logo Form Space w wersji podstawowej i odwróconej"
+    "alt": "Logo Form Space w wersji podstawowej i odwróconej",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/identyfikacja-03-skalowalnosc-logo.jpg",
-    "alt": "Skalowalność znaku — od pełnego logotypu po sygnet"
+    "alt": "Skalowalność znaku — od pełnego logotypu po sygnet",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/identyfikacja-04-kolorystyka.jpg",
-    "alt": "Paleta marki Form Space"
+    "alt": "Paleta marki Form Space",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/identyfikacja-05-liternictwo.jpg",
-    "alt": "Liternictwo i konstrukcja nagłówków"
+    "alt": "Liternictwo i konstrukcja nagłówków",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/identyfikacja-06-detal-graficzny.jpg",
-    "alt": "Detal graficzny — kropka i znaczniki systemu"
+    "alt": "Detal graficzny — kropka i znaczniki systemu",
+    "w": 1800,
+    "h": 1273
    }
   ]
  },
@@ -624,31 +714,45 @@
   "images": [
    {
     "src": "/img/form-space/wystawy-01-cykl-n44.jpg",
-    "alt": "Cykl N°44 — program wspierania młodych artystek i artystów"
+    "alt": "Cykl N°44 — program wspierania młodych artystek i artystów",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/wystawy-02-sztuka-we-wnetrzach.jpg",
-    "alt": "Sztuka we wnętrzach — apartament jako galeria"
+    "alt": "Sztuka we wnętrzach — apartament jako galeria",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/wystawy-03-plakat-premiera.jpg",
-    "alt": "Plakat zapowiadający premierę wystawy"
+    "alt": "Plakat zapowiadający premierę wystawy",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/prace-artystek-ap1_50x70_img_6927.jpg",
-    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte"
+    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte",
+    "w": 1260,
+    "h": 1800
    },
    {
     "src": "/img/form-space/prace-artystek-ap2_100x70_img_6980.jpg",
-    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte"
+    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte",
+    "w": 1260,
+    "h": 1800
    },
    {
     "src": "/img/form-space/prace-artystek-ap4_100x70_img_7064.jpg",
-    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte"
+    "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte",
+    "w": 1260,
+    "h": 1800
    },
    {
     "src": "/img/form-space/wystawy-04-styl-zdjec.jpg",
-    "alt": "Styl zdjęć marki Form Space"
+    "alt": "Styl zdjęć marki Form Space",
+    "w": 1350,
+    "h": 1800
    }
   ],
   "captions": [
@@ -667,15 +771,21 @@
   "images": [
    {
     "src": "/img/form-space/design-system-01-tokeny-shadcn.jpg",
-    "alt": "Tokeny design systemu w konwencji shadcn/ui"
+    "alt": "Tokeny design systemu w konwencji shadcn/ui",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/design-system-02-komponenty-tryb-jasny.jpg",
-    "alt": "Komponenty interfejsu — tryb jasny"
+    "alt": "Komponenty interfejsu — tryb jasny",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/design-system-03-komponenty-tryb-noc.jpg",
-    "alt": "Komponenty interfejsu — tryb nocny"
+    "alt": "Komponenty interfejsu — tryb nocny",
+    "w": 1800,
+    "h": 1273
    }
   ]
  },
@@ -691,15 +801,21 @@
   "images": [
    {
     "src": "/img/form-space/www-01-strona-www.jpg",
-    "alt": "Kadr ze strony internetowej Form Space"
+    "alt": "Kadr ze strony internetowej Form Space",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/www-02-siatka-instagram.jpg",
-    "alt": "Siatka Instagrama zbudowana na systemie wizualnym"
+    "alt": "Siatka Instagrama zbudowana na systemie wizualnym",
+    "w": 1800,
+    "h": 1273
    },
    {
     "src": "/img/form-space/www-03-nosniki.jpg",
-    "alt": "Nośniki marki — kompozycje na podstawie design systemu"
+    "alt": "Nośniki marki — kompozycje na podstawie design systemu",
+    "w": 1800,
+    "h": 1273
    }
   ]
  },
@@ -716,15 +832,21 @@
   "images": [
    {
     "src": "/img/form-space/apartamenty-01-karta-ap-1.jpg",
-    "alt": "Karta apartamentu AP 1 przygotowana pod booking"
+    "alt": "Karta apartamentu AP 1 przygotowana pod booking",
+    "w": 1273,
+    "h": 1800
    },
    {
     "src": "/img/form-space/apartamenty-02-karta-ap-2.jpg",
-    "alt": "Karta apartamentu AP 2 przygotowana pod booking"
+    "alt": "Karta apartamentu AP 2 przygotowana pod booking",
+    "w": 1273,
+    "h": 1800
    },
    {
     "src": "/img/form-space/apartamenty-03-karta-ap-3.jpg",
-    "alt": "Karta apartamentu AP 3 przygotowana pod booking"
+    "alt": "Karta apartamentu AP 3 przygotowana pod booking",
+    "w": 1273,
+    "h": 1800
    }
   ]
  },

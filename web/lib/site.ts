@@ -1,6 +1,6 @@
 import { pages, type Page } from "./pages";
 
-export type Img = { src: string; alt: string };
+export type Img = { src: string; alt: string; w?: number; h?: number };
 export type Chapter = { title: string; body: string[]; images: Img[] };
 export type Project = {
   slug: string;

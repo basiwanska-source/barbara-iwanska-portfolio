@@ -15,7 +15,7 @@ export type Page = {
   captions?: string[];
   phases?: Phase[];
   toc?: TocGroup[];
-  images?: { src: string; alt: string }[];
+  images?: { src: string; alt: string; w?: number; h?: number }[];
   desc: string;
 };
 

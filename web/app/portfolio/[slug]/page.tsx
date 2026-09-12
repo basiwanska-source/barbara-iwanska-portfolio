@@ -16,7 +16,8 @@ export async function generateMetadata({ params }: PageProps<"/portfolio/[slug]"
   return { title: p ? `${p.title} · Barbara Iwańska · Design Management` : "Projekt", description: p?.context[0] };
 }
 
-const isTall = (im: Img) => /b-sides\/galeria-0[2-6]|karta-ap|rzut-l|prace-artystek|wystawy-03|rotunda-m07\/galeria-0[37]/.test(im.src);
+/** Kadr pionowy — w jednolitej ramce 7:5 pokazujemy go w całości, nie przycinamy. */
+const isTall = (im: Img) => !!im.w && !!im.h && im.w / im.h < 0.95;
 
 function Gallery({ images }: { images: Img[] }) {
   return (

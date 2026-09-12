@@ -1,7 +1,7 @@
 import { Track } from "./Track";
 import type { Img, Project } from "@/lib/site";
 
-const isTall = (im: Img) => /b-sides\/galeria-0[2-6]|karta-ap|rzut-l|prace-artystek|wystawy-03/.test(im.src);
+const isTall = (im: Img) => !!im.w && !!im.h && im.w / im.h < 0.95;
 
 function Photo({ im, k }: { im: Img; k: number }) {
   return (
