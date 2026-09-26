@@ -7,14 +7,16 @@ function Photo({ im, k }: { im: Img; k: number }) {
   return (
     <figure className={`s-card${isTall(im) ? " tall" : ""}`}>
       <div className="frame"><img alt={im.alt} loading="lazy" src={im.src} /></div>
-      <figcaption className="cap"><b>{String(k + 1).padStart(2, "0")}</b>{im.alt}</figcaption>
+      <figcaption className="cap"><b>{String(k + 1).padStart(2, "0")}</b><span>{im.alt}</span></figcaption>
     </figure>
   );
 }
 
 /** Projekt = pasmo feature (kadr 13/20 + jedno zdanie) → pasek kadrów → szczegóły zwinięte w <details>. */
 export function ProjectBlock({ p, flip }: { p: Project; flip?: boolean }) {
-  const lede = (p.context[0] ?? "").split(/(?<=\.)\s/)[0];
+  // Pełny pierwszy akapit kontekstu, nie samo pierwsze zdanie — opis projektu
+  // ma nieść treść, a nie tylko tytułowe zdanie.
+  const lede = p.context[0] ?? "";
   return (
     <>
       {p.hero && (
