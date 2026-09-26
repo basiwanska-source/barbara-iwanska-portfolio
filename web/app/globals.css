@@ -728,10 +728,13 @@ body.search-open .search-bar {
 }
 
 /* ============ FOOTER ============ */
+/* Stopka: grafit #222222 — ten sam co w manifeście — i krój bezszeryfowy
+   na całości. Szeryf zostaje w tekście czytanym, nie w nawigacji stopki. */
 .site-footer {
-	background: var(--ink);
+	background: #222222;
 	color: var(--white);
 	padding-top: 56px;
+	font-family: var(--font-inter), system-ui, sans-serif;
 }
 .footer-cols {
 	display: grid;
@@ -908,7 +911,7 @@ html { scroll-behavior: smooth; }
 
 /* Grafit zamiast pełnej czerni — próbka z sekcji „From the Quarterly" na gagosian.com. */
 .manifest { position: relative; overflow: hidden; background: #222222; }
-.manifest .hero-text { position: static; inset: auto; align-items: flex-start; text-align: left; padding: clamp(56px, 8vw, 110px) var(--pad) clamp(48px, 7vw, 96px); background: none; text-shadow: none; }
+.manifest .hero-text { position: static; inset: auto; align-items: flex-start; text-align: left; padding: clamp(96px, 13vw, 180px) var(--pad) clamp(88px, 12vw, 164px); background: none; text-shadow: none; }
 .manifest h2 { font-size: clamp(26px, 4vw, 54px); font-weight: 500; line-height: 1.08; max-width: 18ch; }
 /* Liczniki rozłożone siatką na pełną szerokość — rozwiązanie z sekcji liczb
    Bespoke Estates: repeat(auto-fit, minmax(...)), przez co ostatnia pozycja
