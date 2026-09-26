@@ -450,11 +450,64 @@
   "n": 17,
   "section": "Osiedle Senza",
   "kicker": "MARVIPOL DEVELOPMENT · NADZÓR PROJEKTOWY",
-  "title": "Osiedle Senza",
+  "title": "Osiedle Senza · Warszawa",
   "body": [
-   "Nadzór projektowy nad częściami wspólnymi osiedla: akceptacje materiałowe, koordynacja biura projektowego z wykonawcami, kontrola zgodności realizacji ze standardem inwestycji."
+   "Nadzór projektowy nad częściami wspólnymi osiedla: akceptacje materiałowe, koordynacja biura projektowego z wykonawcami, kontrola zgodności realizacji ze standardem inwestycji.",
+   "Trzy czterokondygnacyjne budynki ze 146 mieszkaniami na Tarchominie, w sąsiedztwie rezerwatu „Ławice Kiełpińskie”. Części wspólne oparto na jasnej palecie, drewnie i lastryko — spójność tych materiałów w realizacji była przedmiotem nadzoru."
   ],
-  "desc": "Osiedle Senza — nadzór projektowy (w .indd tylko pozycja w spisie treści; treść strony do uzupełnienia)."
+  "desc": "Osiedle Senza — nadzór projektowy nad częściami wspólnymi. Wizualizacje z materiałów inwestora.",
+  "meta": [
+   "3 budynki · 4 kondygnacje",
+   "146 mieszkań · 27–83 m²",
+   "Części wspólne",
+   "Warszawa, Białołęka / Tarchomin"
+  ],
+  "bullets": [
+   "Akceptacje materiałowe dla części wspólnych",
+   "Koordynacja biura projektowego z wykonawcami",
+   "Kontrola zgodności realizacji ze standardem inwestycji"
+  ],
+  "captions": [
+   "Wizualizacje · materiały Marvipol Development"
+  ],
+  "images": [
+   {
+    "src": "/img/senza/01-hero.jpg",
+    "alt": "Zabudowa od strony zieleni",
+    "w": 1920,
+    "h": 1250
+   },
+   {
+    "src": "/img/senza/galeria-01.jpg",
+    "alt": "Korytarz i oznakowanie części wspólnych",
+    "w": 1920,
+    "h": 1250
+   },
+   {
+    "src": "/img/senza/galeria-02.jpg",
+    "alt": "Dziedziniec między budynkami",
+    "w": 1920,
+    "h": 1250
+   },
+   {
+    "src": "/img/senza/galeria-03.jpg",
+    "alt": "Elewacja z balkonami",
+    "w": 1920,
+    "h": 1250
+   },
+   {
+    "src": "/img/senza/galeria-04.jpg",
+    "alt": "Osiedle z lotu ptaka",
+    "w": 1920,
+    "h": 1250
+   },
+   {
+    "src": "/img/senza/galeria-05.jpg",
+    "alt": "Sąsiedztwo rezerwatu Ławice Kiełpińskie",
+    "w": 1920,
+    "h": 1050
+   }
+  ]
  },
  {
   "n": 18,
@@ -746,12 +799,6 @@
     "src": "/img/form-space/prace-artystek-ap4_100x70_img_7064.jpg",
     "alt": "Praca z cyklu wystawianego w apartamencie, fot. Gwen Bolte",
     "w": 1260,
-    "h": 1800
-   },
-   {
-    "src": "/img/form-space/wystawy-04-styl-zdjec.jpg",
-    "alt": "Styl zdjęć marki Form Space",
-    "w": 1350,
     "h": 1800
    }
   ],

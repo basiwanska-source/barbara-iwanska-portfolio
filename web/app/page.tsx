@@ -5,7 +5,6 @@ import { Phases } from "@/components/site/Phases";
 import { ProjectBlock } from "@/components/site/ProjectBlock";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
-import { Wall } from "@/components/site/Wall";
 import { projects } from "@/lib/site";
 
 export default function Home() {
@@ -16,9 +15,8 @@ export default function Home() {
       <SiteHeader />
       <main className="site-main">
         <Hero slides={slides} />
-        <Wall />
-        <Manifest />
         <Phases />
+        <Manifest />
         {projects.map((p, i) => <ProjectBlock key={p.slug} p={p} flip={i % 2 === 1} />)}
         <ContactSection />
       </main>

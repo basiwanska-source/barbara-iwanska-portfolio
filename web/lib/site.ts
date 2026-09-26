@@ -24,7 +24,7 @@ const GROUPS: { slug: string; match: (s: string) => boolean; employer: string; p
   { slug: "golden-tulip", match: (s) => s.startsWith("Golden Tulip"), employer: "Marvipol Development", period: "2023–2025" },
   { slug: "kolobrzeg", match: (s) => s.startsWith("Unique Hotel"), employer: "Marvipol Development", period: "nadzór projektowy" },
   { slug: "rotunda-m07", match: (s) => s.startsWith("Rotunda"), employer: "Marvipol Development", period: "nadzór projektowy" },
-  { slug: "senza", match: (s) => s.startsWith("Osiedle Senza"), employer: "Marvipol Development", period: "nadzór projektowy", missing: "Materiały w przygotowaniu" },
+  { slug: "senza", match: (s) => s.startsWith("Osiedle Senza"), employer: "Marvipol Development", period: "nadzór projektowy" },
   { slug: "b-sides", match: (s) => s.startsWith("B Sides"), employer: "Zofia Strumiłło Studio", period: "2021–2022" },
   { slug: "form-space", match: (s) => s.startsWith("Form Space"), employer: "B5A", period: "2025 — obecnie" },
 ];
