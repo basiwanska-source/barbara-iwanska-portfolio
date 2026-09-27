@@ -38,7 +38,10 @@ export const projects: Project[] = GROUPS.map((g, i) => {
   const role = ps.flatMap((p) => p.bullets ?? []);
   const result = ps.map((p) => p.result).find(Boolean);
   const credits = Array.from(new Set(ps.flatMap((p) => [p.caption, ...(p.captions ?? [])]).filter((c): c is string => !!c && /WSPÓŁPRACA|Wizualizacj|fot\.|Rzut ·/.test(c))));
-  const allImgs = ps.flatMap((p) => p.images ?? []);
+  // Bez powtórzeń: ten sam kadr bywa jednocześnie otwarciem rozdziału
+  // i ilustracją strony broszury — w galerii ma się pojawić raz.
+  const wszystkie = ps.flatMap((p) => p.images ?? []);
+  const allImgs = wszystkie.filter((im, i) => wszystkie.findIndex((x) => x.src === im.src) === i);
   const hero = allImgs[0];
   // Form Space: chapters per sub-section; others: one gallery
   const sub = ps.filter((p) => p.section !== opener.section || /^(PROJEKT|STREFY|RZUT|REALIZACJA)/.test(p.kicker));

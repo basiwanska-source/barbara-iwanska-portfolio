@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Libre_Caslon_Text, Oswald } from "next/font/google";
 import "./globals.css";
+import { RevealOnScroll } from "@/components/site/RevealOnScroll";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin", "latin-ext"], weight: ["200", "300", "400", "500"] });
 const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin", "latin-ext"], weight: ["200", "300", "400"] });
@@ -17,7 +18,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="pl" className={`${inter.variable} ${oswald.variable} ${caslon.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <RevealOnScroll />
+      </body>
     </html>
   );
 }

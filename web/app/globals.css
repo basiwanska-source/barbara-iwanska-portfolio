@@ -670,6 +670,28 @@ body.search-open .search-bar {
 	height: auto;
 	object-fit: cover;
 }
+
+/* Kadr z paralaksą (ParallaxImage.tsx). Ramka trzyma proporcje oryginału,
+   więc wysokość bloku zostaje ta sama co przy zwykłym zdjęciu. Obraz jest
+   od niej wyższy o 9% z góry i z dołu — to zapas na ruch. */
+.paralaksa {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+.paralaksa img {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -9%;
+	width: 100%;
+	height: 118%;
+	object-fit: cover;
+	will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+	.paralaksa img { position: static; top: 0; height: auto; transform: none !important; }
+}
 .feature-image .overlay-btn {
 	position: absolute;
 	inset: 0;
@@ -869,6 +891,27 @@ body.search-open .search-bar {
 .p-note { font-size: 13px; color: var(--grey-500); text-transform: uppercase; letter-spacing: 0.06em; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } }
 
+/* Wyłanianie tekstu przy przewijaniu (RevealOnScroll.tsx) — za
+   houseofhoney.com/studio: przezroczystość, przesunięcie i zejście
+   z rozmycia. Jedna krzywa dla całej strony. */
+.zjawia {
+	opacity: 0;
+	transform: translateY(14px);
+	filter: blur(6px);
+	transition: opacity 0.9s, transform 0.9s, filter 0.9s;
+	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.zjawia.widoczne {
+	opacity: 1;
+	transform: none;
+	filter: none;
+}
+/* Co było w kadrze od razu — bez animacji, żeby nic nie mrugnęło. */
+.zjawia.bez-ruchu { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+	.zjawia { opacity: 1; transform: none; filter: none; transition: none; }
+}
+
 /* ── Broszura (/broszura, /strona/N): własne tokeny, zakres .broszura ── */
 :root {
   --bg: #f4f1ec;
@@ -933,12 +976,25 @@ html { scroll-behavior: smooth; }
 .phase b { display: block; font-size: clamp(16px, 1.5vw, 22px); font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.2; }
 .phase span { display: block; font-size: 13px; line-height: 1.45; margin-top: 8px; opacity: 0.9; }
 
-.strip .s-card { flex-basis: 84%; }
-@media (min-width: 768px) { .strip .s-card { flex-basis: 56%; } }
-@media (min-width: 1280px) { .strip .s-card { flex-basis: calc((100% - var(--gap)) / 2 - 1px); } }
-.strip .s-card .frame { aspect-ratio: 3 / 2; }
-.strip .s-card.tall .frame { aspect-ratio: 4 / 5; }
-@media (min-width: 1280px) { .strip .s-card.tall { flex-basis: calc((100% - 2 * var(--gap)) / 3 - 1px); } }
+/* Pasmo kadrów: wszystkie zdjęcia tej samej wysokości. Szerokość karty
+   wynika z proporcji samego zdjęcia — pionowe są węższe, poziome szersze,
+   ale górna i dolna krawędź pasma zawsze się zgadza. Wcześniej kadry
+   pionowe dostawały inne proporcje i wystawały ponad rząd. */
+.strip .carousel-track { align-items: flex-start; }
+.strip .s-card,
+.strip .s-card.tall {
+	flex: 0 0 auto;
+	width: auto;
+	max-width: min(92vw, 100%);
+}
+.strip .s-card .frame,
+.strip .s-card.tall .frame {
+	/* Proporcje przychodzą stylem z danych zdjęcia; tu narzucamy tylko
+	   wysokość, więc szerokość wylicza się z nich jednoznacznie. */
+	height: clamp(220px, 34vw, 480px);
+	width: auto;
+	max-width: min(92vw, 100%);
+}
 
 .p-details { border-top: 1px solid var(--grey-50); margin-top: 26px; }
 .p-details summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 18px 0; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -1102,6 +1158,26 @@ h1, h2, h3, h4, h5, h6 {
    wysokość 50 px (od 1024 px — 52 px), pozycje menu 16 px odstępu wewnętrznego. */
 .hdr-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 50px; }
 @media (min-width: 1024px) { .hdr-row { height: 52px; } }
+/* „Let's talk!" w lewej strefie paska — mikroetykieta wersalikami,
+   w kolorze dziedziczonym po nagłówku (biała nad hero, czarna po zjechaniu). */
+.hdr-talk {
+	grid-column: 1;
+	justify-self: start;
+	display: none;
+	font-family: var(--font-inter), system-ui, sans-serif;
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	padding-inline: 16px;
+	margin-left: -16px;
+	opacity: 0.85;
+	transition: opacity 0.25s;
+}
+.hdr-talk:hover { opacity: 1; }
+@media (min-width: 1024px) { .hdr-talk { display: block; } }
+
 /* Lewa kolumna zostaje pusta: logotyp trzyma środkową, menu i hamburger prawą.
    Dzięki 1fr auto 1fr logotyp stoi na osi strony, nie na osi swojej kolumny. */
 .hdr .site-logo { text-indent: 0.34em; grid-column: 2; justify-self: center; }
@@ -1111,7 +1187,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 1024px) { .hdr-end { margin-right: -16px; } }
 .hdr-nav { display: none; align-items: center; }
 @media (min-width: 1024px) { .hdr-nav { display: flex; } }
-.hdr-nav a { position: relative; padding-inline: 16px; font-family: var(--font-caslon), Georgia, serif; font-size: 12px; line-height: 1.3; letter-spacing: -0.01em; white-space: nowrap; text-transform: none; }
+/* Pozycje menu w tej samej metryce co „Let's talk!" — mikroetykieta
+   wersalikami: Inter 10 px, rozstrzelenie +0,2em. */
+.hdr-nav a { position: relative; padding-inline: 16px; font-family: var(--font-inter), system-ui, sans-serif; font-size: 10px; font-weight: 500; line-height: 1.3; letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
 
 /* Etykieta „przewijana" przy najechaniu — podpis nawigacji Kelly Wearstler.
    Napis wyjeżdża w górę, bliźniaczy wjeżdża spod spodu. 0,7 s na ich krzywej. */

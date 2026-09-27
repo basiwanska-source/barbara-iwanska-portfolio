@@ -1,3 +1,4 @@
+import { ParallaxImage } from "./ParallaxImage";
 import { Track } from "./Track";
 import type { Img, Project } from "@/lib/site";
 
@@ -6,7 +7,7 @@ const isTall = (im: Img) => !!im.w && !!im.h && im.w / im.h < 0.95;
 function Photo({ im, k }: { im: Img; k: number }) {
   return (
     <figure className={`s-card${isTall(im) ? " tall" : ""}`}>
-      <div className="frame"><img alt={im.alt} loading="lazy" src={im.src} /></div>
+      <div className="frame" style={im.w && im.h ? { aspectRatio: `${im.w} / ${im.h}` } : undefined}><img alt={im.alt} loading="lazy" src={im.src} /></div>
       <figcaption className="cap"><b>{String(k + 1).padStart(2, "0")}</b><span>{im.alt}</span></figcaption>
     </figure>
   );
@@ -21,7 +22,7 @@ export function ProjectBlock({ p, flip }: { p: Project; flip?: boolean }) {
     <>
       {p.hero && (
         <section className={flip ? "feature flip" : "feature"} id={p.slug}>
-          <div className="feature-image"><img alt={p.hero.alt} loading="lazy" src={p.hero.src} /></div>
+          <div className="feature-image"><ParallaxImage im={p.hero} /></div>
           <div className="feature-text">
             <span className="label">{p.no} · {p.employer} · {p.period}</span>
             <h2 style={{ marginTop: 12 }}>{p.title}</h2>

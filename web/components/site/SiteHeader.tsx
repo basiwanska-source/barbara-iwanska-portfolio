@@ -30,6 +30,7 @@ export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
     <>
       <header className={`hdr${solid || menuOpen || solidAlways ? " solid" : ""}`}>
         <div className="shell hdr-row">
+          <a className="hdr-talk" href="mailto:bas.iwanska@gmail.com">Let&rsquo;s talk!</a>
           <Link className="site-logo" href="/">Barbara Iwańska</Link>
           <div className="hdr-end">
             <nav className="hdr-nav">
