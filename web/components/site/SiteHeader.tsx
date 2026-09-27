@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { Search } from "./Search";
 import { useEffect, useState } from "react";
 
 const NAV = [
@@ -43,6 +44,7 @@ export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
                 </a>
               ))}
             </nav>
+            <Search />
             <button aria-label="Menu" className="icon-btn hamburger-wrap" onClick={() => setMenuOpen((v) => !v)} type="button">
               <span className="hamburger"><span /><span /><span /></span>
             </button>
