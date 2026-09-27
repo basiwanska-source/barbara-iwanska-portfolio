@@ -27,7 +27,6 @@ export function ProjectBlock({ p, flip }: { p: Project; flip?: boolean }) {
             <span className="label">{p.no} · {p.employer} · {p.period}</span>
             <h2 style={{ marginTop: 12 }}>{p.title}</h2>
             <p className="lede">{lede}</p>
-            {p.meta.length > 0 && <p className="feature-meta">{p.meta.slice(0, 3).join(" · ")}</p>}
             <a className="link-more" href={`/portfolio/${p.slug}`}>Zobacz projekt</a>
           </div>
         </section>
