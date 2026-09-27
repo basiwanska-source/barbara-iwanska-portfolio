@@ -1041,9 +1041,13 @@ html { scroll-behavior: smooth; }
 
 /* Linia metryki pod opisem i odnośnik „Zobacz projekt" — bezszeryfowe.
    To etykiety nawigacyjne, nie tekst czytany. */
+/* Etykiety i podpisy — bezszeryfowo. Kolory zostają takie, jakie były:
+   .cap szary, .cap b czarny, .p-meta i .feature-meta szare. */
 .feature-meta,
 .p-meta,
-.link-more {
+.link-more,
+.s-card .cap,
+.pp-grid figcaption {
 	font-family: var(--font-inter), system-ui, sans-serif;
 }
 .feature-meta,
