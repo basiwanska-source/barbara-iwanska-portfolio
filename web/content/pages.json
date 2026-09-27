@@ -633,10 +633,10 @@
   "desc": "Otwarcie rozdziału Form Space: rola w B5A, metryka projektu.",
   "images": [
    {
-    "src": "/img/form-space/01-hero.jpg",
-    "alt": "Form Space — wizualizacja apartamentu w kamienicy przy Nowogrodzkiej 44",
+    "src": "/img/form-space/wystawy-02-sztuka-we-wnetrzach.jpg",
+    "alt": "Sztuka we wnętrzach — apartament jako galeria",
     "w": 1800,
-    "h": 1202
+    "h": 1273
    }
   ]
  },
@@ -883,6 +883,12 @@
   "caption": "NOWOGRODZKA 44 · APARTAMENTY — dokumentacja fotograficzna, fot. Barbara Iwańska.",
   "desc": "Karty apartamentów i dokumentacja fotograficzna Nowogrodzkiej 44.",
   "images": [
+   {
+    "src": "/img/form-space/01-hero.jpg",
+    "alt": "Form Space — wizualizacja apartamentu w kamienicy przy Nowogrodzkiej 44",
+    "w": 1800,
+    "h": 1202
+   },
    {
     "src": "/img/form-space/apartamenty-01-karta-ap-1.jpg",
     "alt": "Karta apartamentu AP 1 przygotowana pod booking",
