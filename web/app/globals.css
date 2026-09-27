@@ -978,11 +978,12 @@ html { scroll-behavior: smooth; }
 .hc-lede,
 .feature-text p,
 .feature .feature-text .lede {
-	font-size: 15px;
-	line-height: 1.65;
+	font-size: 14px;
+	line-height: 1.7;
 	font-weight: 400;
 	word-spacing: -0.03em;
 	letter-spacing: 0.01em;
+	margin-bottom: 30px;
 }
 
 /* ── Wyszukiwarka (Search.tsx): lupka w prawej strefie nagłówka ── */
@@ -1037,6 +1038,22 @@ html { scroll-behavior: smooth; }
 	padding: 12px; color: var(--grey-500);
 	font-size: 14px;
 }
+
+/* Linia metryki pod opisem i odnośnik „Zobacz projekt" — bezszeryfowe.
+   To etykiety nawigacyjne, nie tekst czytany. */
+.feature-meta,
+.link-more {
+	font-family: var(--font-inter), system-ui, sans-serif;
+}
+.feature-meta {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.4;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	margin-bottom: 26px;
+}
+.link-more { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
 
 /* Tytuły zostają bezszeryfowe — tak jak przed przejściem na Caslona.
    Szeryf obowiązuje w tekście czytanym, nie w nagłówkach. */
@@ -1124,7 +1141,7 @@ h1, h2, h3, h4, h5, h6 {
    clamp(48px, 7vw, 96px), zamiast dawnych 28 px na sztywno. */
 .hc-ui { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: 34px; padding-bottom: clamp(48px, 7vw, 96px); }
 .hc-title { font-size: clamp(36px, 6.8vw, 100px); font-weight: 500; line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 clamp(28px, 3.4vw, 48px) -0.03em; animation: hcUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.hc-lede { font-size: 15px; line-height: 1.65; word-spacing: -0.03em; letter-spacing: 0.01em; max-width: 52ch; opacity: 0.92; animation: hcUp 1s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.hc-lede { font-size: 14px; line-height: 1.7; word-spacing: -0.03em; letter-spacing: 0.01em; max-width: 52ch; opacity: 0.92; animation: hcUp 1s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 @keyframes hcUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .hc-stage img.on, .hc-title, .hc-lede { animation: none; } }
 
