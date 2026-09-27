@@ -1042,17 +1042,19 @@ html { scroll-behavior: smooth; }
 /* Linia metryki pod opisem i odnośnik „Zobacz projekt" — bezszeryfowe.
    To etykiety nawigacyjne, nie tekst czytany. */
 .feature-meta,
+.p-meta,
 .link-more {
 	font-family: var(--font-inter), system-ui, sans-serif;
 }
-.feature-meta {
+.feature-meta,
+.p-meta {
 	font-size: 12px;
 	font-weight: 500;
 	line-height: 1.4;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
-	margin-bottom: 26px;
 }
+.feature-meta { margin-bottom: 26px; }
 .link-more { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
 
 /* Tytuły zostają bezszeryfowe — tak jak przed przejściem na Caslona.
