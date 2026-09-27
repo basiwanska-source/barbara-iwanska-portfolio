@@ -890,12 +890,6 @@
   "desc": "Karty apartamentów i dokumentacja fotograficzna Nowogrodzkiej 44.",
   "images": [
    {
-    "src": "/img/form-space/01-hero.jpg",
-    "alt": "Form Space — wizualizacja apartamentu w kamienicy przy Nowogrodzkiej 44",
-    "w": 1800,
-    "h": 1202
-   },
-   {
     "src": "/img/form-space/apartamenty-01-karta-ap-1.jpg",
     "alt": "Karta apartamentu AP 1 przygotowana pod booking",
     "w": 1273,
