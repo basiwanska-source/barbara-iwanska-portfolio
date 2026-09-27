@@ -256,6 +256,18 @@
     "alt": "Unique Hotel Kołobrzeg — wizualizacja bryły o zachodzie słońca, mat. Marvipol Development",
     "w": 1800,
     "h": 1350
+   },
+   {
+    "src": "/img/kolobrzeg/wizualizacje-01-bryla-od-plazy.jpg",
+    "alt": "Bryła hotelu widziana od strony plaży, wizualizacja KM Rubaszkiewicz",
+    "w": 1800,
+    "h": 1272
+   },
+   {
+    "src": "/img/kolobrzeg/wizualizacje-06-dron-od-morza.jpg",
+    "alt": "Ujęcie z drona od strony morza — hotel w pierwszej linii brzegowej",
+    "w": 1800,
+    "h": 1351
    }
   ]
  },
@@ -270,6 +282,12 @@
   ],
   "desc": "Pełny opis inwestycji w Kołobrzegu i zakres nadzoru projektowego; wizualizacja biura KM Rubaszkiewicz.",
   "images": [
+   {
+    "src": "/img/kolobrzeg/wizualizacje-08-marvipol-wizualizacja.jpg",
+    "alt": "Wizualizacja inwestycji, mat. Marvipol Development",
+    "w": 1800,
+    "h": 1350
+   },
    {
     "src": "/img/kolobrzeg/wnetrza-01-lobby.jpg",
     "alt": "Lobby z całodobową recepcją",
@@ -305,24 +323,6 @@
     "alt": "Łazienka w apartamencie",
     "w": 1100,
     "h": 1760
-   },
-   {
-    "src": "/img/kolobrzeg/wizualizacje-01-bryla-od-plazy.jpg",
-    "alt": "Bryła hotelu widziana od strony plaży, wizualizacja KM Rubaszkiewicz",
-    "w": 1800,
-    "h": 1272
-   },
-   {
-    "src": "/img/kolobrzeg/wizualizacje-06-dron-od-morza.jpg",
-    "alt": "Ujęcie z drona od strony morza — hotel w pierwszej linii brzegowej",
-    "w": 1800,
-    "h": 1351
-   },
-   {
-    "src": "/img/kolobrzeg/wizualizacje-08-marvipol-wizualizacja.jpg",
-    "alt": "Wizualizacja inwestycji, mat. Marvipol Development",
-    "w": 1800,
-    "h": 1350
    }
   ],
   "captions": [

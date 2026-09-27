@@ -29,6 +29,21 @@ const GROUPS: { slug: string; match: (s: string) => boolean; employer: string; p
   { slug: "form-space", match: (s) => s.startsWith("Form Space"), employer: "B5A", period: "2025 — obecnie" },
 ];
 
+/** Podpisy zdradzające kadr z zewnątrz — te lądują na końcu karuzeli. */
+const ZEWNETRZE = ["elewacj", "bryl", "z lotu ptaka", "drona", "od strony plazy", "od strony morza", "dziedzinie", "zabudow", "sasiedztw", "wizualizacja inwestycji"];
+
+const bezOgonkow = (s: string) =>
+  s.toLowerCase().replaceAll("\u0142", "l").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+const czyZewnetrze = (im: Img) => {
+  const opis = bezOgonkow(im.alt);
+  return ZEWNETRZE.some((k) => opis.includes(k));
+};
+
+/** Karuzela zaczyna się od wnętrz, ujęcia z zewnątrz idą na koniec.
+ *  Kolejność wewnątrz każdej z grup zostaje taka, jak w treści. */
+const wnetrzaNajpierw = (imgs: Img[]) => [...imgs.filter((im) => !czyZewnetrze(im)), ...imgs.filter(czyZewnetrze)];
+
 const isOpener = (p: Page) => !!p.meta && p.n !== 1 && p.n !== 2 && p.n !== 33;
 
 export const projects: Project[] = GROUPS.map((g, i) => {
@@ -69,7 +84,7 @@ export const projects: Project[] = GROUPS.map((g, i) => {
     result,
     credits,
     hero,
-    gallery: allImgs.slice(1),
+    gallery: wnetrzaNajpierw(allImgs.slice(1)),
     chapters,
     pages: ps.map((p) => p.n),
     missing: g.missing,
