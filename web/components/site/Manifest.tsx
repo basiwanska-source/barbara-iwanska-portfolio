@@ -1,17 +1,13 @@
-import { Counter } from "./Counter";
-import { stats } from "@/lib/site";
+import { Marquee } from "./Marquee";
 
-/** Manifest: jedno zdanie i liczby na grafitowym polu — zamiast bloku tekstu. */
+/** Manifest: jedno zdanie na grafitowym polu, na pełną wysokość okna,
+ *  z wielkim napisem przesuwającym się w tle. */
 export function Manifest() {
   return (
     <section className="manifest" id="o-mnie">
+      <Marquee className="bieznik bieznik-tlo" tempo={42} tresc={["BASED IN WARSAW"]} />
       <div className="hero-text shell">
         <h2>Od zakresu i budżetu, przez akceptacje materiałowe, po odbiory.</h2>
-        <div className="stats">
-          {stats.map((s) => (
-            <div key={s.label}><Counter value={s.value} suffix={s.suffix} className="" /><span>{s.label}</span></div>
-          ))}
-        </div>
       </div>
     </section>
   );

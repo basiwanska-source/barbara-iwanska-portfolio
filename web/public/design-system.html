@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design system · Barbara Iwańska · Design Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENY — konwencja shadcn/ui, wartości odczytane z działającej
+   strony. Nazwy semantyczne (do czego), nie opisowe (jak wygląda):
+   dzięki temu zmiana odcienia nie wymaga zmiany nazwy w kodzie.
+   ============================================================ */
+:root {
+  /* — powierzchnie i treść — */
+  --background:            #f4f1ec;   /* ciepła biel, tło strony */
+  --foreground:            #141210;   /* tekst podstawowy */
+  --card:                  #ffffff;   /* pola jaśniejsze od tła */
+  --card-foreground:       #141210;
+  --inverted:              #222222;   /* grafit: manifest i stopka */
+  --inverted-foreground:   #ffffff;
+
+  /* — treść drugorzędna — */
+  --muted:                 #e6e6e6;   /* wypełnienia bierne */
+  --muted-foreground:      #6b6560;   /* podpisy, metryki */
+  --subtle-foreground:     #757575;   /* mikroetykiety */
+
+  /* — linie i akcent — */
+  --border:                #d9d3cb;
+  --border-strong:         #4a4a4a;
+  --accent:                #6b3a3a;   /* „Latka kasztan”, próbka z .indd */
+  --accent-foreground:     #ffffff;
+
+  /* — paleta rozszerzona —
+     Zestaw ziemistych podłoży i jednego koralu, który na każdym z nich
+     wygląda inaczej. Koral jest jedyną barwą „mówiącą”;
+     pozostałe trzy są tłem i nie konkurują ze sobą.
+     Brąz to praktycznie Twój kasztan — różnią się o 1,1 : 1, czyli
+     dla oka niczym. Ta paleta nie jest więc obca systemowi, tylko go
+     rozbudowuje wokół barwy, którą już masz. */
+  --ziemia-koral:          #ee7f6d;   /* jedyny akcent mówiący */
+  --ziemia-taupe:          #84705e;   /* szarozielone podłoże */
+  --ziemia-braz:           #66371e;   /* podłoże, rodzina kasztana */
+  --ziemia-oliwka:         #584c2a;   /* podłoże najciemniejsze */
+
+  /* — promień —
+     Wszystko jest prostokątne. Jedyny wyjątek to przełącznik, który
+     bez zaokrąglenia przestaje czytać się jako przełącznik. */
+  --radius:                0px;       /* zasada: bez zaokrągleń */
+  --radius-toggle:         9999px;    /* jedyny wyjątek: przełącznik */
+
+  /* — mapowanie shadcn/ui na markę —
+     Nazwy po lewej to standard biblioteki; wartości po prawej to Twoje
+     barwy. Dzięki temu komponenty shadcn wyglądają jak Twoja strona,
+     a nie jak domyślny motyw. */
+  --primary:               var(--foreground);
+  --primary-foreground:    var(--card);
+  --secondary:             var(--muted);
+  --secondary-foreground:  var(--foreground);
+  --destructive:           #b0432f;   /* rodzina koralu, przyciemniona */
+  --destructive-foreground:#ffffff;
+  --ring:                  var(--ziemia-koral);  /* obrys fokusu — koral */
+  --input:                 var(--border);
+
+  /* — kroje — */
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:    "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-label:   "Inter", system-ui, sans-serif;
+
+  /* — skala stopni — */
+  --text-micro: 10px;
+  --text-meta:  12px;
+  --text-body:  14px;
+  --text-lead:  15px;
+  --text-h3:    clamp(16px, 1.5vw, 22px);
+  --text-h2:    clamp(20px, 2.2vw, 30px);
+  --text-h1:    clamp(26px, 4vw, 54px);
+  --text-hero:  clamp(36px, 6.8vw, 100px);
+
+  /* — światło międzyliterowe — */
+  --track-tight:  -0.02em;
+  --track-body:    0.01em;
+  --track-label:   0.20em;
+  --track-logo:    0.34em;
+
+  /* — rytm pionowy — */
+  --space-section: clamp(88px, 12vw, 180px);
+  --space-block:   clamp(40px, 5vw, 64px);
+  --space-pad:     clamp(16px, 4vw, 84px);
+
+  /* — ruch — */
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-roll:   cubic-bezier(0.16, 1.08, 0.38, 0.98);
+  --ease-soft:   cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-reveal:  0.9s;
+  --dur-roll:    0.7s;
+  --dur-hover:   0.5s;
+}
+
+/* ============================================================
+   MOTYW CIEMNY — propozycja.
+   Nie jest odwróceniem jasnego: barwy są dobrane od nowa, bo
+   proste odwrócenie daje szarość bez ciepła. Tło jest ciepłą
+   czernią, nie #000 — tak samo jak tekst w motywie jasnym nie
+   jest czystą czernią. Kasztan trzeba było rozjaśnić: oryginalny
+   #6b3a3a ma na ciemnym tle 1,9 : 1, czyli jest nieczytelny.
+   ============================================================ */
+[data-motyw="ciemny"] {
+  --background:            #1b1917;   /* ciepła czerń */
+  --foreground:            #ece6dd;   /* ciepła biel · 14,1 : 1 */
+  --card:                  #232120;   /* pola ledwie jaśniejsze od tła */
+  --card-foreground:       #ece6dd;
+  --inverted:              #ece6dd;   /* pole odwrócone = jasne */
+  --inverted-foreground:   #1b1917;
+
+  --muted:                 #2c2926;
+  --muted-foreground:      #a29a90;   /* 6,3 : 1 */
+  --subtle-foreground:     #8b8379;   /* 4,7 : 1 */
+
+  --border:                #403b35;
+  --border-strong:         #6b645c;
+  --accent:                #c98a7f;   /* kasztan rozjaśniony · 6,2 : 1 */
+  --accent-foreground:     #1b1917;
+
+  --primary:               var(--foreground);
+  --primary-foreground:    var(--background);
+  --secondary:             var(--muted);
+  --secondary-foreground:  var(--foreground);
+  --destructive:           #e0705a;   /* rozjaśniony, żeby był czytelny */
+  --destructive-foreground:#1b1917;
+  --input:                 var(--border);
+}
+
+/* — przełącznik motywu — */
+.motyw-przelacznik {
+  position: fixed; right: 20px; bottom: 20px; z-index: 50;
+  font-family: var(--font-label); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 12px 18px; cursor: pointer;
+  background: var(--foreground); color: var(--background);
+  border: 0; border-radius: var(--radius);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.7;
+  letter-spacing: var(--track-body);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: normal; font-weight: 500; }
+code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .92em; }
+
+.shell { max-width: 1180px; margin: 0 auto; padding: 0 var(--space-pad); }
+
+header.hero { padding: var(--space-section) 0 var(--space-block); border-bottom: 1px solid var(--border); }
+header.hero h1 { font-size: var(--text-h1); line-height: 1.05; text-transform: uppercase; max-width: 20ch; }
+header.hero p.wstep { margin-top: 20px; max-width: 58ch; color: var(--muted-foreground); }
+
+section { padding: var(--space-section) 0; border-bottom: 1px solid var(--border); }
+section > .shell > h2 { font-size: var(--text-h2); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px; }
+.opis { color: var(--muted-foreground); max-width: 62ch; margin-bottom: var(--space-block); }
+
+.label {
+  font-family: var(--font-label); font-size: var(--text-micro); font-weight: 500;
+  letter-spacing: var(--track-label); text-transform: uppercase;
+  color: var(--subtle-foreground); line-height: 0.9;
+}
+
+.grid { display: grid; gap: 24px; }
+@media (min-width: 720px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* — próbniki koloru — */
+.probka { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius); overflow: hidden; }
+.probka .pole { height: 92px; }
+.probka .dane { padding: 12px 14px; }
+.probka .dane b { display: block; font-family: var(--font-label); font-size: 11px; font-weight: 500; letter-spacing: 0.04em; }
+.probka .dane code { color: var(--muted-foreground); font-size: 11px; }
+.probka .dane em { display: block; margin-top: 6px; font-size: 12px; color: var(--muted-foreground); font-style: normal; line-height: 1.5; }
+
+/* — specimeny typografii — */
+.specimen { border-top: 1px solid var(--border); padding: 22px 0; display: grid; gap: 10px; }
+@media (min-width: 900px) { .specimen { grid-template-columns: 210px 1fr; align-items: baseline; } }
+.specimen .rola { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--subtle-foreground); }
+.specimen .rola span { display: block; margin-top: 5px; letter-spacing: 0; text-transform: none; color: var(--muted-foreground); }
+
+/* — komponenty — */
+.demo { border: 1px solid var(--border); background: var(--card); padding: 26px; border-radius: var(--radius); }
+.demo + .demo { margin-top: 14px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-label); font-size: var(--text-meta); font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1px solid var(--foreground); border-radius: var(--radius);
+  padding: 13px 26px; background: none; color: var(--foreground);
+  text-decoration: none; cursor: pointer;
+  transition: background var(--dur-hover) var(--ease-soft), color var(--dur-hover) var(--ease-soft);
+}
+.btn:hover { background: var(--foreground); color: var(--card); }
+.btn-solid { background: var(--foreground); color: var(--card); }
+.btn-solid:hover { background: var(--accent); border-color: var(--accent); }
+
+.podpis { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; font-family: var(--font-label); font-size: var(--text-body); color: var(--muted-foreground); }
+.podpis + .podpis { margin-top: 10px; }
+.podpis b { color: var(--foreground); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+.metryka { font-family: var(--font-label); font-size: 9px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); }
+
+.bieznik { overflow: hidden; border-top: 1px solid var(--border); padding: 16px 0; }
+.bieznik-tor { display: flex; width: max-content; animation: bieg 60s linear infinite; }
+.bieznik-tor > span { white-space: nowrap; padding-right: 56px; font-family: var(--font-label); font-size: var(--text-micro); font-weight: 500; letter-spacing: var(--track-label); text-transform: uppercase; color: var(--subtle-foreground); }
+@keyframes bieg { to { transform: translateX(-50%); } }
+
+.odwrocone { background: var(--inverted); color: var(--inverted-foreground); padding: 46px 30px; }
+.odwrocone h3 { font-size: var(--text-h2); text-transform: uppercase; max-width: 16ch; line-height: 1.15; }
+
+/* — ton głosu — */
+.ton { display: grid; border: 1px solid var(--border); background: var(--card); border-radius: var(--radius); overflow: hidden; }
+@media (min-width: 820px) { .ton { grid-template-columns: 1fr 1fr; } }
+.ton > div { padding: 26px 28px; }
+.ton > div + div { border-top: 1px solid var(--border); }
+@media (min-width: 820px) { .ton > div + div { border-top: 0; border-left: 1px solid var(--border); } }
+.ton h4 { font-family: var(--font-label); font-size: var(--text-micro); letter-spacing: var(--track-label); text-transform: uppercase; margin-bottom: 16px; }
+.ton .tak h4 { color: var(--accent); }
+.ton ul { list-style: none; display: grid; gap: 12px; }
+.ton li { padding-left: 18px; position: relative; }
+.ton li::before { content: ""; position: absolute; left: 0; top: 11px; width: 9px; height: 1px; background: var(--border-strong); }
+.ton .nie li { color: var(--muted-foreground); }
+
+.cytat { border-left: 2px solid var(--accent); padding-left: 20px; max-width: 62ch; }
+.role { border-radius: var(--radius); overflow: hidden; }
+.cytat p { font-size: var(--text-lead); }
+.cytat footer { margin-top: 8px; font-family: var(--font-label); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--subtle-foreground); }
+
+footer.stopka { background: var(--inverted); color: var(--inverted-foreground); font-family: var(--font-label); padding: 56px 0; }
+footer.stopka .shell { display: flex; flex-wrap: wrap; gap: 14px 40px; justify-content: space-between; font-size: var(--text-meta); }
+footer.stopka a { color: inherit; }
+
+/* ============================================================
+   BIBLIOTEKA KOMPONENTÓW — shadcn/ui na barwach marki.
+   Klasy z przedrostkiem ui-, żeby nie zderzać się ze stylami
+   samego dokumentu. Wszystko korzysta wyłącznie z tokenów.
+   ============================================================ */
+.ui-siatka { display: grid; gap: 14px; align-items: start; }
+.ui-rzad { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+/* — fokus: jedna zasada dla całej biblioteki — */
+.ui-btn:focus-visible, .ui-input:focus-visible, .ui-select:focus-visible,
+.ui-check:focus-visible, .ui-switch:focus-visible, .ui-tab:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* — Button — */
+.ui-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font-label); font-size: var(--text-meta); font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+  padding: 12px 24px; border-radius: var(--radius);
+  border: 1px solid transparent; cursor: pointer; text-decoration: none;
+  transition: background var(--dur-hover) var(--ease-soft), color var(--dur-hover) var(--ease-soft), border-color var(--dur-hover) var(--ease-soft);
+}
+.ui-btn-default     { background: var(--primary); color: var(--primary-foreground); }
+.ui-btn-default:hover { background: var(--accent); }
+.ui-btn-secondary   { background: var(--secondary); color: var(--secondary-foreground); }
+.ui-btn-secondary:hover { background: var(--border); }
+.ui-btn-outline     { background: none; color: var(--foreground); border-color: var(--foreground); }
+.ui-btn-outline:hover { background: var(--foreground); color: var(--card); }
+.ui-btn-ghost       { background: none; color: var(--foreground); }
+.ui-btn-ghost:hover { background: var(--muted); }
+.ui-btn-accent      { background: var(--ziemia-koral); color: var(--foreground); }
+.ui-btn-accent:hover{ background: var(--accent); color: var(--card); }
+.ui-btn-destructive { background: var(--destructive); color: var(--destructive-foreground); }
+.ui-btn-destructive:hover { filter: brightness(0.9); }
+.ui-btn-sm { padding: 8px 16px; font-size: 10px; }
+.ui-btn-lg { padding: 16px 34px; }
+.ui-btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+
+/* — Badge — */
+.ui-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-label); font-size: 10px; font-weight: 500;
+  letter-spacing: var(--track-label); text-transform: uppercase;
+  padding: 5px 13px; border-radius: var(--radius);
+  border: 1px solid var(--border); color: var(--muted-foreground);
+}
+.ui-badge-solid   { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+.ui-badge-accent  { background: var(--ziemia-koral); color: var(--foreground); border-color: var(--ziemia-koral); }
+.ui-badge-outline { background: none; }
+
+/* — Label, Input, Textarea, Select — */
+.ui-label {
+  display: block; margin-bottom: 8px;
+  font-family: var(--font-label); font-size: var(--text-micro); font-weight: 500;
+  letter-spacing: var(--track-label); text-transform: uppercase; color: var(--muted-foreground);
+}
+.ui-input, .ui-select {
+  width: 100%; padding: 11px 13px;
+  font-family: var(--font-body); font-size: var(--text-body); color: var(--foreground);
+  background: var(--card); border: 1px solid var(--input); border-radius: var(--radius);
+}
+.ui-input::placeholder { color: var(--subtle-foreground); }
+.ui-input:hover, .ui-select:hover { border-color: var(--border-strong); }
+textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--radius); }
+.ui-podpowiedz { margin-top: 7px; font-family: var(--font-label); font-size: 11px; color: var(--subtle-foreground); }
+.ui-blad { color: var(--destructive); }
+
+/* — Checkbox / Radio / Switch — */
+.ui-pole { display: flex; align-items: center; gap: 10px; font-size: var(--text-body); }
+.ui-check { width: 17px; height: 17px; accent-color: var(--ziemia-koral); cursor: pointer; }
+.ui-switch {
+  appearance: none; width: 40px; height: 22px; border-radius: var(--radius-toggle);
+  background: var(--border); position: relative; cursor: pointer; transition: background 0.3s var(--ease-soft);
+}
+.ui-switch::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px;
+  border-radius: var(--radius-toggle); background: var(--card); transition: transform 0.3s var(--ease-soft);
+}
+.ui-switch:checked { background: var(--ziemia-koral); }
+.ui-switch:checked::after { transform: translateX(18px); }
+
+/* — Card — */
+.ui-card { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius); overflow: hidden; }
+.ui-card-head { padding: 20px 22px 0; }
+.ui-card-head h5 { font-family: var(--font-display); font-size: var(--text-h3); font-weight: 500; letter-spacing: normal; }
+.ui-card-head p { margin-top: 6px; font-size: 13px; color: var(--muted-foreground); }
+.ui-card-body { padding: 16px 22px; font-size: 13px; color: var(--muted-foreground); }
+.ui-card-stopka { padding: 0 22px 20px; }
+
+/* — Alert — */
+.ui-alert { border: 1px solid var(--border); padding: 16px 20px; border-left-width: 2px; border-radius: var(--radius); }
+.ui-alert h5 { font-family: var(--font-label); font-size: var(--text-micro); letter-spacing: var(--track-label); text-transform: uppercase; margin-bottom: 7px; }
+.ui-alert p { font-size: 13px; color: var(--muted-foreground); }
+.ui-alert-info { border-left-color: var(--ziemia-koral); }
+.ui-alert-destructive { border-left-color: var(--destructive); }
+.ui-alert-destructive h5 { color: var(--destructive); }
+
+/* — Tabs — */
+.ui-tabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 5px; background: var(--muted); border-radius: var(--radius); }
+.ui-tab {
+  font-family: var(--font-label); font-size: var(--text-micro); font-weight: 500;
+  letter-spacing: var(--track-label); text-transform: uppercase;
+  padding: 9px 18px; background: none; border: 0; border-radius: var(--radius);
+  color: var(--subtle-foreground); cursor: pointer; margin-bottom: -1px;
+}
+.ui-tab[aria-selected="true"] { color: var(--foreground); background: var(--ziemia-koral); }
+.ui-tab-panel { padding: 18px 2px; font-size: 13px; color: var(--muted-foreground); }
+
+/* — Accordion — */
+.ui-acc { border-top: 1px solid var(--border); }
+.ui-acc summary {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 15px 2px; cursor: pointer; list-style: none;
+  font-family: var(--font-label); font-size: var(--text-meta); font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.ui-acc summary::-webkit-details-marker { display: none; }
+.ui-acc summary::after { content: "+"; font-size: 17px; color: var(--muted-foreground); }
+.ui-acc[open] summary::after { content: "–"; }
+.ui-acc .ui-acc-tresc { padding: 0 2px 18px; font-size: 13px; color: var(--muted-foreground); max-width: 62ch; }
+
+/* — Separator, Progress, Skeleton, Avatar, Tooltip — */
+.ui-sep { height: 1px; background: var(--border); border: 0; }
+.ui-progress { height: 6px; background: var(--muted); overflow: hidden; border-radius: var(--radius); }
+.ui-progress span { display: block; height: 100%; background: var(--ziemia-koral); border-radius: var(--radius); }
+.ui-skeleton { background: linear-gradient(90deg, var(--muted) 25%, var(--border) 37%, var(--muted) 63%); background-size: 400% 100%; animation: ui-migot 1.6s ease infinite; height: 12px; border-radius: var(--radius); }
+@keyframes ui-migot { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+.ui-avatar {
+  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius);
+  background: var(--inverted); color: var(--inverted-foreground);
+  font-family: var(--font-label); font-size: 12px; letter-spacing: 0.06em;
+}
+.ui-tip { position: relative; border-bottom: 1px dotted var(--muted-foreground); cursor: help; }
+.ui-tip::after {
+  content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 0;
+  background: var(--inverted); color: var(--inverted-foreground);
+  font-family: var(--font-label); font-size: 11px; letter-spacing: 0.04em;
+  padding: 7px 12px; border-radius: var(--radius); white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity 0.25s var(--ease-soft);
+}
+.ui-tip:hover::after { opacity: 1; }
+
+/* — Table — */
+.ui-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.ui-table th {
+  text-align: left; font-family: var(--font-label); font-size: var(--text-micro); font-weight: 500;
+  letter-spacing: var(--track-label); text-transform: uppercase; color: var(--muted-foreground);
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+}
+.ui-table td { padding: 12px; border-bottom: 1px solid var(--border); color: var(--muted-foreground); }
+.ui-table td:first-child { color: var(--foreground); }
+.ui-table tr:hover td { background: var(--background); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bieznik-tor { animation: none; }
+  .ui-skeleton { animation: none; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="shell">
+    <p class="label" style="margin-bottom:22px">Design system · wersja 1.0 · wrzesień 2026</p>
+    <h1>Barbara Iwańska<br>Design Management</h1>
+    <p class="wstep">Zbiór decyzji, które trzymają stronę i materiały w jednym języku. Wartości nie są propozycją — to odczyt z działającego serwisu. Jeśli zmienisz coś tutaj, zmień to też w kodzie; inaczej ten dokument przestanie być prawdą.</p>
+  </div>
+</header>
+
+<section>
+  <div class="shell">
+    <h2>Zasada</h2>
+    <p class="opis">Trzy kroje o rozdzielonych rolach, sześć barw, zero zaokrągleń. Cała ekspresja idzie w skalę i puste miejsce, nie w dekorację. Ruch jest jeden i powtórzony wszędzie — to on daje wrażenie spójności, a nie bogactwo efektów.</p>
+    <div class="cytat">
+      <p>Prowadzę realizacje wnętrz w inwestycjach mieszkaniowych i hotelowych — od zakresu i budżetu, przez akceptacje materiałowe i negocjacje z dostawcami, po odbiory.</p>
+      <footer>Zdanie wzorcowe — rytm, konkret, brak przymiotników o sobie</footer>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Barwy</h2>
+    <p class="opis">Nazwy mówią o roli, nie o wyglądzie. Dzięki temu zmiana odcienia nie wymusza zmiany nazwy w całym kodzie.</p>
+    <div class="grid grid-3">
+      <div class="probka"><div class="pole" style="background:#f4f1ec"></div><div class="dane"><b>background</b><code>#f4f1ec</code><em>Tło strony. Ciepła biel, nie czysta — czysta przy szeryfie robi się ostra.</em></div></div>
+      <div class="probka"><div class="pole" style="background:#141210"></div><div class="dane"><b>foreground</b><code>#141210</code><em>Tekst. Czerń z domieszką ciepła, nie <code>#000</code>.</em></div></div>
+      <div class="probka"><div class="pole" style="background:#222222"></div><div class="dane"><b>inverted</b><code>#222222</code><em>Manifest i stopka. Grafit nie wycina dziury w stronie tak jak czerń.</em></div></div>
+      <div class="probka"><div class="pole" style="background:#6b6560"></div><div class="dane"><b>muted-foreground</b><code>#6b6560</code><em>Podpisy, metryki, treść drugiego planu.</em></div></div>
+      <div class="probka"><div class="pole" style="background:#d9d3cb"></div><div class="dane"><b>border</b><code>#d9d3cb</code><em>Linie. Jedyny sposób dzielenia treści — bez cieni i ramek.</em></div></div>
+      <div class="probka"><div class="pole" style="background:#6b3a3a"></div><div class="dane"><b>accent</b><code>#6b3a3a</code><em>„Latka kasztan”, próbka z pliku .indd. Jeden akcent na ekran.</em></div></div>
+    </div>
+
+    <h2 style="margin-top:var(--space-section)">Paleta rozszerzona · ziemia</h2>
+    <p class="opis">Trzy ziemiste podłoża i jeden koral, który na każdym z nich wygląda inaczej. Koral jest jedyną barwą mówiącą — pozostałe trzy są tłem i nie konkurują ze sobą.</p>
+
+    <div class="grid grid-4" style="grid-template-columns:repeat(2,1fr)">
+      <div class="probka"><div class="pole" style="background:#ee7f6d"></div><div class="dane"><b>ziemia-koral</b><code>#ee7f6d</code><em>Jedyny akcent mówiący. Ciepły, nasycony, widoczny z daleka.</em></div></div>
+      <div class="probka"><div class="pole" style="background:#84705e"></div><div class="dane"><b>ziemia-taupe</b><code>#84705e</code><em>Najjaśniejsze podłoże. Szarozielone, spokojne.</em></div></div>
+      <div class="probka"><div class="pole" style="background:#66371e"></div><div class="dane"><b>ziemia-brąz</b><code>#66371e</code><em>Praktycznie Twój kasztan — różnica dla oka żadna.</em></div></div>
+      <div class="probka"><div class="pole" style="background:#584c2a"></div><div class="dane"><b>ziemia-oliwka</b><code>#584c2a</code><em>Najciemniejsze podłoże. Pod nim koral świeci najmocniej.</em></div></div>
+    </div>
+
+    <p class="label" style="margin-top:32px;margin-bottom:14px">Koral na każdym z podłoży — tak działa ten zestaw</p>
+    <div class="grid grid-3">
+      <div style="background:#84705e;padding:30px 24px"><p style="color:#ee7f6d;font-size:22px;line-height:1.1;text-transform:uppercase;font-family:var(--font-display)">Taupe</p><p style="color:#ee7f6d;font-size:11px;font-family:var(--font-label);margin-top:10px;letter-spacing:.06em">kontrast 1,8 : 1</p></div>
+      <div style="background:#66371e;padding:30px 24px"><p style="color:#ee7f6d;font-size:22px;line-height:1.1;text-transform:uppercase;font-family:var(--font-display)">Brąz</p><p style="color:#ee7f6d;font-size:11px;font-family:var(--font-label);margin-top:10px;letter-spacing:.06em">kontrast 3,7 : 1</p></div>
+      <div style="background:#584c2a;padding:30px 24px"><p style="color:#ee7f6d;font-size:22px;line-height:1.1;text-transform:uppercase;font-family:var(--font-display)">Oliwka</p><p style="color:#ee7f6d;font-size:11px;font-family:var(--font-label);margin-top:10px;letter-spacing:.06em">kontrast 3,2 : 1</p></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:26px">
+      <div class="demo" style="background:#222222">
+        <p class="label" style="color:rgba(255,255,255,.55);margin-bottom:16px">Na Twoim graficie koral działa jako tekst</p>
+        <p style="color:#ee7f6d;font-size:15px">Kontrast 6,0 : 1 — z zapasem ponad normę</p>
+      </div>
+      <div class="demo">
+        <p class="label" style="margin-bottom:16px">Uwaga o kontraście</p>
+        <p style="font-size:12px;color:var(--muted-foreground);line-height:1.6">W oryginale to nadruk na opakowaniu, gdzie niski kontrast jest zaletą — daje głębię i każe się wpatrzyć. <strong>Na ekranie te same zestawienia nie nadają się na tekst czytany.</strong> Koral na ziemistych podłożach stosuj do wielkich napisów, kształtów i plam. Do liter, które trzeba przeczytać, użyj go na graficie albo odwróć: ciemny tekst na koralowym polu.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:22px;font-size:12px;color:var(--muted-foreground);max-width:62ch;line-height:1.6">Zasada pozostaje: <strong>jeden akcent na ekran</strong>. Ziemiste podłoża można łączyć między sobą, bo są tłem — ale koral powinien pojawić się raz i mieć całą uwagę.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Kroje i ich role</h2>
+    <p class="opis">Podział jest sztywny: szeryf tam, gdzie się czyta; grotesk w tytułach; wąski sans w etykietach. Krój nigdy nie służy ozdobie — zawsze oznacza rolę tekstu.</p>
+
+    <div class="specimen">
+      <div class="rola">font-display<span>Helvetica Neue · tytuły</span></div>
+      <div style="font-family:var(--font-display);font-size:clamp(28px,5vw,56px);line-height:1.05;letter-spacing:-0.02em;text-transform:uppercase">Design Management</div>
+    </div>
+    <div class="specimen">
+      <div class="rola">font-body<span>Libre Caslon Text · tekst czytany</span></div>
+      <div style="font-size:15px;line-height:1.7;max-width:56ch">Standard premium trzeba było utrzymać przy budżecie, który w trakcie realizacji wymagał zawężenia. Najprostsza droga — obniżenie klasy materiałów — była wykluczona.</div>
+    </div>
+    <div class="specimen">
+      <div class="rola">font-label<span>Inter · etykiety i metryki</span></div>
+      <div><span class="label">01 · Marvipol Development · 2023–2025</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Skala i światło</h2>
+    <p class="opis">Stopnie są zmienne tam, gdzie tekst ma rosnąć z ekranem, i stałe tam, gdzie ma zostać drobny. Światło międzyliterowe pracuje w dwie strony: ujemne w tytułach, mocno dodatnie w etykietach. Ten kontrast jest sygnaturą.</p>
+    <div class="grid grid-2">
+      <div class="demo">
+        <p class="label" style="margin-bottom:14px">Stopnie</p>
+        <div class="podpis"><b>hero</b><span>36 → 100 px</span></div>
+        <div class="podpis"><b>h1</b><span>26 → 54 px</span></div>
+        <div class="podpis"><b>h2</b><span>20 → 30 px</span></div>
+        <div class="podpis"><b>tekst czytany</b><span>14 px · interlinia 1,7</span></div>
+        <div class="podpis"><b>metryka</b><span>12 px</span></div>
+        <div class="podpis"><b>mikroetykieta</b><span>10 px · interlinia 0,9</span></div>
+      </div>
+      <div class="demo">
+        <p class="label" style="margin-bottom:14px">Światło</p>
+        <div class="podpis"><b>tytuły</b><span>−0,02em</span></div>
+        <div class="podpis"><b>tekst czytany</b><span>+0,01em</span></div>
+        <div class="podpis"><b>mikroetykieta</b><span>+0,20em</span></div>
+        <div class="podpis"><b>logotyp</b><span>+0,34em</span></div>
+        <p style="margin-top:16px;font-size:12px;color:var(--muted-foreground);line-height:1.55">Przy rozstrzeleniu powyżej +0,2em wyśrodkowany napis odjeżdża w lewo — światło za ostatnią literą liczy się do szerokości pudełka. Kompensuje się je wcięciem równym rozstrzeleniu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Rytm i przestrzeń</h2>
+    <p class="opis">Odstępy rosną razem z ekranem. Sekcje oddychają mocniej niż bloki w środku — to ten kontrast buduje wrażenie spokoju, nie same wielkości pisma.</p>
+    <div class="grid grid-3">
+      <div class="demo"><p class="label">space-section</p><p style="margin-top:10px">88 → 180 px<br><span style="color:var(--muted-foreground);font-size:12px">między sekcjami</span></p></div>
+      <div class="demo"><p class="label">space-block</p><p style="margin-top:10px">40 → 64 px<br><span style="color:var(--muted-foreground);font-size:12px">wewnątrz sekcji</span></p></div>
+      <div class="demo"><p class="label">space-pad</p><p style="margin-top:10px">16 → 84 px<br><span style="color:var(--muted-foreground);font-size:12px">margines boczny, 4% szerokości</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Ruch</h2>
+    <p class="opis">Jedna krzywa dla całej strony. Ruch ma być zauważalny dopiero wtedy, gdy się go szuka — nigdy wcześniej. Wszystko wyłącza się przy systemowym ograniczeniu animacji.</p>
+    <div class="grid grid-2">
+      <div class="demo">
+        <p class="label" style="margin-bottom:14px">Krzywe</p>
+        <div class="podpis"><b>reveal</b><span>0,16 · 1 · 0,3 · 1</span></div>
+        <div class="podpis"><b>roll</b><span>0,16 · 1,08 · 0,38 · 0,98</span></div>
+        <div class="podpis"><b>soft</b><span>0,2 · 0,7 · 0,2 · 1</span></div>
+      </div>
+      <div class="demo">
+        <p class="label" style="margin-bottom:14px">Czasy i siła</p>
+        <div class="podpis"><b>wyłanianie tekstu</b><span>0,9 s · kaskada co 70 ms</span></div>
+        <div class="podpis"><b>etykieta w menu</b><span>0,7 s</span></div>
+        <div class="podpis"><b>najechanie na kadr</b><span>0,5 s</span></div>
+        <div class="podpis"><b>paralaksa hero</b><span>15% ruchu strony</span></div>
+        <div class="podpis"><b>paralaksa kadru</b><span>8% wysokości</span></div>
+        <div class="podpis"><b>bieżnik</b><span>60 s · w tle 42 s</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Komponenty</h2>
+    <p class="opis">Wszystko jest prostokątne. Jedyny wyjątek to przełącznik — bez zaokrąglenia przestaje czytać się jako przełącznik. Brak promienia to decyzja, nie zaniedbanie: ostry narożnik trzyma stronę bliżej rysunku technicznego niż interfejsu aplikacji.</p>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Przyciski</p>
+      <a class="btn" href="#">Napisz do mnie</a>
+      <a class="btn btn-solid" href="#" style="margin-left:10px">Zobacz projekt</a>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Podpis pod kadrem</p>
+      <div class="podpis"><b>01</b><span>Lobby z windami — wizualizacja</span></div>
+      <div class="podpis"><b>02</b><span>Korytarz części wspólnych</span></div>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Metryka projektu</p>
+      <p class="metryka">321 jednostek · Gdańsk · projekt prowadzony od 2024</p>
+    </div>
+
+    <div class="demo" style="padding:0">
+      <p class="label" style="padding:26px 26px 14px">Bieżnik</p>
+      <div class="bieznik">
+        <div class="bieznik-tor">
+          <span>Golden Tulip • Chmielna 78 • Gdańsk</span><span>Unique Hotel Kołobrzeg • Sułkowskiego 7</span><span>Rotunda Dynasy M07 • Warszawa</span><span>Osiedle Senza • Grzymalitów 3</span><span>B Sides • Mokotowska 61</span><span>Golden Tulip • Chmielna 78 • Gdańsk</span><span>Unique Hotel Kołobrzeg • Sułkowskiego 7</span><span>Rotunda Dynasy M07 • Warszawa</span><span>Osiedle Senza • Grzymalitów 3</span><span>B Sides • Mokotowska 61</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo" style="padding:0">
+      <div class="odwrocone">
+        <p class="label" style="color:rgba(255,255,255,.55);margin-bottom:18px">Pole odwrócone</p>
+        <h3>Od zakresu i budżetu, przez akceptacje materiałowe, po odbiory.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Biblioteka komponentów</h2>
+    <p class="opis">Komponenty w konwencji shadcn/ui, złożone wyłącznie z Twoich tokenów. Nazwy po lewej to standard biblioteki, wartości po prawej to Twoje barwy — dzięki temu wyglądają jak Twoja strona, a nie jak domyślny motyw.</p>
+
+    <div class="demo" style="margin-bottom:26px">
+      <p class="label" style="margin-bottom:16px">Mapowanie shadcn → marka</p>
+      <div class="grid grid-2">
+        <div>
+          <div class="podpis"><b>primary</b><span>foreground · ciepła czerń</span></div>
+          <div class="podpis"><b>secondary</b><span>muted · jasna szarość</span></div>
+          <div class="podpis"><b>destructive</b><span>#b0432f · przyciemniony koral</span></div>
+        </div>
+        <div>
+          <div class="podpis"><b>ring</b><span>koral · obrys fokusu</span></div>
+          <div class="podpis"><b>input</b><span>border · linia pola</span></div>
+          <div class="podpis"><b>radius</b><span>0 px · bez zaokrągleń</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Button · warianty</p>
+      <div class="ui-rzad">
+        <button class="ui-btn ui-btn-default">Napisz do mnie</button>
+        <button class="ui-btn ui-btn-accent">Zobacz projekt</button>
+        <button class="ui-btn ui-btn-outline">Broszura</button>
+        <button class="ui-btn ui-btn-secondary">Anuluj</button>
+        <button class="ui-btn ui-btn-ghost">Więcej</button>
+        <button class="ui-btn ui-btn-destructive">Usuń</button>
+        <button class="ui-btn ui-btn-outline" disabled>Niedostępny</button>
+      </div>
+      <p class="label" style="margin:22px 0 14px">Rozmiary</p>
+      <div class="ui-rzad">
+        <button class="ui-btn ui-btn-default ui-btn-sm">Mały</button>
+        <button class="ui-btn ui-btn-default">Zwykły</button>
+        <button class="ui-btn ui-btn-default ui-btn-lg">Duży</button>
+      </div>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Badge</p>
+      <div class="ui-rzad">
+        <span class="ui-badge ui-badge-outline">w realizacji</span>
+        <span class="ui-badge ui-badge-solid">ukończone</span>
+        <span class="ui-badge ui-badge-accent">nowe</span>
+        <span class="ui-badge">321 jednostek</span>
+      </div>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Formularz</p>
+      <div class="grid grid-2">
+        <div>
+          <label class="ui-label" for="p1">Imię i nazwisko</label>
+          <input class="ui-input" id="p1" placeholder="Jak się do Ciebie zwracać?" type="text">
+          <p class="ui-podpowiedz">Kliknij pole — obrys fokusu jest koralowy.</p>
+        </div>
+        <div>
+          <label class="ui-label" for="p2">Adres e-mail</label>
+          <input class="ui-input" id="p2" placeholder="nazwa@domena.pl" type="email">
+          <p class="ui-podpowiedz ui-blad">Ten adres wygląda na niepełny.</p>
+        </div>
+      </div>
+      <div style="margin-top:18px">
+        <label class="ui-label" for="p3">Zakres</label>
+        <select class="ui-select" id="p3">
+          <option>Nadzór projektowy</option>
+          <option>Fit-out wnętrz</option>
+          <option>Koncepcja i strategia</option>
+        </select>
+      </div>
+      <div style="margin-top:18px">
+        <label class="ui-label" for="p4">Wiadomość</label>
+        <textarea class="ui-input" id="p4" placeholder="Kilka zdań o inwestycji"></textarea>
+      </div>
+      <div class="ui-rzad" style="margin-top:20px;gap:22px">
+        <label class="ui-pole"><input checked class="ui-check" type="checkbox"> Zgoda na kontakt</label>
+        <label class="ui-pole"><input class="ui-check" name="r" type="radio"> Mieszkaniowa</label>
+        <label class="ui-pole"><input class="ui-check" name="r" type="radio"> Hotelowa</label>
+        <label class="ui-pole"><input checked class="ui-switch" type="checkbox"> Wersja angielska</label>
+      </div>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Card · Alert</p>
+      <div class="grid grid-2">
+        <div class="ui-card">
+          <div class="ui-card-head">
+            <h5>Osiedle Senza</h5>
+            <p>Marvipol Development · nadzór projektowy</p>
+          </div>
+          <div class="ui-card-body">3 budynki · 146 mieszkań · części wspólne. Akceptacje materiałowe i kontrola zgodności ze standardem inwestycji.</div>
+          <div class="ui-card-stopka"><button class="ui-btn ui-btn-outline ui-btn-sm">Zobacz projekt</button></div>
+        </div>
+        <div class="siatka" style="display:grid;gap:14px">
+          <div class="ui-alert ui-alert-info">
+            <h5>Materiały inwestora</h5>
+            <p>Wizualizacje pochodzą z materiałów Marvipol Development.</p>
+          </div>
+          <div class="ui-alert ui-alert-destructive">
+            <h5>Pole nieuzupełnione</h5>
+            <p>Rezultat projektu czeka na opis autorki.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Tabs · Accordion</p>
+      <div class="grid grid-2">
+        <div>
+          <div class="ui-tabs" role="tablist">
+            <button aria-selected="true" class="ui-tab" role="tab">Kontekst</button>
+            <button aria-selected="false" class="ui-tab" role="tab">Moja rola</button>
+            <button aria-selected="false" class="ui-tab" role="tab">Rezultat</button>
+          </div>
+          <div class="ui-tab-panel">Standard premium trzeba było utrzymać przy budżecie, który w trakcie realizacji wymagał zawężenia.</div>
+        </div>
+        <div>
+          <details class="ui-acc" open><summary>Zakres</summary><div class="ui-acc-tresc">Lobby, recepcja, komunikacja, strefy usługowe i wnętrza lokali.</div></details>
+          <details class="ui-acc"><summary>Materiały</summary><div class="ui-acc-tresc">Poliwęglan komorowy, instalacje oświetleniowe RGB, monochromatyczna baza.</div></details>
+          <details class="ui-acc" style="border-bottom:1px solid var(--border)"><summary>Rezultat</summary><div class="ui-acc-tresc">321 jednostek objętych zakresem inwestycji.</div></details>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Table</p>
+      <table class="ui-table">
+        <thead><tr><th>Projekt</th><th>Zleceniodawca</th><th>Zakres</th><th>Rok</th></tr></thead>
+        <tbody>
+          <tr><td>Hotel Golden Tulip</td><td>Marvipol Development</td><td>Fit-out</td><td>2023–2025</td></tr>
+          <tr><td>Unique Hotel Kołobrzeg</td><td>Marvipol Development</td><td>Nadzór projektowy</td><td>—</td></tr>
+          <tr><td>B Sides</td><td>Zofia Strumiłło Studio</td><td>Project management</td><td>2021–2022</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Drobne</p>
+      <div class="grid grid-3">
+        <div>
+          <p class="label" style="margin-bottom:10px">Progress</p>
+          <div class="ui-progress"><span style="width:64%"></span></div>
+        </div>
+        <div>
+          <p class="label" style="margin-bottom:10px">Skeleton</p>
+          <div class="ui-skeleton" style="width:100%"></div>
+          <div class="ui-skeleton" style="width:72%;margin-top:8px"></div>
+        </div>
+        <div>
+          <p class="label" style="margin-bottom:10px">Avatar · Tooltip</p>
+          <div class="ui-rzad">
+            <span class="ui-avatar">BI</span>
+            <span class="ui-tip" data-tip="Fit-out — wykończenie wnętrz pod klucz">fit-out</span>
+          </div>
+        </div>
+      </div>
+      <hr class="ui-sep" style="margin:24px 0">
+      <p style="font-size:12px;color:var(--muted-foreground)">Separator to jedyny sposób dzielenia treści — bez cieni i bez ramek dookoła.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Motyw ciemny · propozycja</h2>
+    <p class="opis">Przełącznik w prawym dolnym rogu przestawia cały dokument. To nie jest odwrócenie motywu jasnego — barwy są dobrane od nowa, bo proste odwrócenie daje szarość bez ciepła.</p>
+
+    <div class="grid grid-2">
+      <div class="demo">
+        <p class="label" style="margin-bottom:14px">Zasady doboru</p>
+        <div class="podpis"><b>tło</b><span>#1b1917 — ciepła czerń, nie #000</span></div>
+        <div class="podpis"><b>tekst</b><span>#ece6dd — ciepła biel, nie #fff</span></div>
+        <div class="podpis"><b>karta</b><span>#232120 — ledwie jaśniejsza od tła</span></div>
+        <div class="podpis"><b>linia</b><span>#403b35</span></div>
+        <p style="margin-top:16px;font-size:12px;color:var(--muted-foreground);line-height:1.6">Ta sama zasada co w motywie jasnym: skrajne wartości są złamane. Czysta biel na czystej czerni męczy wzrok i wygląda tanio.</p>
+      </div>
+      <div class="demo">
+        <p class="label" style="margin-bottom:14px">Kontrasty — sprawdzone</p>
+        <div class="podpis"><b>tekst</b><span>14,1 : 1</span></div>
+        <div class="podpis"><b>podpisy</b><span>6,3 : 1</span></div>
+        <div class="podpis"><b>mikroetykiety</b><span>4,7 : 1</span></div>
+        <div class="podpis"><b>koral</b><span>6,6 : 1</span></div>
+        <div class="podpis"><b>kasztan rozjaśniony</b><span>6,2 : 1</span></div>
+        <p style="margin-top:16px;font-size:12px;color:var(--muted-foreground);line-height:1.6">Wszystkie powyżej normy 4,5 : 1 dla tekstu.</p>
+      </div>
+    </div>
+
+    <div class="demo" style="margin-top:14px">
+      <p class="label" style="margin-bottom:14px">Dwie barwy trzeba było zmienić</p>
+      <p style="max-width:62ch;margin-bottom:12px"><strong>Kasztan</strong> <code>#6b3a3a</code> ma na ciemnym tle <strong>1,9 : 1</strong> — jest nieczytelny. W motywie ciemnym zastępuje go rozjaśniona wersja <code>#c98a7f</code>.</p>
+      <p style="max-width:62ch"><strong>Barwa ostrzeżenia</strong> również wymagała rozjaśnienia. Koral został bez zmian — na obu tłach działa tak samo dobrze i to on spina oba motywy.</p>
+    </div>
+
+    <div class="demo" style="margin-top:14px">
+      <p class="label" style="margin-bottom:14px">Co jeszcze trzeba rozstrzygnąć przed wdrożeniem</p>
+      <ul style="list-style:none;display:grid;gap:10px;max-width:66ch">
+        <li>— <strong>Zdjęcia.</strong> Wizualizacje wnętrz są jasne i na ciemnym tle będą świecić. Do rozważenia delikatne przygaszenie, jak w hero.</li>
+        <li>— <strong>Wybór motywu.</strong> Automatyczny, według ustawienia systemu, czy przełącznik dla odwiedzającego? Automatyczny jest uprzejmiejszy, przełącznik daje kontrolę.</li>
+        <li>— <strong>Pola odwrócone.</strong> Manifest i stopka są dziś ciemne. W motywie ciemnym muszą stać się jasne, inaczej znikną z układu.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Ton głosu</h2>
+    <p class="opis">Odczytany z Twoich tekstów, nie wymyślony. Zasada nadrzędna: mówisz o pracy, nie o sobie. Wiarygodność budują liczby i nazwy materiałów, nie przymiotniki.</p>
+    <div class="ton">
+      <div class="tak">
+        <h4>Tak mówimy</h4>
+        <ul>
+          <li><strong>Konkretem.</strong> „227 apartamentów pod klucz”, „poliwęglan komorowy”, „stropy 4 m” — liczba i materiał zamiast oceny.</li>
+          <li><strong>Czasownikiem w pierwszej osobie.</strong> „Prowadzę”, „Odpowiadałam”, „Nadzorowałam” — widać, kto co zrobił.</li>
+          <li><strong>Przyznając ograniczenia.</strong> „Budżet wymagał zawężenia”. Napięcie opisane wprost uwiarygodnia rozwiązanie.</li>
+          <li><strong>Obrazem z własnego świata.</strong> „Żeby obietnica produktu przetrwała spotkanie z budżetem”.</li>
+          <li><strong>Dwujęzycznie, równolegle.</strong> Polski i angielski jako dwie pełne wersje, nie tłumaczenie z doklejką.</li>
+          <li><strong>Neutralnie płciowo</strong>, gdy mowa o odbiorcy albo o zespole.</li>
+        </ul>
+      </div>
+      <div class="nie">
+        <h4>Tak nie mówimy</h4>
+        <ul>
+          <li><strong>Superlatywami o sobie.</strong> „Wybitna”, „najlepsza”, „unikalne podejście” — ocenę zostawiamy czytającemu.</li>
+          <li><strong>Straszeniem.</strong> Żadnego „bez tego stracisz”, „ostatnia szansa”, „ryzykujesz”.</li>
+          <li><strong>Pustą frazą korporacyjną.</strong> „Kompleksowe rozwiązania”, „synergia”, „dedykowany zespół”.</li>
+          <li><strong>Stroną bierną</strong> tam, gdzie ukrywa sprawcę: „zostało zrealizowane” zamiast „zrealizowałam”.</li>
+          <li><strong>Wykrzyknikami</strong> i naciskiem na pilność.</li>
+          <li><strong>Żargonem bez potrzeby.</strong> „Fit-out” zostaje, bo to nazwa zakresu; „deliverables” już nie.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:0">
+  <div class="shell">
+    <h2>Zasady, które łatwo złamać</h2>
+    <p class="opis">Rzeczy wychwycone podczas pracy nad stroną. Każda wyglądała na drobiazg, a psuła całość.</p>
+    <div class="grid grid-2">
+      <div class="demo"><p class="label" style="margin-bottom:12px">Nazwa zmiennej kroju</p><p>Nie używaj nazwy <code>--font-serif</code>. Tailwind definiuje własną o tej samej nazwie i przy równej sile wygrywa późniejsza — krój po cichu przestaje działać.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">Ten sam element, dwie nazwy</p><p>Metryka projektu żyła pod dwiema klasami. Poprawka objęła jedną, druga została szeryfowa. Elementy o tej samej roli trzymaj w jednej regule.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">Przycinanie a przewijanie</p><p><code>overflow-x: hidden</code> na <code>&lt;body&gt;</code> robi z niego osobny kontener przewijania. Używaj <code>clip</code> — przycina tak samo, kontenera nie tworzy.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">Wyrównanie optyczne</p><p>Rozstrzelone wersaliki wyśrodkowane matematycznie wyglądają na przesunięte w lewo. Kompensuj wcięciem równym rozstrzeleniu.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="stopka">
+  <div class="shell">
+    <span>Barbara Joanna Iwańska · Design Management</span>
+    <span><a href="mailto:bas.iwanska@gmail.com">bas.iwanska@gmail.com</a></span>
+    <span>Design system 1.0 · wrzesień 2026</span>
+  </div>
+</footer>
+
+<script>
+  // Zakładki — przełączanie wyłącznie na potrzeby pokazu w tym dokumencie.
+  document.querySelectorAll(".ui-tabs").forEach(function (grupa) {
+    grupa.querySelectorAll(".ui-tab").forEach(function (t) {
+      t.addEventListener("click", function () {
+        grupa.querySelectorAll(".ui-tab").forEach(function (x) {
+          x.setAttribute("aria-selected", String(x === t));
+        });
+      });
+    });
+  });
+</script>
+
+<button class="motyw-przelacznik" id="motyw" type="button">Motyw ciemny</button>
+
+<script>
+  // Przełącznik motywu — pokazuje propozycję trybu ciemnego na żywym dokumencie.
+  var przycisk = document.getElementById("motyw");
+  przycisk.addEventListener("click", function () {
+    var ciemny = document.documentElement.dataset.motyw === "ciemny";
+    if (ciemny) {
+      delete document.documentElement.dataset.motyw;
+      przycisk.textContent = "Motyw ciemny";
+    } else {
+      document.documentElement.dataset.motyw = "ciemny";
+      przycisk.textContent = "Motyw jasny";
+    }
+  });
+</script>
+
+</body>
+</html>

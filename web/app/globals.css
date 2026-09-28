@@ -17,6 +17,7 @@
 	--gap: 16px;
 	--max: 1440px;
 	--header-h: 96px;
+
 }
 @media (min-width: 768px) {
 	:root {
@@ -784,84 +785,67 @@ body.search-open .search-bar {
 /* ============ FOOTER ============ */
 /* Stopka: grafit #222222 — ten sam co w manifeście — i krój bezszeryfowy
    na całości. Szeryf zostaje w tekście czytanym, nie w nawigacji stopki. */
+/* ── Stopka (SiteFooter.tsx) — układ za fourth.design ── */
 .site-footer {
 	background: #222222;
 	color: var(--white);
-	padding-top: 56px;
 	font-family: var(--font-inter), system-ui, sans-serif;
+	padding-top: clamp(56px, 7vw, 96px);
 }
-.footer-cols {
+.site-footer .label { color: rgb(255 255 255 / 0.5); }
+
+.stopka-glowna { display: grid; gap: 48px; padding-bottom: clamp(56px, 7vw, 96px); }
+@media (min-width: 900px) {
+	/* Lewa kolumna szeroka, prawa wąska — rozdzielone pionową linią. */
+	.stopka-glowna { grid-template-columns: minmax(0, 1fr) 260px; gap: 64px; }
+	.stopka-prawa { border-left: 1px solid rgb(255 255 255 / 0.16); padding-left: 40px; }
+}
+
+/* — bloki kontaktowe, rozdzielone cienkimi kreskami — */
+.stopka-blok { max-width: 34ch; }
+.stopka-blok + .stopka-blok {
+	margin-top: 34px;
+	padding-top: 34px;
+	border-top: 1px solid rgb(255 255 255 / 0.16);
+}
+.stopka-blok .label { margin-bottom: 20px; }
+.stopka-nazwa { font-size: 13px; line-height: 1.5; margin-bottom: 14px; }
+.stopka-linia { font-size: 13px; line-height: 1.7; color: rgb(255 255 255 / 0.78); }
+.stopka-linia span { display: inline-block; width: 18px; color: rgb(255 255 255 / 0.5); }
+.stopka-linia a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.stopka-linia a:hover { text-decoration-color: rgb(255 255 255 / 0.4); }
+
+/* — spis projektów — */
+.stopka-prawa .label { margin-bottom: 20px; }
+.stopka-prawa ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.stopka-prawa a { font-size: 13px; color: rgb(255 255 255 / 0.78); transition: color 0.25s; }
+.stopka-prawa a:hover { color: var(--white); }
+.stopka-przerwa { margin-top: 22px; }
+
+/* — pasek dolny — */
+.stopka-stopka {
 	display: grid;
-	grid-template-columns: 1fr;
-	gap: 40px var(--gap);
-	padding-bottom: 48px;
-}
-@media (min-width: 768px) {
-	.footer-cols {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-@media (min-width: 1024px) {
-	.footer-cols {
-		grid-template-columns: repeat(4, 1fr);
-	}
-}
-.footer-col h4 {
-	font-size: 13px;
-	font-weight: 400;
-	color: #9b9b9b;
-	margin-bottom: 18px;
-}
-.footer-col ul {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
-.footer-col a {
-	position: relative;
-	display: inline-block;
-	font-size: 12px;
+	gap: 18px;
+	align-items: center;
+	padding: 26px 0 32px;
+	border-top: 1px solid rgb(255 255 255 / 0.16);
+	font-size: 10px;
 	font-weight: 500;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.2em;
 	text-transform: uppercase;
+	line-height: 1.7;
+	color: rgb(255 255 255 / 0.55);
 }
-.footer-col a .slider {
-	position: absolute;
-	left: 0;
-	bottom: -3px;
-	height: 1px;
-	width: 0;
-	background: var(--white);
-	transition: width 0.3s ease;
+@media (min-width: 900px) {
+	.stopka-stopka { grid-template-columns: auto 1fr auto auto; gap: 40px; }
 }
-.footer-col a:hover .slider {
-	width: 100%;
-}
-.s-btn-footer {
-	border-color: var(--white);
-	color: var(--white);
-}
-.s-btn-footer:hover {
-	background: var(--white);
-	color: var(--ink);
-}
-.footer-legal {
-	border-top: 1px solid #2c2c2c;
-	padding: 20px var(--pad) 26px;
-}
-.footer-legal-inner {
-	max-width: var(--max);
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px 22px;
-	font-size: 11px;
-	color: #9b9b9b;
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
-}
-.footer-legal-inner a:hover {
-	color: var(--white);
+.stopka-stopka a { color: inherit; }
+.stopka-stopka a:hover { color: var(--white); }
+.stopka-znak {
+	display: inline-flex; align-items: center; justify-content: center;
+	width: 42px; height: 42px;
+	background: var(--white); color: #222222;
+	font-size: 12px; letter-spacing: 0.06em;
 }
 
 .contact-section,
@@ -975,20 +959,22 @@ html { scroll-behavior: smooth; }
 /* ── Redesign wizualny: manifest na zdjęciu, fazy jako kafle, szczegóły zwinięte ── */
 
 /* Grafit zamiast pełnej czerni — próbka z sekcji „From the Quarterly" na gagosian.com. */
-.manifest { position: relative; overflow: hidden; background: #222222; }
-.manifest .hero-text { position: static; inset: auto; align-items: flex-start; text-align: left; padding: clamp(96px, 13vw, 180px) var(--pad) clamp(88px, 12vw, 164px); background: none; text-shadow: none; }
+/* Manifest zajmuje pełną wysokość okna; zdanie stoi w pionowym środku,
+   a pod nim przesuwa się wielki napis w tle. */
+.manifest {
+	position: relative;
+	overflow: hidden;
+	background: #222222;
+	min-height: 100svh;
+	display: flex;
+	align-items: center;
+}
+.manifest .hero-text { position: relative; z-index: 1; inset: auto; align-items: flex-start; text-align: left; padding: clamp(96px, 13vw, 180px) var(--pad) clamp(88px, 12vw, 164px); background: none; text-shadow: none; }
 .manifest h2 { font-size: clamp(26px, 4vw, 54px); font-weight: 500; line-height: 1.08; max-width: 18ch; }
 /* Liczniki rozłożone siatką na pełną szerokość — rozwiązanie z sekcji liczb
    Bespoke Estates: repeat(auto-fit, minmax(...)), przez co ostatnia pozycja
    dochodzi do prawej krawędzi zamiast zbijać się z resztą po lewej. */
-.manifest .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(28px, 3vw, 56px); margin-top: clamp(40px, 5vw, 64px); text-transform: none;
-	/* Rodzic ma align-items: flex-start, więc bez tego blok kurczy się do treści
-	   i nie dochodzi do prawej krawędzi. */
-	align-self: stretch; width: 100%; }
 /* Od 1024 px wszystkie cztery liczby w jednym wierszu. */
-@media (min-width: 1024px) { .manifest .stats { grid-template-columns: repeat(4, 1fr); } }
-.manifest .stats b { display: block; font-size: clamp(30px, 3.6vw, 48px); font-weight: 500; line-height: 1; }
-.manifest .stats span { display: block; font-size: 12px; letter-spacing: 0.02em; text-transform: none; margin-top: 6px; opacity: 0.85; }
 
 /* Rytm pionowy sekcji faz — odstępy jak w sekcji kafli na kellywearstler.com:
    60/48 px na telefonie, od 1024 px równe 120 px góra i dół. */
@@ -1043,9 +1029,6 @@ html { scroll-behavior: smooth; }
 .p-cols p,
 .p-cols li,
 .phase .txt div span,
-.manifest .stats span {
-	font-family: var(--font-caslon), Georgia, serif;
-}
 
 /* Tekst czytany: 15 px z interlinią 1,55. Odstęp międzywyrazowy −0,03em
    został z metryki gagosian.com, ale stopień i interlinia są własne —
@@ -1091,6 +1074,29 @@ html { scroll-behavior: smooth; }
 }
 @media (prefers-reduced-motion: reduce) {
 	.bieznik-tor { animation: none; }
+}
+
+/* Bieżnik w tle sekcji: ogromne litery, ledwie widoczne, pod treścią.
+   Nie czyta się ich — działają jak tekstura. */
+.bieznik-tlo {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	display: flex;
+	align-items: center;
+	border: 0;
+	padding: 0;
+	pointer-events: none;
+}
+.bieznik-tlo .bieznik-tor > span {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: clamp(88px, 17vw, 300px);
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	text-transform: uppercase;
+	color: rgb(255 255 255 / 0.07);
+	padding-right: 0.32em;
 }
 
 /* ── Celownik (Crosshair.tsx) ── */
@@ -1237,7 +1243,6 @@ h1, h2, h3, h4, h5, h6 {
 .site-logo,
 .phase b,
 .phase .no,
-.manifest .stats b,
 .s-card .cap b,
 .pp-grid figcaption b {
 	font-family: var(--font-inter), system-ui, sans-serif;

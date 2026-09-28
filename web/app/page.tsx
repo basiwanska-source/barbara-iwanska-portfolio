@@ -18,8 +18,8 @@ export default function Home() {
       <SiteHeader />
       <main className="site-main">
         <Hero slides={slides} />
-        <Phases />
         <Manifest />
+        <Phases />
         <Marquee />
         {projects.map((p, i) => <ProjectBlock key={p.slug} p={p} flip={i % 2 === 1} />)}
         <ContactSection />

@@ -105,9 +105,3 @@ export const runners = [
   "B SIDES • MOKOTOWSKA 61",
 ];
 
-export const stats = [
-  { value: 5, suffix: "", label: "lat na styku dewelopmentu, wykonawstwa i projektu" },
-  { value: 321, suffix: "", label: "jednostek w fit-oucie Golden Tulip" },
-  { value: 227, suffix: "", label: "apartamentów pod nadzorem w Kołobrzegu" },
-  { value: 6, suffix: "", label: "projektów w portfolio" },
-];
