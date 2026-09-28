@@ -5,11 +5,13 @@ import { Phases } from "@/components/site/Phases";
 import { ProjectBlock } from "@/components/site/ProjectBlock";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
-import { projects } from "@/lib/site";
+import { type Project, projects } from "@/lib/site";
 
 export default function Home() {
-  const order = ["rotunda-m07", "form-space", "kolobrzeg", "b-sides", "golden-tulip"];
-  const slides = order.map((s) => projects.find((p) => p.slug === s)!).filter((p) => p.hero);
+  // Kolejność kadrów w hero. Projekt, którego nie ma na liście serwisu,
+  // jest po prostu pomijany — bez tego usunięcie projektu wywraca stronę.
+  const order = ["rotunda-m07", "kolobrzeg", "b-sides", "golden-tulip"];
+  const slides = order.map((s) => projects.find((p) => p.slug === s)).filter((p): p is Project => !!p?.hero);
   return (
     <>
       <SiteHeader />

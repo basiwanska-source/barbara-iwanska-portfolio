@@ -20,13 +20,14 @@ export type Project = {
   missing?: string;
 };
 
+/* Form Space świadomie poza serwisem — autorka nie chce pokazywać tego
+   projektu. Strony 22–30 zostają w broszurze; przywrócenie = jeden wpis. */
 const GROUPS: { slug: string; match: (s: string) => boolean; employer: string; period?: string; missing?: string }[] = [
   { slug: "golden-tulip", match: (s) => s.startsWith("Golden Tulip"), employer: "Marvipol Development", period: "2023–2025" },
   { slug: "kolobrzeg", match: (s) => s.startsWith("Unique Hotel"), employer: "Marvipol Development", period: "nadzór projektowy" },
   { slug: "rotunda-m07", match: (s) => s.startsWith("Rotunda"), employer: "Marvipol Development", period: "nadzór projektowy" },
   { slug: "senza", match: (s) => s.startsWith("Osiedle Senza"), employer: "Marvipol Development", period: "nadzór projektowy" },
   { slug: "b-sides", match: (s) => s.startsWith("B Sides"), employer: "Zofia Strumiłło Studio", period: "2021–2022" },
-  { slug: "form-space", match: (s) => s.startsWith("Form Space"), employer: "B5A", period: "2025 — obecnie" },
 ];
 
 /** Podpisy zdradzające kadr z zewnątrz — te lądują na końcu karuzeli. */

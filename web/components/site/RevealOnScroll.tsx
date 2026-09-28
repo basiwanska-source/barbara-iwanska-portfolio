@@ -46,6 +46,17 @@ export function RevealOnScroll() {
           el.style.transitionDelay = `${Math.min(rodzenstwo.indexOf(el), 5) * 70}ms`;
           el.classList.add("widoczne");
           io.unobserve(el);
+          // Po zakończeniu wejścia zdejmujemy klasy — inaczej na każdym bloku
+          // zostaje warstwa rozmycia, którą przeglądarka składa przy każdej
+          // klatce przewijania. Przy kilkudziesięciu blokach to czuć.
+          el.addEventListener(
+            "transitionend",
+            () => {
+              el.classList.remove("zjawia", "widoczne");
+              el.style.transitionDelay = "";
+            },
+            { once: true },
+          );
         }
       },
       { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },

@@ -55,7 +55,7 @@ export function ParallaxImage({ im, sila = 0.08 }: { im: Img; sila?: number }) {
 
   return (
     <div className="paralaksa" ref={ramka} style={im.w && im.h ? { aspectRatio: `${im.w} / ${im.h}` } : undefined}>
-      <img alt={im.alt} loading="lazy" ref={obraz} src={im.src} />
+      <img alt={im.alt} decoding="async" loading="lazy" ref={obraz} src={im.src} />
     </div>
   );
 }

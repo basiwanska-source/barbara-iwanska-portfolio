@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Libre_Caslon_Text, Oswald } from "next/font/google";
 import "./globals.css";
+import { Crosshair } from "@/components/site/Crosshair";
 import { RevealOnScroll } from "@/components/site/RevealOnScroll";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin", "latin-ext"], weight: ["200", "300", "400", "500"] });
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         {children}
         <RevealOnScroll />
+        <Crosshair />
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ const isTall = (im: Img) => !!im.w && !!im.h && im.w / im.h < 0.95;
 function Photo({ im, k }: { im: Img; k: number }) {
   return (
     <figure className={`s-card${isTall(im) ? " tall" : ""}`}>
-      <div className="frame" style={im.w && im.h ? { aspectRatio: `${im.w} / ${im.h}` } : undefined}><img alt={im.alt} loading="lazy" src={im.src} /></div>
+      <div className="frame" style={im.w && im.h ? { aspectRatio: `${im.w} / ${im.h}` } : undefined}><img alt={im.alt} decoding="async" loading="lazy" src={im.src} /></div>
       <figcaption className="cap"><b>{String(k + 1).padStart(2, "0")}</b><span>{im.alt}</span></figcaption>
     </figure>
   );

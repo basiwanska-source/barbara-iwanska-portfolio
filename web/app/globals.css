@@ -37,7 +37,11 @@ html {
    gdzie --default-font-family wskazuje na serif. Bezszeryfowy Inter zostaje
    wyłącznie do mikroetykiet wersalikami (ich rola „font-wide"). */
 body {
-	overflow-x: hidden;
+	/* „clip" zamiast „hidden": hidden robi z <body> osobny kontener
+	   przewijania, przez co dokument ma dwa nakładające się mechanizmy
+	   przewijania i gest potrafi się między nimi zaciąć. clip przycina
+	   tak samo, ale kontenera nie tworzy. */
+	overflow-x: clip;
 	background: var(--white);
 	color: var(--ink);
 	font-family: var(--font-caslon), "Times New Roman", serif;
@@ -471,7 +475,15 @@ body.search-open .search-bar {
 	display: flex;
 	gap: var(--gap);
 	overflow-x: auto;
-	scroll-snap-type: x mandatory;
+	/* „proximity" zamiast „mandatory": kadry dociągają się dopiero, gdy
+	   naprawdę blisko krawędzi. Przy „mandatory" każdy ruch nad karuzelą
+	   uruchamiał dociąganie i przerywał przewijanie strony w pionie. */
+	scroll-snap-type: x proximity;
+	/* Pionowy ruch zawsze przechodzi do strony, poziomy nie wypycha jej
+	   na boki — karuzela przestaje przechwytywać gest przewijania. */
+	overscroll-behavior-x: contain;
+	overscroll-behavior-y: auto;
+	touch-action: pan-x pan-y;
 	scroll-padding-left: var(--pad);
 	scroll-padding-right: var(--pad);
 	scrollbar-width: none;
@@ -480,6 +492,22 @@ body.search-open .search-bar {
 	margin-right: calc(var(--pad) * -1);
 	padding-left: var(--pad);
 	padding-right: var(--pad);
+}
+/* Na myszy i gładziku karuzela nie przyjmuje gestu przewijania — kadry
+   przesuwają się strzałkami. Przeglądarka blokuje oś gestu: przy
+   najmniejszym skosie oddawała cały ruch poziomemu paskowi i strona
+   stawała. Żadne ustawienie stylów tego nie zmienia, więc odbieramy
+   paskowi możliwość przyjęcia gestu. Programowe przesuwanie strzałkami
+   działa dalej. Na ekranach dotykowych przesuwanie palcem zostaje. */
+@media (hover: hover) and (pointer: fine) {
+	.carousel-track { overflow-x: hidden; cursor: grab; }
+	/* W trakcie przeciągania: kursor zaciśnięty, przyciąganie kadrów
+	   wyłączone, żeby nie szarpało ręki. Po puszczeniu wraca i dociąga. */
+	.carousel-track.ciagnie { cursor: grabbing; scroll-snap-type: none; }
+	.carousel-track img {
+		-webkit-user-drag: none;
+		user-select: none;
+	}
 }
 .carousel-track::-webkit-scrollbar {
 	display: none;
@@ -512,11 +540,13 @@ body.search-open .search-bar {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	transition: transform 0.5s ease;
 }
-.s-card:hover .frame img {
-	transform: scale(1.04);
-}
+/* Powiększanie kadru przy najechaniu — wróciło wszędzie, także w karuzelach.
+   Żeby nie kosztowało przerysowania całego zdjęcia przy każdej klatce,
+   warstwa kompozycji powstaje dopiero z chwilą wejścia kursora na kartę
+   i znika po jego zejściu. */
+.s-card .frame img { transition: transform 0.5s ease; }
+.s-card:hover .frame img { transform: scale(1.04); will-change: transform; }
 .s-card .frame-wide {
 	aspect-ratio: 16 / 9;
 }
@@ -1030,6 +1060,65 @@ html { scroll-behavior: smooth; }
 	word-spacing: -0.03em;
 	letter-spacing: 0.01em;
 	margin-bottom: 30px;
+}
+
+/* ── Celownik (Crosshair.tsx) ── */
+.celownik {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 9998;
+}
+/* Tylko dla myszy i gładzika — na dotyku nie ma kursora, który mógłby je prowadzić. */
+@media (hover: none), (pointer: coarse) {
+	.celownik { display: none; }
+}
+/* Odwracanie kolorów nałożone TYLKO na same linie i znak, nie na całą warstwę:
+   mieszanie pełnoekranowe kazałoby przeglądarce przeliczać cały widok przy
+   każdej klatce przewijania. Tak blenduje się pasek o szerokości 1 px. */
+.celownik-pion,
+.celownik-poziom,
+.celownik-plus {
+	position: absolute;
+	top: 0;
+	left: 0;
+	mix-blend-mode: difference;
+	will-change: transform;
+}
+.celownik-pion {
+	width: 1px;
+	height: 100vh;
+	background: rgb(255 255 255 / 0.32);
+}
+.celownik-poziom {
+	width: 100vw;
+	height: 1px;
+	background: rgb(255 255 255 / 0.32);
+}
+/* Plusik rysowany dwiema kreskami, a nie znakiem pisarskim: dzięki temu
+   można go powiększyć, a grubość linii zostaje 1 px. Przy znaku pisarskim
+   powiększenie stopnia pogrubiłoby też kreski. */
+.celownik-plus {
+	width: 22px;
+	height: 22px;
+}
+.celownik-plus::before,
+.celownik-plus::after {
+	content: "";
+	position: absolute;
+	background: rgb(255 255 255 / 0.85);
+}
+.celownik-plus::before {
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 1px;
+}
+.celownik-plus::after {
+	left: 50%;
+	top: 0;
+	height: 100%;
+	width: 1px;
 }
 
 /* ── Wyszukiwarka (Search.tsx): lupka w prawej strefie nagłówka ── */

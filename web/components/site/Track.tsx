@@ -31,6 +31,54 @@ export function Track({ id, head, children, className = "" }: { id?: string; hea
     window.addEventListener("resize", sync);
     return () => window.removeEventListener("resize", sync);
   }, [sync]);
+
+  // Przeciąganie kursorem: karuzela nie przyjmuje gestu przewijania (oddaje go
+  // stronie), więc kadry przesuwa się chwytając zdjęcie. Ustawiamy pozycję
+  // wprost, co działa nawet przy zablokowanym przewijaniu poziomym.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+    let ciagne = false;
+    let odX = 0;
+    let odScroll = 0;
+    let klatka = 0;
+
+    const wdol = (e: PointerEvent) => {
+      if (e.button !== 0) return;
+      ciagne = true;
+      odX = e.clientX;
+      odScroll = track.scrollLeft;
+      track.setPointerCapture(e.pointerId);
+      track.classList.add("ciagnie");
+    };
+    const wruchu = (e: PointerEvent) => {
+      if (!ciagne) return;
+      track.scrollLeft = odScroll - (e.clientX - odX);
+      if (!klatka) klatka = requestAnimationFrame(() => { klatka = 0; sync(); });
+    };
+    const koniec = (e: PointerEvent) => {
+      if (!ciagne) return;
+      ciagne = false;
+      if (track.hasPointerCapture?.(e.pointerId)) track.releasePointerCapture(e.pointerId);
+      track.classList.remove("ciagnie");
+      sync();
+    };
+
+    track.addEventListener("pointerdown", wdol);
+    track.addEventListener("pointermove", wruchu);
+    track.addEventListener("pointerup", koniec);
+    track.addEventListener("pointercancel", koniec);
+    return () => {
+      track.removeEventListener("pointerdown", wdol);
+      track.removeEventListener("pointermove", wruchu);
+      track.removeEventListener("pointerup", koniec);
+      track.removeEventListener("pointercancel", koniec);
+      if (klatka) cancelAnimationFrame(klatka);
+    };
+  }, [sync]);
+
   const scrollBy = (dir: number) => trackRef.current?.scrollBy({ left: dir * step(), behavior: "smooth" });
   return (
     <div className={className} id={id}>
