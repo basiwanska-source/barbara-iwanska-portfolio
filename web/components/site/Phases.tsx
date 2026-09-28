@@ -10,7 +10,7 @@ export function Phases() {
         {phases.map((f, i) => (
           <div className="phase" key={f.name}>
             <img alt="" loading="lazy" src={phaseImages[i]} />
-            <div className="txt"><span className="no">0{i + 1}</span><div><b>{f.name}</b><span>{f.role}</span></div></div>
+            <div className="txt"><span className="no">{i + 1}</span><div><b>{f.name}</b><span>{f.role}</span></div></div>
           </div>
         ))}
       </div>

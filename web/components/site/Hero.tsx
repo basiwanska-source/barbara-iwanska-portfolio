@@ -1,10 +1,14 @@
 "use client";
-import { useEffect, useRef } from "react";
-import type { Project } from "@/lib/site";
+import { useEffect, useRef, useState } from "react";
+import type { Img } from "@/lib/site";
 
 /** Hero: pełny ekran pod przezroczystym headerem. Jeden kadr z powolnym zoomem, imię, jedna linia. */
-export function Hero({ slides }: { slides: Project[] }) {
-  const cover = slides[0];
+/** Co ile kadr ustepuje nastepnemu. */
+const TAKT = 4000;
+
+export function Hero({ slides }: { slides: Img[] }) {
+  const kadry = slides;
+  const [biezacy, setBiezacy] = useState(0);
   // Wysokość hero przypięta w px przy załadowaniu: chowanie paska przeglądarki na mobile
   // zmienia 100vh, a my nie chcemy, żeby kadr zmieniał rozmiar pod palcem. Aktualizacja
   // tylko gdy zmieni się szerokość (obrót ekranu), nie wysokość.
@@ -35,6 +39,29 @@ export function Hero({ slides }: { slides: Project[] }) {
     };
   }, []);
 
+  // Pokaz kadrow: co TAKT nastepny przejmuje miejsce, przenikajac przez
+  // poprzedni. Przy zwinietej karcie przegladarki licznik stoi — inaczej po
+  // powrocie strona nadrabialaby wszystkie zalegle przejscia naraz.
+  useEffect(() => {
+    if (kadry.length < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let zegar = 0;
+    const start = () => {
+      if (!zegar) zegar = window.setInterval(() => setBiezacy((n) => (n + 1) % kadry.length), TAKT);
+    };
+    const stop = () => {
+      if (zegar) window.clearInterval(zegar);
+      zegar = 0;
+    };
+    const widocznosc = () => (document.hidden ? stop() : start());
+    start();
+    document.addEventListener("visibilitychange", widocznosc);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", widocznosc);
+    };
+  }, [kadry.length]);
+
   useEffect(() => {
     let w = window.innerWidth;
     const pin = () => document.documentElement.style.setProperty("--hero-h", `${window.innerHeight}px`);
@@ -52,7 +79,15 @@ export function Hero({ slides }: { slides: Project[] }) {
     <section className="hc" id="top">
       <div className="hc-stage" aria-hidden>
         <div className="hc-parallax" ref={warstwa}>
-          {cover && <img alt="" className="on" src={cover.hero!.src} fetchPriority="high" />}
+          {kadry.map((im, i) => (
+            <img
+              alt=""
+              className={i === biezacy ? "on" : ""}
+              fetchPriority={i === 0 ? "high" : "low"}
+              key={im.src}
+              src={im.src}
+            />
+          ))}
         </div>
         <div className="hc-shade" />
       </div>

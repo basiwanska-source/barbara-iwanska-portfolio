@@ -31,8 +31,12 @@ export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
       <header className={`hdr${solid || menuOpen || solidAlways ? " solid" : ""}`}>
         <div className="shell hdr-row">
           <nav className="hdr-nav">
-            {NAV.map((n) => (
+            {NAV.map((n, i) => (
               <a href={n.href} key={n.href}>
+                {/* Numer stoi poza roll-clip, wiec przy najechaniu zostaje
+                    w miejscu, a przewija sie sama etykieta. aria-hidden,
+                    bo czytnik ekranu ma czytac „Projekty", nie „1 Projekty". */}
+                <span aria-hidden="true" className="nr">{i + 1}</span>
                 <span className="roll-clip">
                   <span className="roll-track">
                     <span className="roll-label">{n.label}</span>
@@ -42,9 +46,8 @@ export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
               </a>
             ))}
           </nav>
-          <Link className="site-logo" href="/">Barbara Iwańska</Link>
           <div className="hdr-end">
-            <a className="hdr-talk" href="mailto:bas.iwanska@gmail.com">Let&rsquo;s talk!</a>
+            <a className="hdr-talk" href="mailto:bas.iwanska@gmail.com">Get in touch</a>
             <Search />
             <button aria-label="Menu" className="icon-btn hamburger-wrap" onClick={() => setMenuOpen((v) => !v)} type="button">
               <span className="hamburger"><span /><span /><span /></span>
@@ -52,8 +55,16 @@ export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
           </div>
         </div>
       </header>
+      {/* Logotyp stoi poza paskiem, bo tryb mieszania „difference" dziala tylko
+          wzgledem tla tego kontekstu ukladania, w ktorym element siedzi.
+          .hdr jest fixed, wiec tworzy wlasny kontekst — logo w srodku
+          mieszaloby sie z pustka, nie z trescia strony. Osobny element
+          przypiety do body widzi cala strone pod soba i moze byc negatywem. */}
+      <div className="logo-warstwa">
+        <Link className="site-logo" href="/">Barbara Iwańska</Link>
+      </div>
       <nav className="nav-mobile">
-        <ul>{NAV.map((n) => <li key={n.href}><a href={n.href} onClick={() => setMenuOpen(false)}>{n.label}</a></li>)}</ul>
+        <ul>{NAV.map((n, i) => <li key={n.href}><a href={n.href} onClick={() => setMenuOpen(false)}><span aria-hidden="true" className="nr">{i + 1}</span>{n.label}</a></li>)}</ul>
       </nav>
     </>
   );

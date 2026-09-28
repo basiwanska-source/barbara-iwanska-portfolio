@@ -85,7 +85,11 @@ export const projects: Project[] = GROUPS.map((g, i) => {
     result,
     credits,
     hero,
-    gallery: wnetrzaNajpierw(allImgs.slice(1)),
+    // Cala biblioteka projektu, takze kadr uzyty jako otwarcie. Wczesniej
+    // szedl tu slice(1), przez co pierwsze zdjecie — u Golden Tulip
+    // wizualizacja lobby — nigdy nie trafialo do karuzeli: bylo widoczne
+    // tylko jako duze tlo sekcji, ktorego nie da sie obejrzec z bliska.
+    gallery: wnetrzaNajpierw(allImgs),
     chapters,
     pages: ps.map((p) => p.n),
     missing: g.missing,
@@ -96,12 +100,4 @@ export const profile = pages.find((p) => p.n === 2)!;
 export const phases = pages.find((p) => p.n === 3)!.phases!;
 export const contact = pages.find((p) => p.n === 33)!;
 
-/* Treść bieżnika (Marquee.tsx). Bez Form Space — projekt jest poza serwisem. */
-export const runners = [
-  "GOLDEN TULIP • CHMIELNA 78 • GDAŃSK",
-  "ROTUNDA DYNASY M07 • WARSZAWA • MIESZKANIE POKAZOWE",
-  "UNIQUE HOTEL KOŁOBRZEG • SUŁKOWSKIEGO 7",
-  "OSIEDLE SENZA • GRZYMALITÓW 3 • WARSZAWA",
-  "B SIDES • MOKOTOWSKA 61",
-];
 

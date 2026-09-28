@@ -1,5 +1,3 @@
-import { runners } from "@/lib/site";
-
 /**
  * Bieżnik: tekst przesuwający się w lewo. Ruch robi jedna animacja CSS —
  * bez nasłuchu przewijania, więc nie dokłada nic do pracy przeglądarki.
@@ -8,11 +6,11 @@ import { runners } from "@/lib/site";
  * jest niewidoczny.
  */
 export function Marquee({
-  tresc = runners,
+  tresc,
   className = "bieznik",
   tempo = 60,
 }: {
-  tresc?: string[];
+  tresc: string[];
   className?: string;
   tempo?: number;
 }) {

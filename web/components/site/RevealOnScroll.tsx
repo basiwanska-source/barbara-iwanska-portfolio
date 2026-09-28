@@ -7,7 +7,11 @@ const CELE = [
   ".site-main .feature-text > *",
   ".site-main .manifest .hero-text > *",
   ".site-main .phase",
-  ".site-main .s-card",
+  // Nie pojedyncza karta, tylko cala karuzela. Karty przesuniete poza kadr
+  // w poziomie nigdy nie przecinaja sie z oknem, wiec zostawaly w stanie
+  // wejsciowym — przesuniete o 14 px w dol. Sasiadujace kadry wygladaly
+  // wtedy na rozne wysokosci, mimo ze maja identyczna wysokosc ramki.
+  ".site-main .carousel",
   ".site-main .contact-intro > *",
   ".site-main .p-cols > div",
   ".site-main .p-chapter",

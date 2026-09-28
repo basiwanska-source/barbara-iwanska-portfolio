@@ -4,7 +4,10 @@ import "./globals.css";
 import { Crosshair } from "@/components/site/Crosshair";
 import { RevealOnScroll } from "@/components/site/RevealOnScroll";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin", "latin-ext"], weight: ["200", "300", "400", "500"] });
+// 900 dociagniete dla logotypu — bez niego przegladarka pogrubiala Inter
+// sztucznie, co przy duzym rozstrzeleniu wygladalo na rozmyte. 700 nie
+// wczytujemy, bo nic go nie uzywa.
+const inter = Inter({ variable: "--font-inter", subsets: ["latin", "latin-ext"], weight: ["200", "300", "400", "500", "900"] });
 const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin", "latin-ext"], weight: ["200", "300", "400"] });
 // Szeryf do menu i akapitów — odpowiednik Caslona z nawigacji kellywearstler.com.
 // latin-ext jest konieczny: bez niego ą, ę, ł, ż wypadłyby z innego kroju.
