@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import type { Img } from "@/lib/site";
+import { Noise } from "./Noise";
 
 /** Hero: pelny ekran pod przezroczystym paskiem, kadry zmieniane przycieciem. */
 
@@ -125,6 +126,9 @@ export function Hero({ slides }: { slides: Img[] }) {
           ))}
         </div>
         <div className="hc-shade" />
+        {/* Ziarno na obrazie — odpowiednik „Noiser" z Framera. Nad kadrem
+            i cieniowaniem, pod tekstem. */}
+        <Noise />
         {/* Czasomierz jak na houseofhoney.com: pasek 4 px przy dolnej krawedzi
             hero, wypelniany od lewej przez caly takt. Klucz to numer kadru —
             przy kazdej zmianie React wstawia nowy element, wiec animacja

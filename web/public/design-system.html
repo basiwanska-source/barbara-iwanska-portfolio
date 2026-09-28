@@ -6,7 +6,7 @@
 <title>Design system · Barbara Iwańska · Design Management</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Inter:wght@400;500;900&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    TOKENY — konwencja shadcn/ui, wartości odczytane z działającej
@@ -46,10 +46,13 @@
   --ziemia-oliwka:         #584c2a;   /* podłoże najciemniejsze */
 
   /* — promień —
-     Wszystko jest prostokątne. Jedyny wyjątek to przełącznik, który
-     bez zaokrąglenia przestaje czytać się jako przełącznik. */
-  --radius:                0px;       /* zasada: bez zaokrągleń */
-  --radius-toggle:         9999px;    /* jedyny wyjątek: przełącznik */
+     Reguła jest dwustanowa, bez wartości pośrednich: pola treści są
+     prostokątne, a wszystko, co się klika lub unosi nad treścią, jest
+     pigułką. Nie ma zaokrągleń „trochę” — 4 czy 8 px dałoby wygląd
+     domyślnego interfejsu, a nie decyzji. */
+  --radius:                0px;       /* pola treści, kadry, formularze */
+  --radius-pigulka:        9999px;    /* pasek nawigacji, przyciski, kółka */
+  --radius-toggle:         9999px;    /* przełącznik */
 
   /* — mapowanie shadcn/ui na markę —
      Nazwy po lewej to standard biblioteki; wartości po prawej to Twoje
@@ -68,6 +71,9 @@
   --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body:    "Libre Caslon Text", Georgia, "Times New Roman", serif;
   --font-label:   "Inter", system-ui, sans-serif;
+  /* Kaligrafia wyłącznie do wielkich napisów w tle manifestów. Nigdy do
+     czytania: przy stopniu poniżej 120 px włoskowata kreska znika. */
+  --font-script:  "Herr Von Muellerhoff", cursive;
 
   /* — skala stopni — */
   --text-micro: 10px;
@@ -78,6 +84,10 @@
   --text-h2:    clamp(20px, 2.2vw, 30px);
   --text-h1:    clamp(26px, 4vw, 54px);
   --text-hero:  clamp(36px, 6.8vw, 100px);
+  /* zdanie manifestu — metryka zmierzona na houseofhoney.com/studio */
+  --text-manifest:   clamp(28px, 4vw, 45px);
+  --text-domkniecie: clamp(14px, 1.5vw, 21px);
+  --text-script:     clamp(170px, 32vw, 510px);
 
   /* — światło międzyliterowe — */
   --track-tight:  -0.02em;
@@ -94,9 +104,15 @@
   --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-roll:   cubic-bezier(0.16, 1.08, 0.38, 0.98);
   --ease-soft:   cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* Krzywa House of Honey, odczytana z ich arkusza i potwierdzona pomiarem
+     klatka po klatce: po 43% czasu pokonane 36% drogi, po 56% — już 78%.
+     Bardzo strome zbocze w środku, spokojne końce. */
+  --ease-hoh:    cubic-bezier(0.65, 0.05, 0.36, 1);
   --dur-reveal:  0.9s;
   --dur-roll:    0.7s;
   --dur-hover:   0.5s;
+  --dur-wjazd:   1.8s;   /* przejazd krawędzi między kadrami hero */
+  --takt-hero:   4s;     /* odliczanie do zmiany kadru */
 }
 
 /* ============================================================
@@ -199,8 +215,8 @@ section > .shell > h2 { font-size: var(--text-h2); text-transform: uppercase; le
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-label); font-size: var(--text-meta); font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
-  border: 1px solid var(--foreground); border-radius: var(--radius);
-  padding: 13px 26px; background: none; color: var(--foreground);
+  border: 1px solid var(--foreground); border-radius: var(--radius-pigulka);
+  height: 37px; padding: 0 32px; background: none; color: var(--foreground);
   text-decoration: none; cursor: pointer;
   transition: background var(--dur-hover) var(--ease-soft), color var(--dur-hover) var(--ease-soft);
 }
@@ -218,6 +234,55 @@ section > .shell > h2 { font-size: var(--text-h2); text-transform: uppercase; le
 .bieznik-tor { display: flex; width: max-content; animation: bieg 60s linear infinite; }
 .bieznik-tor > span { white-space: nowrap; padding-right: 56px; font-family: var(--font-label); font-size: var(--text-micro); font-weight: 500; letter-spacing: var(--track-label); text-transform: uppercase; color: var(--subtle-foreground); }
 @keyframes bieg { to { transform: translateX(-50%); } }
+
+/* — pigułka paska nawigacji: mleczna szyba —
+   Krycie 0,48 to dolna granica. Przy 0,45 czarne menu nad ciemnym kadrem
+   ma 4,43 : 1, czyli poniżej progu WCAG AA (4,5 : 1). */
+.szyba {
+  display: inline-flex; align-items: center; gap: 22px; height: 37px;
+  padding: 0 24px; border-radius: var(--radius-pigulka);
+  background: rgb(255 255 255 / 0.48);
+  backdrop-filter: blur(26px) saturate(160%);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.42), 0 10px 34px rgb(0 0 0 / 0.07);
+  font-family: var(--font-label); font-size: 10px; font-weight: 500;
+  letter-spacing: var(--track-label); text-transform: uppercase; white-space: nowrap;
+}
+.szyba-tlo { background: var(--inverted); padding: 28px 30px; }
+
+/* — cyfra w kółku —
+   Jeden znak w czterech miejscach: pasek nawigacji (16 px), podpis pod
+   kadrem (22 px), kafel procesu i znak rozwijania (26 px). Obrys zawsze
+   w currentColor, więc działa na każdym tle bez osobnej reguły. */
+.kolko {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid currentColor; border-radius: var(--radius-pigulka);
+  font-family: var(--font-label); font-weight: 500; line-height: 1; letter-spacing: normal;
+}
+.kolko-16 { width: 16px; height: 16px; font-size: 8px; }
+.kolko-22 { width: 22px; height: 22px; font-size: 10px; }
+.kolko-26 { width: 26px; height: 26px; font-size: 12px; }
+
+/* — pasek pełnej szerokości —
+   Wypełnienie biegnie od krawędzi do krawędzi okna, a napis zostaje
+   w linii z treścią. Ujemny margines i światło wewnętrzne liczą się
+   z tej samej różnicy między szerokością okna a łamem. */
+.pasek-pelny {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 26px; margin: 0 -26px;
+  font-family: var(--font-label); font-size: var(--text-meta); font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+  transition: background var(--dur-hover) var(--ease-hoh), color var(--dur-hover) var(--ease-hoh);
+}
+.pasek-pelny span, .pasek-pelny .kolko { transition: transform var(--dur-hover) var(--ease-hoh); }
+.pasek-pelny:hover { background: var(--inverted); color: var(--inverted-foreground); }
+.pasek-pelny:hover span { transform: translateX(8px); }
+.pasek-pelny:hover .kolko { transform: translateX(-8px); }
+
+/* — kaligrafia w tle — */
+.kaligrafia {
+  font-family: var(--font-script); font-size: 150px; line-height: 1;
+  color: var(--ziemia-koral); white-space: nowrap; overflow: hidden;
+}
 
 .odwrocone { background: var(--inverted); color: var(--inverted-foreground); padding: 46px 30px; }
 .odwrocone h3 { font-size: var(--text-h2); text-transform: uppercase; max-width: 16ch; line-height: 1.15; }
@@ -476,7 +541,7 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
 <section>
   <div class="shell">
     <h2>Kroje i ich role</h2>
-    <p class="opis">Podział jest sztywny: szeryf tam, gdzie się czyta; grotesk w tytułach; wąski sans w etykietach. Krój nigdy nie służy ozdobie — zawsze oznacza rolę tekstu.</p>
+    <p class="opis">Podział jest sztywny: szeryf tam, gdzie się czyta; grotesk w tytułach; sans w etykietach; kaligrafia wyłącznie jako tekstura. Krój nigdy nie służy ozdobie — zawsze oznacza rolę tekstu. Jedyny wyjątek od tej reguły, kaligrafia, jest wyjątkiem świadomym: tam napis <em>nie jest</em> tekstem do przeczytania, tylko rysunkiem.</p>
 
     <div class="specimen">
       <div class="rola">font-display<span>Helvetica Neue · tytuły</span></div>
@@ -490,6 +555,16 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
       <div class="rola">font-label<span>Inter · etykiety i metryki</span></div>
       <div><span class="label">01 · Marvipol Development · 2023–2025</span></div>
     </div>
+    <div class="specimen">
+      <div class="rola">font-script<span>Herr Von Muellerhoff · wyłącznie tekstura</span></div>
+      <div class="kaligrafia">Warsaw based designer</div>
+      <p style="margin-top:12px;font-size:12px;color:var(--muted-foreground);line-height:1.55;max-width:70ch">Najcieńsza kreska z dostępnych angielskich kaligrafii — przy 500 px daje rysunek piórem, a nie plamę. Nigdy poniżej 120 px: włoskowate łączenia wtedy znikają. Ma jedną odmianę, więc cieńszego nie da się uzyskać inaczej niż zmianą kroju. Zestaw znaków obejmuje tylko podstawową łacinę, stąd napisy w tej roli są po angielsku.</p>
+    </div>
+    <div class="specimen">
+      <div class="rola">logotyp<span>Inter 900 · jedyne miejsce z tą wagą</span></div>
+      <div style="font-family:var(--font-label);font-weight:900;font-size:16px;letter-spacing:var(--track-logo);text-indent:var(--track-logo);text-transform:uppercase">Barbara Iwańska</div>
+      <p style="margin-top:12px;font-size:12px;color:var(--muted-foreground);line-height:1.55;max-width:70ch">Wagę 900 trzeba wczytać osobno. Bez niej przeglądarka pogrubia krój sztucznie — rozciąga kontury odmiany 500, co przy rozstrzeleniu 0,34em wygląda na rozmyte, a nie na grubsze.</p>
+    </div>
   </div>
 </section>
 
@@ -501,11 +576,14 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
       <div class="demo">
         <p class="label" style="margin-bottom:14px">Stopnie</p>
         <div class="podpis"><b>hero</b><span>36 → 100 px</span></div>
+        <div class="podpis"><b>zdanie manifestu</b><span>28 → 45 px · interlinia 1,0</span></div>
+        <div class="podpis"><b>myśl domykająca</b><span>14 → 21 px · interlinia 1,3</span></div>
         <div class="podpis"><b>h1</b><span>26 → 54 px</span></div>
         <div class="podpis"><b>h2</b><span>20 → 30 px</span></div>
         <div class="podpis"><b>tekst czytany</b><span>14 px · interlinia 1,7</span></div>
         <div class="podpis"><b>metryka</b><span>12 px</span></div>
         <div class="podpis"><b>mikroetykieta</b><span>10 px · interlinia 0,9</span></div>
+        <div class="podpis"><b>kaligrafia w tle</b><span>170 → 510 px</span></div>
       </div>
       <div class="demo">
         <p class="label" style="margin-bottom:14px">Światło</p>
@@ -514,6 +592,7 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
         <div class="podpis"><b>mikroetykieta</b><span>+0,20em</span></div>
         <div class="podpis"><b>logotyp</b><span>+0,34em</span></div>
         <p style="margin-top:16px;font-size:12px;color:var(--muted-foreground);line-height:1.55">Przy rozstrzeleniu powyżej +0,2em wyśrodkowany napis odjeżdża w lewo — światło za ostatnią literą liczy się do szerokości pudełka. Kompensuje się je wcięciem równym rozstrzeleniu.</p>
+        <p style="margin-top:12px;font-size:12px;color:var(--muted-foreground);line-height:1.55">Zdanie manifestu ma interlinię równą stopniowi pisma (1,0) i włączone <code>text-wrap: balance</code>. Dopiero oba naraz dają zwartą bryłę zamiast schodków — samo wyrównanie długości wierszy przy luźnej interlinii nadal czyta się jak lista.</p>
       </div>
     </div>
   </div>
@@ -534,22 +613,28 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
 <section>
   <div class="shell">
     <h2>Ruch</h2>
-    <p class="opis">Jedna krzywa dla całej strony. Ruch ma być zauważalny dopiero wtedy, gdy się go szuka — nigdy wcześniej. Wszystko wyłącza się przy systemowym ograniczeniu animacji.</p>
+    <p class="opis">Ruch ma być zauważalny dopiero wtedy, gdy się go szuka — nigdy wcześniej. Wszystko wyłącza się przy systemowym ograniczeniu animacji.</p>
+    <p class="opis" style="margin-top:-10px">Trzy reguły, które łatwo przeoczyć przy wdrażaniu. <b>Po pierwsze</b>: kadry hero zmieniają się <em>przycięciem</em>, nie przenikaniem — pionowa krawędź przejeżdża od prawej w lewo, a poprzedni kadr zostaje nieruchomo pod spodem. <b>Po drugie</b>: to musi być animacja, nie przejście. Przy dwóch kadrach każdy wraca prosto ze stanu odsłoniętego do aktywnego, więc przejściu brakuje punktu startu i zmiana następuje skokiem. <b>Po trzecie</b>: czasomierz wypełnia się przez takt, a potem <em>stoi na 100% przez cały przejazd</em>. Jednym interwałem się tego nie zrobi — ma jeden moment wyzwolenia na cykl, a tu potrzebne są dwa.</p>
     <div class="grid grid-2">
       <div class="demo">
         <p class="label" style="margin-bottom:14px">Krzywe</p>
         <div class="podpis"><b>reveal</b><span>0,16 · 1 · 0,3 · 1</span></div>
         <div class="podpis"><b>roll</b><span>0,16 · 1,08 · 0,38 · 0,98</span></div>
         <div class="podpis"><b>soft</b><span>0,2 · 0,7 · 0,2 · 1</span></div>
+        <div class="podpis"><b>hoh</b><span>0,65 · 0,05 · 0,36 · 1</span></div>
+        <p style="margin-top:16px;font-size:12px;color:var(--muted-foreground);line-height:1.55">Krzywa „hoh" ma bardzo strome zbocze w środku: po 43% czasu pokonuje 36% drogi, po 56% — już 78%. Dlatego ruch zaczyna się niepostrzeżenie, przelatuje środek i miękko siada. Odczytana z arkusza houseofhoney.com i potwierdzona pomiarem klatka po klatce.</p>
       </div>
       <div class="demo">
         <p class="label" style="margin-bottom:14px">Czasy i siła</p>
         <div class="podpis"><b>wyłanianie tekstu</b><span>0,9 s · kaskada co 70 ms</span></div>
+        <div class="podpis"><b>przejazd kadru hero</b><span>1,8 s · krzywa hoh</span></div>
+        <div class="podpis"><b>takt hero</b><span>4 s + 1,8 s postoju</span></div>
+        <div class="podpis"><b>chowanie logotypu</b><span>0,22 s w dół · 0,4 s powrót</span></div>
         <div class="podpis"><b>etykieta w menu</b><span>0,7 s</span></div>
         <div class="podpis"><b>najechanie na kadr</b><span>0,5 s</span></div>
         <div class="podpis"><b>paralaksa hero</b><span>15% ruchu strony</span></div>
         <div class="podpis"><b>paralaksa kadru</b><span>8% wysokości</span></div>
-        <div class="podpis"><b>bieżnik</b><span>60 s · w tle 42 s</span></div>
+        <div class="podpis"><b>bieżnik kaligraficzny</b><span>90 s · domykający 100 s</span></div>
       </div>
     </div>
   </div>
@@ -558,18 +643,47 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
 <section>
   <div class="shell">
     <h2>Komponenty</h2>
-    <p class="opis">Wszystko jest prostokątne. Jedyny wyjątek to przełącznik — bez zaokrąglenia przestaje czytać się jako przełącznik. Brak promienia to decyzja, nie zaniedbanie: ostry narożnik trzyma stronę bliżej rysunku technicznego niż interfejsu aplikacji.</p>
+    <p class="opis">Promień jest dwustanowy, bez wartości pośrednich. <b>Prostokątne</b> zostaje wszystko, co jest treścią albo ją trzyma: kadry, pola formularza, karty, pasma zdjęć. <b>Pigułką</b> jest wszystko, co się klika albo unosi nad treścią: pasek nawigacji, przyciski, numery w kółkach, znak rozwijania. Nie ma zaokrągleń „trochę” — 4 czy 8 px dałoby wygląd domyślnego interfejsu, a nie decyzji.</p>
 
     <div class="demo">
-      <p class="label" style="margin-bottom:18px">Przyciski</p>
+      <p class="label" style="margin-bottom:18px">Przyciski · pigułka 37 px</p>
       <a class="btn" href="#">Napisz do mnie</a>
       <a class="btn btn-solid" href="#" style="margin-left:10px">Zobacz projekt</a>
+      <p style="margin-top:14px;font-size:12px;color:var(--muted-foreground);line-height:1.55;max-width:70ch">Wysokość 37 px jest wpisana wprost, nie wynika ze światła w pionie — inaczej zmiana stopnia pisma rozjeżdżałaby przycisk z paskiem nawigacji. Światło po bokach 32 px, o 8 px więcej niż przy kancie prostym: przy zaokrąglonych końcach napis stojący bliżej wchodzi optycznie w krzywiznę.</p>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Pasek nawigacji · mleczna szyba</p>
+      <div class="szyba-tlo">
+        <span class="szyba">
+          <span style="display:inline-flex;align-items:center;gap:8px"><span class="kolko kolko-16">1</span>Projekty</span>
+          <span style="display:inline-flex;align-items:center;gap:8px"><span class="kolko kolko-16">2</span>O mnie</span>
+          <span style="display:inline-flex;align-items:center;gap:8px"><span class="kolko kolko-16">3</span>Kontakt</span>
+        </span>
+      </div>
+      <p style="margin-top:14px;font-size:12px;color:var(--muted-foreground);line-height:1.55;max-width:70ch">Krycie 0,48 bieli na rozmyciu 26 px i nasyceniu 160%. To dolna granica: przy 0,45 czarne menu nad ciemnym kadrem ma 4,43 : 1, czyli poniżej progu WCAG AA. Nasycenie wyrównuje barwy, które samo rozmycie spłaszcza. Bez obsługi rozmycia tła tło gęstnieje do 0,94 — sama półprzezroczystość byłaby nieczytelna.</p>
+    </div>
+
+    <div class="demo">
+      <p class="label" style="margin-bottom:18px">Cyfra w kółku</p>
+      <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+        <span style="display:inline-flex;align-items:center;gap:10px"><span class="kolko kolko-16">1</span><span style="font-size:12px;color:var(--muted-foreground)">16 px · pasek nawigacji</span></span>
+        <span style="display:inline-flex;align-items:center;gap:10px"><span class="kolko kolko-22">2</span><span style="font-size:12px;color:var(--muted-foreground)">22 px · podpis pod kadrem</span></span>
+        <span style="display:inline-flex;align-items:center;gap:10px"><span class="kolko kolko-26">3</span><span style="font-size:12px;color:var(--muted-foreground)">26 px · kafel i znak rozwijania</span></span>
+      </div>
+      <p style="margin-top:14px;font-size:12px;color:var(--muted-foreground);line-height:1.55;max-width:70ch">Obrys zawsze w <code>currentColor</code>, nigdy w konkretnej barwie — dzięki temu kółko jest białe na ciemnym kadrze i czarne na jasnym, bez osobnej reguły na każdy stan. Rozstrzelenie wewnątrz trzeba wyzerować: doklejona spacja spycha cyfrę z osi. W układach flex konieczne jest <code>align-self: flex-start</code>, inaczej kółko rozciąga się na wysokość sąsiada i robi się owalem.</p>
+    </div>
+
+    <div class="demo" style="overflow:hidden">
+      <p class="label" style="margin-bottom:18px">Pasek pełnej szerokości</p>
+      <div class="pasek-pelny"><span>Kontekst · Moja rola · Rezultat</span><span class="kolko kolko-26">+</span></div>
+      <p style="margin-top:14px;font-size:12px;color:var(--muted-foreground);line-height:1.55;max-width:70ch">Po najechaniu wypełnienie biegnie od krawędzi do krawędzi okna, a napis zostaje w linii z treścią: ujemny margines i światło wewnętrzne liczą się z tej samej różnicy między szerokością okna a łamem. Napis i znak zbiegają się ku sobie o 8 px — to ten ruch, a nie sama zmiana barwy, sprawia, że pasek wydaje się odpowiadać. Uwaga: <code>100vw</code> obejmuje miejsce na pasek przewijania, więc <code>body</code> musi mieć <code>overflow-x: clip</code>.</p>
     </div>
 
     <div class="demo">
       <p class="label" style="margin-bottom:18px">Podpis pod kadrem</p>
-      <div class="podpis"><b>01</b><span>Lobby z windami — wizualizacja</span></div>
-      <div class="podpis"><b>02</b><span>Korytarz części wspólnych</span></div>
+      <div class="podpis"><span style="display:inline-flex;align-items:center;gap:10px;color:var(--foreground)"><span class="kolko kolko-22">1</span></span><span>Lobby z windami — wizualizacja</span></div>
+      <div class="podpis" style="margin-top:12px"><span style="display:inline-flex;align-items:center;gap:10px;color:var(--foreground)"><span class="kolko kolko-22">2</span></span><span>Korytarz części wspólnych</span></div>
     </div>
 
     <div class="demo">
@@ -587,10 +701,15 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
     </div>
 
     <div class="demo" style="padding:0">
-      <div class="odwrocone">
-        <p class="label" style="color:rgba(255,255,255,.55);margin-bottom:18px">Pole odwrócone</p>
-        <h3>Od zakresu i budżetu, przez akceptacje materiałowe, po odbiory.</h3>
+      <div class="odwrocone" style="position:relative;overflow:hidden;padding:46px 30px 40px">
+        <span class="kaligrafia" style="position:absolute;left:-6%;bottom:56px;font-size:132px;z-index:0">Warsaw based designer</span>
+        <div style="position:relative;z-index:1;text-align:center">
+          <p class="label" style="color:rgba(255,255,255,.5);letter-spacing:var(--track-label)">O mnie</p>
+          <h3 style="max-width:30ch;margin:34px auto 0;font-family:var(--font-body);font-size:var(--text-manifest);line-height:1;letter-spacing:var(--track-tight);text-wrap:balance">Zajmuję się projektowaniem i&nbsp;realizacją wnętrz. Od zakresu i&nbsp;budżetu, przez akceptacje materiałowe, po odbiory.</h3>
+          <p style="margin:210px auto 0;max-width:62ch;font-family:var(--font-body);font-size:var(--text-domkniecie);line-height:1.3;letter-spacing:var(--track-tight);text-transform:uppercase">Projekt kończy się na odbiorach, nie na wizualizacji.</p>
+        </div>
       </div>
+      <p style="padding:16px 26px 22px;font-size:12px;color:var(--muted-foreground);line-height:1.55;max-width:74ch">Kompozycja manifestu: etykieta i zdanie przy górnej krawędzi pełnoekranowego pola, kaligrafia w środku, jedna myśl domykająca przy dolnej. Kolumna rozłożona przez <code>space-between</code>, więc etykietę i zdanie trzeba zgrupować — inaczej rozsunięcie rozrzuci wszystkie trzy elementy równomiernie i rozerwie parę etykieta–zdanie. Odstępy nad etykietą, pod nią i pod zdaniem są równe.</p>
     </div>
   </div>
 </section>
@@ -611,7 +730,8 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
         <div>
           <div class="podpis"><b>ring</b><span>koral · obrys fokusu</span></div>
           <div class="podpis"><b>input</b><span>border · linia pola</span></div>
-          <div class="podpis"><b>radius</b><span>0 px · bez zaokrągleń</span></div>
+          <div class="podpis"><b>radius</b><span>0 px · treść</span></div>
+          <div class="podpis"><b>radius-pigulka</b><span>9999 px · sterowanie</span></div>
         </div>
       </div>
     </div>
@@ -842,6 +962,12 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
       <div class="demo"><p class="label" style="margin-bottom:12px">Ten sam element, dwie nazwy</p><p>Metryka projektu żyła pod dwiema klasami. Poprawka objęła jedną, druga została szeryfowa. Elementy o tej samej roli trzymaj w jednej regule.</p></div>
       <div class="demo"><p class="label" style="margin-bottom:12px">Przycinanie a przewijanie</p><p><code>overflow-x: hidden</code> na <code>&lt;body&gt;</code> robi z niego osobny kontener przewijania. Używaj <code>clip</code> — przycina tak samo, kontenera nie tworzy.</p></div>
       <div class="demo"><p class="label" style="margin-bottom:12px">Wyrównanie optyczne</p><p>Rozstrzelone wersaliki wyśrodkowane matematycznie wyglądają na przesunięte w lewo. Kompensuj wcięciem równym rozstrzeleniu.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">Kolejność przy równej sile</p><p>Dwie reguły o tej samej specyficzności rozstrzyga kolejność w arkuszu. Krój kaligrafii nie działał, bo jego reguła stała wyżej niż ogólna reguła bieżnika — a wyglądało to na błąd wczytywania kroju.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">Tryb negatywu i kontekst układania</p><p><code>mix-blend-mode: difference</code> miesza element z tłem tylko w obrębie własnego kontekstu układania. Element <code>position: fixed</code> tworzy taki kontekst, więc logotyp w pasku mieszałby się z pustką. Musi stać w osobnej warstwie przy <code>body</code>.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">Animacja wejścia w karuzeli</p><p>Karty przesunięte poza kadr w poziomie nigdy nie przecinają się z oknem, więc obserwator ich nie budzi i zostają przesunięte w dół. Sąsiadujące kadry wyglądają wtedy na różnej wysokości. Animuj całe pasmo, nie pojedynczą kartę.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">Przejście kontra animacja</p><p>Przejście potrzebuje punktu startu. Przy dwóch kadrach każdy wraca prosto ze stanu odsłoniętego, więc nie ma czego animować i zmiana następuje skokiem. Animacja odtwarza się za każdym razem, gdy klasa zostaje nadana od nowa.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">CMYK bez profilu</p><p>Plik CMYK bez dołączonego profilu ICC przeliczony wzorem arytmetycznym przesuwa barwy ku magencie — zieleni ubywa kilka punktów i pojawia się różowa poświata. Konwertuj przez profil, nie wzorem.</p></div>
+      <div class="demo"><p class="label" style="margin-bottom:12px">Waga, której nie wczytano</p><p>Podbicie <code>font-weight</code> do odmiany, której nie ma w wczytanym zestawie, każe przeglądarce pogrubić krój sztucznie. Przy dużym rozstrzeleniu wygląda to na rozmyte, a nie na grubsze.</p></div>
     </div>
   </div>
 </section>
@@ -850,7 +976,7 @@ textarea.ui-input { min-height: 96px; resize: vertical; border-radius: var(--rad
   <div class="shell">
     <span>Barbara Joanna Iwańska · Design Management</span>
     <span><a href="mailto:bas.iwanska@gmail.com">bas.iwanska@gmail.com</a></span>
-    <span>Design system 1.0 · wrzesień 2026</span>
+    <span>Design system 1.1 · wrzesień 2026</span>
   </div>
 </footer>
 

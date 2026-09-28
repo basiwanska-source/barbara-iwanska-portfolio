@@ -916,9 +916,15 @@ body.search-open .search-bar {
 	display: grid;
 	gap: 40px;
 }
+/* Akapit kontaktu tak samo jak zdanie w hero i opisy projektow: Inter
+   zamiast szeryfu. Stopnia nie obnizam — 12 px to juz dol skali tekstu
+   czytanego, a Inter przy 11 px zaczyna byc meczacy. */
 .contact-intro p {
+	font-family: var(--font-inter), system-ui, sans-serif;
 	font-size: 12px;
-	line-height: 1.7;
+	line-height: 1.75;
+	word-spacing: normal;
+	letter-spacing: 0.01em;
 	color: var(--grey-700);
 	margin: 0 0 16px;
 	max-width: 46ch;
@@ -1254,7 +1260,19 @@ html { scroll-behavior: smooth; }
 .p-details summary::after { content: "+"; font-size: 17px; font-weight: 300; }
 .p-details[open] summary::after { content: "–"; }
 .p-details .p-cols { margin-top: 0; padding-bottom: 28px; }
-.feature .feature-text .lede { font-size: 15px; line-height: 1.5; color: var(--ink); margin-bottom: 22px; }
+/* Opis projektu tak samo jak zdanie w hero: Inter zamiast szeryfu, stopien
+   o 1 px nizej (Inter ma wieksza wysokosc x), odstep miedzywyrazowy wraca do
+   zera — ujemny byl korekta pod Caslona. Reguly stoja tu, a nie wyzej, bo
+   przy rownej specyficznosci decyduje kolejnosc w arkuszu. */
+.feature .feature-text .lede {
+	font-family: var(--font-inter), system-ui, sans-serif;
+	font-size: 14px;
+	line-height: 1.7;
+	word-spacing: normal;
+	letter-spacing: 0.01em;
+	color: var(--ink);
+	margin-bottom: 22px;
+}
 .site-main > section.tight { margin-bottom: 4px; }
 
 /* Szeryf w blokach tekstowych i w podpisach liczników — za kellywearstler.com.
@@ -1631,9 +1649,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 1024px) { .hdr-talk { display: block; } }
 
 /* Warstwa logotypu: osobny element przypiety do body, nie do paska. Stoi na
-   osi okna, w pionie na tej samej wysokosci co obie szyby. „difference"
-   odwraca to, co pod spodem — na ciemnym kadrze logo jest biale, na jasnym
-   czarne, bez zadnego przelaczania stanow. */
+   osi okna, w pionie na tej samej wysokosci co obie szyby. Napis jest bialy
+   niezaleznie od tla — bez trybu mieszania, ktory na brazach i ceglach
+   dawal niebieskawy negatyw zamiast czystej bieli. */
 .logo-warstwa {
 	position: fixed;
 	top: var(--hdr-luz);
@@ -1645,11 +1663,16 @@ h1, h2, h3, h4, h5, h6 {
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
-	mix-blend-mode: difference;
 }
 @media (min-width: 1024px) { .logo-warstwa { height: 37px; } }
-/* Biel w trybie „difference" daje czysty negatyw tla. */
-.logo-warstwa .site-logo { pointer-events: auto; color: #fff; text-indent: 0.34em; }
+/* Cien jest ledwie widoczny, ale trzyma napis na jasnych kadrach hero —
+   bez niego biel na jasnym suficie gubi krawedz. */
+.logo-warstwa .site-logo {
+	pointer-events: auto;
+	color: var(--white);
+	text-indent: 0.34em;
+	text-shadow: 0 1px 14px rgb(0 0 0 / 0.28);
+}
 /* Przy zjezdzaniu w dol napis chowa sie pod gorna krawedz, przy jezdzie
    w gore wraca. Przesuniecie i krycie jednoczesnie, zeby nie znikal skokiem.
    Wyjscie krotsze niz powrot — znika szybko, wraca spokojnie. */
@@ -1752,6 +1775,20 @@ h1, h2, h3, h4, h5, h6 {
 .hc-stage img.pod { clip-path: inset(0 0 0 0); z-index: 1; }
 @media (prefers-reduced-motion: reduce) { .hc-stage img.on.wjazd { animation: none; } }
 
+/* Ziarno na kadrze hero. Nad zdjeciem i cieniowaniem, pod tekstem i paskiem
+   czasu. Bez trybu mieszania: ziarno jest czarne o losowym kryciu, tak jak
+   w oryginale z Framera, gdzie kolor to vec4(mono.rgb, mono.a * n).
+   „screen" nie wchodzi w gre — czern w tym trybie znosi sie do zera
+   i warstwa staje sie niewidoczna. */
+.ziarno {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
 /* Czasomierz pokazu. U nich tor jest cieplym prochem na 30% krycia, a
    wypelnienie — barwa akcentu. U nas tor to biel na 22%, bo hero bywa jasne,
    a wypelnienie to koral z palety „ziemia". Wysokosc 4 px, jak u nich. */
@@ -1793,7 +1830,21 @@ h1, h2, h3, h4, h5, h6 {
    clamp(48px, 7vw, 96px), zamiast dawnych 28 px na sztywno. */
 .hc-ui { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: 34px; padding-bottom: clamp(48px, 7vw, 96px); }
 .hc-title { font-size: clamp(36px, 6.8vw, 100px); font-weight: 500; line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 clamp(28px, 3.4vw, 48px) -0.03em; animation: hcUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.hc-lede { font-size: 14px; line-height: 1.7; word-spacing: -0.03em; letter-spacing: 0.01em; max-width: 52ch; opacity: 0.92; animation: hcUp 1s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+/* Zdanie w hero wychodzi z grupy szeryfowej i wraca do Intera — tego samego,
+   ktorym zlozone sa etykiety i metryki. Interowa czternastka jest optycznie
+   wieksza od caslonowej, wiec stopien schodzi o 1 px, a odstep miedzywyrazowy
+   wraca do zera: ujemny byl korekta pod szeryf, w groteskach rozjezdza rytm. */
+.hc-lede {
+	font-family: var(--font-inter), system-ui, sans-serif;
+	font-size: 13px;
+	line-height: 1.75;
+	font-weight: 400;
+	word-spacing: normal;
+	letter-spacing: 0.01em;
+	max-width: 52ch;
+	opacity: 0.92;
+	animation: hcUp 1s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
 @keyframes hcUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .hc-title, .hc-lede { animation: none; } }
 
