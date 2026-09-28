@@ -96,11 +96,12 @@ export const profile = pages.find((p) => p.n === 2)!;
 export const phases = pages.find((p) => p.n === 3)!.phases!;
 export const contact = pages.find((p) => p.n === 33)!;
 
+/* Treść bieżnika (Marquee.tsx). Bez Form Space — projekt jest poza serwisem. */
 export const runners = [
-  "FORM SPACE • NOWOGRODZKA 44",
   "GOLDEN TULIP • CHMIELNA 78 • GDAŃSK",
   "ROTUNDA DYNASY M07 • WARSZAWA • MIESZKANIE POKAZOWE",
   "UNIQUE HOTEL KOŁOBRZEG • SUŁKOWSKIEGO 7",
+  "OSIEDLE SENZA • GRZYMALITÓW 3 • WARSZAWA",
   "B SIDES • MOKOTOWSKA 61",
 ];
 

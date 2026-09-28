@@ -1,6 +1,7 @@
 import { ContactSection } from "@/components/site/ContactSection";
 import { Hero } from "@/components/site/Hero";
 import { Manifest } from "@/components/site/Manifest";
+import { Marquee } from "@/components/site/Marquee";
 import { Phases } from "@/components/site/Phases";
 import { ProjectBlock } from "@/components/site/ProjectBlock";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -19,6 +20,7 @@ export default function Home() {
         <Hero slides={slides} />
         <Phases />
         <Manifest />
+        <Marquee />
         {projects.map((p, i) => <ProjectBlock key={p.slug} p={p} flip={i % 2 === 1} />)}
         <ContactSection />
       </main>

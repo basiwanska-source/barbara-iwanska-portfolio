@@ -30,21 +30,21 @@ export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
     <>
       <header className={`hdr${solid || menuOpen || solidAlways ? " solid" : ""}`}>
         <div className="shell hdr-row">
-          <a className="hdr-talk" href="mailto:bas.iwanska@gmail.com">Let&rsquo;s talk!</a>
+          <nav className="hdr-nav">
+            {NAV.map((n) => (
+              <a href={n.href} key={n.href}>
+                <span className="roll-clip">
+                  <span className="roll-track">
+                    <span className="roll-label">{n.label}</span>
+                    <span aria-hidden="true" className="roll-label-dupe">{n.label}</span>
+                  </span>
+                </span>
+              </a>
+            ))}
+          </nav>
           <Link className="site-logo" href="/">Barbara Iwańska</Link>
           <div className="hdr-end">
-            <nav className="hdr-nav">
-              {NAV.map((n) => (
-                <a href={n.href} key={n.href}>
-                  <span className="roll-clip">
-                    <span className="roll-track">
-                      <span className="roll-label">{n.label}</span>
-                      <span aria-hidden="true" className="roll-label-dupe">{n.label}</span>
-                    </span>
-                  </span>
-                </a>
-              ))}
-            </nav>
+            <a className="hdr-talk" href="mailto:bas.iwanska@gmail.com">Let&rsquo;s talk!</a>
             <Search />
             <button aria-label="Menu" className="icon-btn hamburger-wrap" onClick={() => setMenuOpen((v) => !v)} type="button">
               <span className="hamburger"><span /><span /><span /></span>

@@ -490,9 +490,15 @@
     "h": 1250
    },
    {
-    "src": "/img/senza/galeria-01.jpg",
-    "alt": "Korytarz i oznakowanie części wspólnych",
-    "w": 1920,
+    "src": "/img/senza/korytarz-01.jpg",
+    "alt": "Korytarz części wspólnych",
+    "w": 930,
+    "h": 1250
+   },
+   {
+    "src": "/img/senza/korytarz-02.jpg",
+    "alt": "Oznakowanie kierunkowe przy windach",
+    "w": 931,
     "h": 1250
    },
    {
