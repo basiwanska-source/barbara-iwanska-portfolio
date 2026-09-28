@@ -5,7 +5,6 @@ import { phases } from "@/lib/site";
 export function Phases() {
   return (
     <section id="fazy">
-      <div className="shell"><div className="section-head"><div className="sh-left"><h2>Mój udział w fazach</h2><span className="vr" /><span className="label">Koncepcja → odbiory</span></div></div></div>
       <div className="phases">
         {phases.map((f, i) => (
           <div className="phase" key={f.name}>

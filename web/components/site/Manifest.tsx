@@ -1,34 +1,31 @@
 import { Marquee } from "./Marquee";
 
-/** Zdania wyprowadzone z tekstów portfolio — nie nowe deklaracje,
- *  tylko to, co już mówisz o swojej pracy, ujęte w jedną linię. */
-const PRZEKONANIA = [
-  "Obietnica produktu musi przetrwać spotkanie z budżetem.",
-  "Optymalizacja materiałowa zamiast obniżania klasy wykończenia.",
-  "Projekt kończy się na odbiorach, nie na wizualizacji.",
-];
-
 type Props = {
-  /** „otwarcie" — grafit, zdanie o zakresie i lista zasad.
-   *  „domkniecie" — brąz z palety ziemi, jedno zdanie na pożegnanie. */
+  /** „otwarcie" — grafit, samo zdanie o zakresie pracy.
+   *  „domkniecie" — grafit, jedno zdanie na pożegnanie z dopowiedzeniem. */
   wariant?: "otwarcie" | "domkniecie";
 };
 
 /**
- * Manifest: zdanie główne na pełnowymiarowym polu, z wielkim napisem
- * przesuwanym w tle. Rytm za houseofhoney.com/studio — duże zdanie,
- * mikroetykieta, krótkie myśli. Dwa warianty: otwierający sekcję
- * po hero i domykający stronę tuż nad stopką.
+ * Manifest: jedno zdanie na pełnowymiarowym polu, wyśrodkowane na osi okna.
+ * Rytm za houseofhoney.com/studio. Dwa warianty: otwierający sekcję po hero
+ * i domykający stronę tuż nad stopką.
  */
 export function Manifest({ wariant = "otwarcie" }: Props = {}) {
   if (wariant === "domkniecie") {
     return (
       <section className="manifest manifest-domkniecie" id="na-koniec">
-        <Marquee className="bieznik bieznik-tlo" tempo={54} tresc={["DESIGN MANAGEMENT"]} />
+        <Marquee
+          className="bieznik bieznik-tlo bieznik-kaligrafia"
+          tempo={100}
+          tresc={["Design management", "Design management"]}
+        />
         <div className="hero-text shell">
-          <p className="label">Na styku trzech światów</p>
-          <h2>Płynnie poruszam się między światem inżynierów, finansów i designu.</h2>
-          <p className="manifest-dopowiedzenie">
+          <div className="manifest-gora">
+            <p className="label manifest-etykieta">Na styku trzech światów</p>
+            <h2>Płynnie poruszam się między światem inżynierów, finansów i designu.</h2>
+          </div>
+          <p className="manifest-zamkniecie">
             Potrafię przełożyć obietnicę produktu na zestawienie materiałowe i pilnować, żeby przetrwała
             spotkanie z budżetem.
           </p>
@@ -39,25 +36,29 @@ export function Manifest({ wariant = "otwarcie" }: Props = {}) {
 
   return (
     <section className="manifest" id="o-mnie">
-      <Marquee className="bieznik bieznik-tlo" tempo={42} tresc={["BASED IN WARSAW"]} />
+      {/* Wielki bieznik w tle, kompozycja za houseofhoney.com/studio: napis
+          kaligrafia przesuwa sie w dolnej czesci pola, wychodzac poza obie
+          krawedzie. Dwa wpisy, bo bieznik dubluje tresc i przesuwa sie
+          o polowe toru — jeden wystarczylby tylko do 1440 px. */}
+      <Marquee
+        className="bieznik bieznik-tlo bieznik-kaligrafia"
+        tempo={90}
+        tresc={["Warsaw based designer", "Warsaw based designer"]}
+      />
       <div className="hero-text shell">
-        {/* Podzial na wersy jest tresciowy, nie przypadkowy: kazdy wers to
-            jeden etap procesu. Na waskim ekranie spany wracaja do jednego
-            ciagu i zdanie lamie sie samo. */}
-        <h2>
-          <span className="wers">Od zakresu i budżetu, </span>
-          <span className="wers">przez akceptacje materiałowe, </span>
-          <span className="wers">po odbiory.</span>
-        </h2>
-
-        <div className="manifest-perspektywa">
-          <p className="label">Jak pracuję</p>
-          <ul>
-            {PRZEKONANIA.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
+        {/* Etykieta i zdanie trzymaja sie razem przy gornej krawedzi pola,
+            zeby space-between rozsunelo tylko te grupe i domkniecie. */}
+        <div className="manifest-gora">
+          <p className="label manifest-etykieta">O mnie</p>
+        {/* Zdanie lamie sie samo i wyrownuje dlugosc wierszy (text-wrap: balance),
+            zeby tworzylo zwarta bryle jak na houseofhoney.com/studio, a nie
+            schodki. Twarda spacja po „i" pilnuje, zeby spojnik nie zostal
+            na koncu wiersza. */}
+          <h2>Zajmuję się projektowaniem i realizacją wnętrz. Od zakresu i budżetu, przez akceptacje materiałowe, po odbiory.</h2>
         </div>
+        {/* Zdanie domykajace przy dolnej krawedzi pola — u nich ta sama rola:
+            jedna mysl szeryfem, wersalikami, drobniej niz zdanie glowne. */}
+        <p className="manifest-zamkniecie">Projekt kończy się na odbiorach, nie na wizualizacji.</p>
       </div>
     </section>
   );

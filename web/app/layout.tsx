@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Libre_Caslon_Text, Oswald } from "next/font/google";
+import { Herr_Von_Muellerhoff, Inter, Libre_Caslon_Text, Oswald } from "next/font/google";
 import "./globals.css";
 import { Crosshair } from "@/components/site/Crosshair";
 import { RevealOnScroll } from "@/components/site/RevealOnScroll";
@@ -13,6 +13,12 @@ const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin", "latin-ext
 // latin-ext jest konieczny: bez niego ą, ę, ł, ż wypadłyby z innego kroju.
 const caslon = Libre_Caslon_Text({ variable: "--font-caslon", subsets: ["latin", "latin-ext"], weight: ["400", "700"] });
 
+// Kroj kaligraficzny do wielkich biezniki w tle manifestow. Herr Von
+// Muellerhoff ma najcienszsza kreske z dostepnych angielskich kaligrafii —
+// przy 500 px daje rysunek piorem, a nie plame. Jedna odmiana, wiec cienszego
+// nie da sie uzyskac inaczej niz zmiana kroju.
+const kaligrafia = Herr_Von_Muellerhoff({ variable: "--font-script", subsets: ["latin"], weight: "400" });
+
 export const metadata: Metadata = {
   title: "Barbara Joanna Iwańska · Design Management · Portfolio 2026",
   description:
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pl" className={`${inter.variable} ${oswald.variable} ${caslon.variable}`}>
+    <html lang="pl" className={`${inter.variable} ${oswald.variable} ${caslon.variable} ${kaligrafia.variable}`}>
       <body>
         {children}
         <RevealOnScroll />

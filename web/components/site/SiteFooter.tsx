@@ -64,9 +64,8 @@ export function SiteFooter() {
             <li className="stopka-przerwa">
               <a href="/#o-mnie">O mnie</a>
             </li>
-            <li>
-              <a href="/#fazy">Fazy</a>
-            </li>
+            {/* Odnoslnik „Fazy" zdjety razem z sekcja — kotwica #fazy nie
+                istnieje, wiec prowadzilby donikad. Wraca razem z nia. */}
             <li>
               <a href="/#kontakt">Kontakt</a>
             </li>

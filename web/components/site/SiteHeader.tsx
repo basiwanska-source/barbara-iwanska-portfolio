@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { Search } from "./Search";
 import { useEffect, useState } from "react";
 
 const NAV = [
@@ -12,10 +11,23 @@ const NAV = [
 /** Header: jeden wiersz, fixed. Przezroczysty nad hero (biały tekst), po zjechaniu poniżej hero — biały z kreską. Bez chowania przy scrollu. */
 export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
   const [solid, setSolid] = useState(false);
+  const [logoSchowane, setLogoSchowane] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const hero = document.querySelector<HTMLElement>("#top");
-    const onScroll = () => setSolid(window.scrollY > (hero ? hero.offsetHeight - 72 : 80));
+    // Logotyp chowa sie przy zjezdzaniu w dol i wraca przy jezdzie w gore.
+    // Prog 6 px odsiewa drgania gladzika i odbicie sprezynujace na koncu
+    // strony — bez niego napis migalby przy kazdym mikroruchu.
+    let ostatniY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setSolid(y > (hero ? hero.offsetHeight - 72 : 80));
+      const roznica = y - ostatniY;
+      if (Math.abs(roznica) < 6) return;
+      // Przy samej gorze napis zostaje widoczny niezaleznie od kierunku.
+      setLogoSchowane(y > 120 && roznica > 0);
+      ostatniY = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -47,8 +59,7 @@ export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
             ))}
           </nav>
           <div className="hdr-end">
-            <a className="hdr-talk" href="mailto:bas.iwanska@gmail.com">Get in touch</a>
-            <Search />
+            <a className="hdr-talk" href="mailto:bas.iwanska@gmail.com">Get in touch!</a>
             <button aria-label="Menu" className="icon-btn hamburger-wrap" onClick={() => setMenuOpen((v) => !v)} type="button">
               <span className="hamburger"><span /><span /><span /></span>
             </button>
@@ -60,7 +71,7 @@ export function SiteHeader({ solidAlways }: { solidAlways?: boolean } = {}) {
           .hdr jest fixed, wiec tworzy wlasny kontekst — logo w srodku
           mieszaloby sie z pustka, nie z trescia strony. Osobny element
           przypiety do body widzi cala strone pod soba i moze byc negatywem. */}
-      <div className="logo-warstwa">
+      <div className={`logo-warstwa${logoSchowane ? " schowane" : ""}`}>
         <Link className="site-logo" href="/">Barbara Iwańska</Link>
       </div>
       <nav className="nav-mobile">

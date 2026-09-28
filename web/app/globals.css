@@ -18,7 +18,7 @@
 	--max: 1440px;
 	--header-h: 96px;
 	/* luz miedzy krawedzia okna a lewitujacym paskiem nawigacji */
-	--hdr-luz: 8px;
+	--hdr-luz: 7px;
 
 	/* ── Design system (public/design-system.html) ──
 	   Warstwa tokenów. Nazwy semantyczne: mówią, do czego służy barwa,
@@ -351,8 +351,15 @@ body.search-open .search-bar {
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	border: 1px solid var(--ink);
-	border-radius: var(--radius);
-	padding: 13px 24px;
+	/* Pigulka, jak szyby w pasku nawigacji. Wieksze swiatlo po bokach niz
+	   przy kancie prostym — przy zaokraglonych koncach napis stojacy 24 px
+	   od krawedzi wchodzi optycznie w krzywizne. */
+	border-radius: 9999px;
+	/* Ta sama wysokosc co pigulki w pasku nawigacji. Wysokosc wprost zamiast
+	   swiatla w pionie, zeby nie zalezala od stopnia pisma. */
+	height: 37px;
+	padding-block: 0;
+	padding-inline: 32px;
 	transition:
 		background 0.25s,
 		color 0.25s;
@@ -698,7 +705,11 @@ body.search-open .search-bar {
 	display: none;
 	align-items: center;
 	gap: 14px;
-	font-size: 13px;
+	/* Licznik kadrow nalezy do sterowania, nie do tekstu czytanego — stad
+	   Inter, tak jak numery w kolkach i mikroetykiety. */
+	font-family: var(--font-inter), system-ui, sans-serif;
+	font-size: 12px;
+	letter-spacing: 0.04em;
 	color: var(--ink);
 	font-variant-numeric: tabular-nums;
 	white-space: nowrap;
@@ -913,7 +924,7 @@ body.search-open .search-bar {
 	max-width: 46ch;
 }
 .contact-intro .s-btn {
-	margin-top: 8px;
+	margin-top: 23px;
 }
 /* ── Dodatki portfolio (poza systemem malki) ── */
 .p-hero-slide img { height: clamp(480px, 86vh, 900px); }
@@ -1025,37 +1036,76 @@ html { scroll-behavior: smooth; }
 	position: relative;
 	overflow: hidden;
 	background: #222222;
-	min-height: 100svh;
+	/* Dwie trzecie ekranu zamiast pelnego: zdanie nie potrzebuje calej
+	   wysokosci okna, a krotsze pole szybciej oddaje strone projektom. */
+	min-height: 67svh;
 	display: flex;
 	align-items: center;
 }
-/* Manifest domykajacy strone: to samo grafitowe tlo co manifest po hero,
-   zeby oba pola czytaly sie jako jedna mysl. Rozni je wysokosc — to
-   domkniecie, nie kolejne pelne pole. */
+/* Manifest domykajacy ma ten sam uklad co otwierajacy: pelna wysokosc okna,
+   etykieta i zdanie przy gornej krawedzi, kaligrafia w srodku, mysl domykajaca
+   przy dolnej. Rozni je tylko tresc. */
 .manifest-domkniecie {
 	background: #222222;
-	min-height: clamp(420px, 62svh, 640px);
+	min-height: 100svh;
+	align-items: stretch;
 }
-.manifest-domkniecie .label { color: rgb(255 255 255 / 0.55); margin-bottom: 26px; }
-.manifest-domkniecie h2 { max-width: 20ch; }
+.manifest-domkniecie .hero-text {
+	justify-content: space-between;
+	padding-top: clamp(84px, 13vh, 140px);
+	padding-bottom: clamp(52px, 8vh, 92px);
+}
+.manifest-domkniecie .label { color: rgb(255 255 255 / 0.55); }
+/* Manifest otwierajacy: pelna wysokosc okna, tresc przy gornej krawedzi.
+   Zdanie stoi w gornej jednej trzeciej, reszta pola zostaje dla napisu w tle. */
+#o-mnie { min-height: 100svh; align-items: stretch; }
+/* Kolumna na cala wysokosc pola: gorna grupa (etykieta + zdanie) przy gornej
+   krawedzi, zdanie domykajace przy dolnej, kaligrafia miedzy nimi. */
+#o-mnie .hero-text {
+	justify-content: space-between;
+	padding-top: clamp(84px, 13vh, 140px);
+	padding-bottom: clamp(52px, 8vh, 92px);
+}
+.manifest-gora { display: flex; flex-direction: column; align-items: center; width: 100%; }
+/* Domkniecie: metryka za houseofhoney.com/studio — 21 px, wersaliki,
+   rozstrzelenie -0,02em, ten sam szeryf co zdanie glowne. */
+.manifest-zamkniecie {
+	position: relative;
+	z-index: 1;
+	font-family: var(--font-caslon), "Times New Roman", serif;
+	font-size: clamp(14px, 1.5vw, 21px);
+	line-height: 1.3;
+	letter-spacing: -0.02em;
+	text-transform: uppercase;
+	color: rgb(255 255 255 / 0.92);
+	max-width: 62ch;
+	margin-inline: auto;
+}
+
+/* Etykieta sekcji nad zdaniem. Odstep pod nia dobrany tak, zeby zgadzal sie
+   ze swiatlem nad nia — a to bierze sie z wysrodkowania calej kolumny w polu,
+   nie z osobnej wartosci. */
+.manifest-etykieta {
+	margin-bottom: 48px;
+	color: rgb(255 255 255 / 0.5);
+	letter-spacing: 0.2em;
+}
 .manifest-dopowiedzenie {
 	margin-top: 26px;
 	max-width: 48ch;
+	margin-inline: auto;
 	font-family: var(--font-caslon), "Times New Roman", serif;
 	font-size: clamp(15px, 1.4vw, 18px);
 	line-height: 1.7;
 	letter-spacing: normal;
 	opacity: 0.82;
 }
-/* Napis w tle taki sam jak w manifescie otwierajacym — to samo tlo,
-   wiec ta sama moc bieli. */
-.manifest-domkniecie .bieznik-tlo .bieznik-tor > span { color: rgb(255 255 255 / 0.07); }
 
 /* Trzy jednolinijkowe przekonania pod zdaniem glownym. Rytm za
    houseofhoney.com/studio: po duzym zdaniu mikroetykieta, po niej
    krotkie mysli. Kazda w osobnym wierszu, oddzielona kreska —
    czytaja sie jak lista zasad, nie jak akapit. */
-.manifest-perspektywa { margin-top: clamp(40px, 6vw, 80px); max-width: 52ch; }
+.manifest-perspektywa { margin-top: clamp(40px, 6vw, 80px); max-width: 52ch; margin-inline: auto; }
 .manifest-perspektywa .label { color: rgb(255 255 255 / 0.5); margin-bottom: 22px; }
 .manifest-perspektywa ul { list-style: none; }
 .manifest-perspektywa li {
@@ -1069,14 +1119,15 @@ html { scroll-behavior: smooth; }
 }
 .manifest-perspektywa li:last-child { border-bottom: 1px solid rgb(255 255 255 / 0.16); }
 
-.manifest .hero-text { position: relative; z-index: 1; inset: auto; align-items: flex-start; text-align: left; padding: clamp(96px, 13vw, 180px) var(--pad) clamp(88px, 12vw, 164px); background: none; text-shadow: none; }
+/* Kolumna manifestu stoi na osi strony, a nie przy lewej krawedzi. flex: 1
+   jest konieczne: .hero-text jest elementem flex wewnatrz .manifest, wiec bez
+   tego kurczy sie do szerokosci tresci i „srodek" wypadalby w srodku napisu,
+   nie okna. */
+.manifest .hero-text { position: relative; z-index: 1; inset: auto; flex: 1; align-items: center; text-align: center; padding: clamp(56px, 7vw, 96px) var(--pad); background: none; text-shadow: none; }
 /* Lam zdania glownego. 36ch to tyle, zeby najdluzszy wers zmiescil sie
    w calosci — jednostka ch liczy szerokosc zera, a wersaliki sa od niego
    szersze, stad wartosc wieksza niz liczba znakow w wersie. */
-.manifest h2 { font-family: var(--font-caslon), "Times New Roman", serif; font-size: clamp(26px, 4vw, 54px); font-weight: 500; line-height: 1.08; max-width: 36ch; }
-/* Od 900 px kazdy wers stoi w osobnej linii; nizej wracaja do jednego ciagu. */
-.manifest h2 .wers { display: inline; }
-@media (min-width: 900px) { .manifest h2 .wers { display: block; } }
+.manifest h2 { font-family: var(--font-caslon), "Times New Roman", serif; font-size: clamp(28px, 4vw, 45px); font-weight: 500; letter-spacing: -0.02em; line-height: 1; text-wrap: balance; max-width: min(48ch, 100%); margin-inline: auto; }
 /* Liczniki rozłożone siatką na pełną szerokość — rozwiązanie z sekcji liczb
    Bespoke Estates: repeat(auto-fit, minmax(...)), przez co ostatnia pozycja
    dochodzi do prawej krawędzi zamiast zbijać się z resztą po lewej. */
@@ -1084,8 +1135,12 @@ html { scroll-behavior: smooth; }
 
 /* Rytm pionowy sekcji faz — odstępy jak w sekcji kafli na kellywearstler.com:
    60/48 px na telefonie, od 1024 px równe 120 px góra i dół. */
-#fazy { padding-top: 60px; padding-bottom: 48px; }
-@media (min-width: 1024px) { #fazy { padding-top: 120px; padding-bottom: 120px; } }
+/* Pasmo faz bez tla i bez naglowka — kafle mowia same za siebie.
+   Gorne swiatlo o 10 px mniejsze niz dolne: kafle maja podejsc blizej
+   manifestu. Odstep do nastepnej sekcji daje margines .site-main section,
+   wiec dokladanie go tutaj podwajaloby przerwe. */
+#fazy { padding-top: 18px; padding-bottom: 28px; }
+@media (min-width: 1024px) { #fazy { padding-top: 46px; padding-bottom: 56px; } }
 
 .phases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; padding: 0 4px; }
 @media (min-width: 900px) { .phases { grid-template-columns: repeat(5, 1fr); } }
@@ -1147,8 +1202,13 @@ html { scroll-behavior: smooth; }
 	align-items: center;
 	justify-content: space-between;
 	gap: 16px;
-	padding: 18px;
-	margin-inline: -18px;
+	padding-block: 18px;
+	/* Pelna szerokosc okna: ujemny margines rowny polowie roznicy miedzy
+	   szerokoscia okna a lamem tresci. Wypelnienie biegnie od krawedzi do
+	   krawedzi, a napis zostaje w linii z reszta sekcji dzieki padding-inline
+	   liczonemu z tej samej roznicy. */
+	margin-inline: calc(50% - 50vw);
+	padding-inline: max(var(--pad), calc(50vw - var(--max) / 2 + var(--pad)));
 	font-family: var(--font-inter), system-ui, sans-serif;
 	font-size: 12px;
 	font-weight: 500;
@@ -1159,7 +1219,9 @@ html { scroll-behavior: smooth; }
 }
 .p-details summary:hover,
 .p-details summary:focus-visible {
-	background: var(--ziemia-taupe);
+	/* Grafit ten sam co w manifestach — pasek po najechaniu staje sie
+	   ciemnym polem na cala szerokosc okna. Biel na nim ma 15,9:1. */
+	background: #222222;
 	color: var(--white);
 }
 
@@ -1175,19 +1237,21 @@ html { scroll-behavior: smooth; }
 .p-details summary:hover::after,
 .p-details summary:focus-visible::after { transform: translateX(-8px); }
 
-/* Znak w kwadracie z półprzezroczystego bieżącego koloru — u nich
-   bg-current/20. Dzięki temu działa i na jasnym, i na koralowym tle. */
+/* Znak w kolku z cienkim obrysem — ten sam jezyk co numery w pasku nawigacji,
+   na kaflach faz i pod zdjeciami. Obrys w currentColor, wiec dziala i na
+   jasnym tle, i na ciemnym po najechaniu, bez osobnej reguly. */
 .p-details summary::after {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	width: 26px;
 	height: 26px;
-	background: color-mix(in srgb, currentColor 16%, transparent);
+	border: 1px solid currentColor;
+	border-radius: 9999px;
 	line-height: 1;
 }
 .p-details summary::-webkit-details-marker { display: none; }
-.p-details summary::after { content: "+"; font-size: 20px; font-weight: 300; }
+.p-details summary::after { content: "+"; font-size: 17px; font-weight: 300; }
 .p-details[open] summary::after { content: "–"; }
 .p-details .p-cols { margin-top: 0; padding-bottom: 28px; }
 .feature .feature-text .lede { font-size: 15px; line-height: 1.5; color: var(--ink); margin-bottom: 22px; }
@@ -1236,7 +1300,9 @@ html { scroll-behavior: smooth; }
 }
 .bieznik-tor > span {
 	white-space: nowrap;
-	padding-right: 56px;
+	/* Odstep dotyczy pojedynczego wyrazu, nie calego zdania — dzieki temu
+	   przerwy miedzy wyrazami i miedzy zdaniami sa identyczne. */
+	padding-right: 70px;
 	font-family: var(--font-inter), system-ui, sans-serif;
 	font-size: 10px;
 	font-weight: 500;
@@ -1247,6 +1313,7 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
 	.bieznik-tor { animation: none; }
 }
+
 
 /* Bieżnik w tle sekcji: ogromne litery, ledwie widoczne, pod treścią.
    Nie czyta się ich — działają jak tekstura. */
@@ -1270,6 +1337,28 @@ html { scroll-behavior: smooth; }
 	color: rgb(255 255 255 / 0.07);
 	padding-right: 0.32em;
 }
+
+/* Bieznik kaligraficzny w tle manifestu. Dziedziczy pozycjonowanie po
+   .bieznik-tlo (absolutnie, na calym polu), ale schodzi do dolnej krawedzi —
+   gora pola nalezy do zdania. */
+.bieznik-kaligrafia {
+	align-items: center;
+	/* Tor opuszczony ponizej geometrycznego srodka pola: gora nalezy do
+	   zdania, a kaligrafia ma schodzic ku domknieciu, tak jak w pierwowzorze.
+	   Padding od gory, bo to on spycha wysrodkowana tresc w dol. */
+	padding-top: clamp(64px, 13vh, 140px);
+}
+.bieznik-kaligrafia .bieznik-tor > span {
+	font-family: var(--font-script), cursive;
+	font-size: clamp(180px, 35vw, 510px);
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	color: var(--ziemia-koral);
+	padding-right: 0.3em;
+}
+
 
 /* ── Celownik (Crosshair.tsx) ── */
 .celownik {
@@ -1462,7 +1551,7 @@ h1, h2, h3, h4, h5, h6 {
 	pointer-events: none;
 	transition: color 0.35s;
 }
-@media (min-width: 1024px) { :root { --hdr-luz: 14px; } }
+@media (min-width: 1024px) { :root { --hdr-luz: 13px; } }
 /* Pasek jest podzielony: plaszczyzne maja tylko dwie skrajne strefy — menu
    po lewej i kontakt po prawej. Srodek zostaje przezroczysty, zeby logotyp
    stal wprost na tresci strony. */
@@ -1511,7 +1600,7 @@ h1, h2, h3, h4, h5, h6 {
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
-	min-height: 45px;
+	min-height: 37px;
 	max-width: none;
 	align-items: stretch;
 	padding-block: 0;
@@ -1522,7 +1611,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 1024px) {
 	/* Menu schodzi do dolnej krawędzi paska; „Let's talk!" i lupka zostają
 	   w jednej linii z logotypem, czyli na osi pionowej paska. */
-	.hdr-row { min-height: 45px; padding-block: 0; align-items: stretch; }
+	.hdr-row { min-height: 37px; padding-block: 0; align-items: stretch; }
 }
 /* „Let's talk!" w lewej strefie paska — mikroetykieta wersalikami,
    w kolorze dziedziczonym po nagłówku (biała nad hero, czarna po zjechaniu). */
@@ -1550,7 +1639,7 @@ h1, h2, h3, h4, h5, h6 {
 	top: var(--hdr-luz);
 	left: 0;
 	right: 0;
-	height: 45px;
+	height: 37px;
 	z-index: 101;
 	display: flex;
 	align-items: center;
@@ -1558,11 +1647,25 @@ h1, h2, h3, h4, h5, h6 {
 	pointer-events: none;
 	mix-blend-mode: difference;
 }
-@media (min-width: 1024px) { .logo-warstwa { height: 45px; } }
+@media (min-width: 1024px) { .logo-warstwa { height: 37px; } }
 /* Biel w trybie „difference" daje czysty negatyw tla. */
 .logo-warstwa .site-logo { pointer-events: auto; color: #fff; text-indent: 0.34em; }
+/* Przy zjezdzaniu w dol napis chowa sie pod gorna krawedz, przy jezdzie
+   w gore wraca. Przesuniecie i krycie jednoczesnie, zeby nie znikal skokiem.
+   Wyjscie krotsze niz powrot — znika szybko, wraca spokojnie. */
+.logo-warstwa { transition: transform 0.45s var(--ease-hoh), opacity 0.4s var(--ease-hoh); }
+.logo-warstwa.schowane {
+	transform: translateY(-150%);
+	opacity: 0;
+	transition-duration: 0.3s, 0.22s;
+}
+/* Schowany napis nie moze lapac klikniec ani trafiac do kolejnosci tabulacji. */
+.logo-warstwa.schowane .site-logo { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .logo-warstwa { transition: none; } }
 
-.hdr-end { grid-column: 3; justify-self: end; display: flex; align-items: center; padding-inline: 24px 10px; }
+/* Po zdjeciu lupki zostaje sam napis, wiec swiatlo po obu stronach jest
+   rowne — wczesniej prawe bylo mniejsze, bo domykal je przycisk ikony. */
+.hdr-end { grid-column: 3; justify-self: end; display: flex; align-items: center; padding-inline: 24px; }
 .hdr-nav { display: none; grid-column: 1; justify-self: start; }
 /* Trzy pozycje w jednym wierszu, w jednej linii z logotypem i „Get in touch".
    Odstep miedzy nimi robi wewnetrzny padding samych odnosnikow (2x16 px),
@@ -1608,24 +1711,73 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 1024px) { .hdr .hamburger-wrap { display: none; } }
 /* Panele rozwijane trzymaja sie dolnej krawedzi lewitujacego prostokata,
    a nie krawedzi okna — inaczej wjezdzalyby pod pasek. */
-.nav-mobile { inset: calc(var(--hdr-luz) + 45px) 0 0 0; }
-.search-bar { top: calc(var(--hdr-luz) + 45px); }
+.nav-mobile { inset: calc(var(--hdr-luz) + 37px) 0 0 0; }
+.search-bar { top: calc(var(--hdr-luz) + 37px); }
 .site-main { padding-top: 0; }
 
 /* ── Hero spokojne (Hero.tsx) ── */
-.site-main > section.hc { position: relative; height: 100vh; height: 100svh; height: var(--hero-h, 100svh); min-height: 560px; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 4px; }
+.site-main > section.hc { position: relative; height: 100vh; height: 100svh; height: var(--hero-h, 100svh); min-height: 560px; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 0; }
 .hc-stage { position: absolute; inset: 0; }
 /* Warstwa paralaksy: wyższa niż hero o 16% z góry i z dołu, żeby przy
    przesunięciu w dół nie odsłonić krawędzi kadru. Maksymalny ruch to 15%
    wysokości hero, więc zapas zawsze wystarcza. */
 .hc-parallax { position: absolute; left: 0; right: 0; top: -16%; height: 132%; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .hc-parallax { transform: none !important; top: 0; height: 100%; } }
-.hc-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity 1s ease; }
-/* Przyblizenie rozciagniete na caly czas trwania kadru (4 s taktu + 1 s
-   przenikania), zeby obraz plynal przez cala swoja kolejke, a nie zastygal
-   po 1,4 s. Liniowo, bo kazde przyspieszenie zdradza, ze to animacja. */
-.hc-stage img.on { opacity: 1; animation: hcZoom 5s linear both; }
-@keyframes hcZoom { from { transform: scale(1.04); } to { transform: scale(1); } }
+/* Zmiana kadru za houseofhoney.com. Ich pokaz nie przenika i nie przybliza —
+   nowy kadr wjezdza przycieciem: clip-path od prawej krawedzi w lewo, przez
+   co po zdjeciu przejezdza pionowa krawedz. Zmierzone na ich stronie:
+   takt 6 s (u nas 4 s), czas przejazdu ok. 1,8 s, krzywa ease-in-out o bardzo stromym
+   srodku (po 43% czasu pokonane 36% drogi, po 56% — juz 78%), czyli ta sama,
+   ktora maja w arkuszu jako --ease-hoh. Obraz stoi nieruchomo (transform: none). */
+.hc-stage img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* Domyslnie przyciete do zera szerokosci przy prawej krawedzi. */
+	clip-path: inset(0 0 0 100%);
+}
+/* Kadr biezacy: odslaniety, na wierzchu. */
+.hc-stage img.on { clip-path: inset(0 0 0 0); z-index: 2; }
+/* Sam przejazd to animacja, nie przejscie. Przy dwoch kadrach kazdy z nich
+   wraca prosto ze stanu „pod" (juz odslaniety) do „on", wiec przejscie nie
+   mialo czego animowac i zmiana nastepowala skokiem. Animacja odtwarza sie
+   za kazdym razem, gdy klasa .wjazd zostanie nadana od nowa. */
+.hc-stage img.on.wjazd { animation: hcWjazd 1.8s var(--ease-hoh) both; }
+@keyframes hcWjazd { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+/* Poprzedni zostaje odslaniety pod spodem — bez animacji, bo to tlo przejazdu.
+   Gdy przyjdzie jego kolej na schowanie, przyciecie wraca skokiem, ale wtedy
+   jest juz zaslaniety przez kadr biezacy. */
+.hc-stage img.pod { clip-path: inset(0 0 0 0); z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .hc-stage img.on.wjazd { animation: none; } }
+
+/* Czasomierz pokazu. U nich tor jest cieplym prochem na 30% krycia, a
+   wypelnienie — barwa akcentu. U nas tor to biel na 22%, bo hero bywa jasne,
+   a wypelnienie to koral z palety „ziemia". Wysokosc 4 px, jak u nich. */
+.hc-postep {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
+	height: 4px;
+	background: rgb(255 255 255 / 0.22);
+	overflow: hidden;
+}
+.hc-postep span {
+	display: block;
+	height: 100%;
+	background: var(--ziemia-koral);
+	/* Skalowanie zamiast zmiany szerokosci: idzie po karcie graficznej,
+	   wiec pasek nie zmusza przegladarki do przeliczania ukladu 60 razy
+	   na sekunde. origin-left, zeby rosl od lewej krawedzi. */
+	transform-origin: left center;
+	animation: hcPostep linear both;
+}
+@keyframes hcPostep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+/* Bez pokazu nie ma czego odmierzac. */
+@media (prefers-reduced-motion: reduce) { .hc-postep { display: none; } }
 /* Przyciemnienie hero: równomierna warstwa 7% na całym kadrze nałożona na
    dotychczasowy gradient (ciemniej przy górnej i dolnej krawędzi, gdzie
    siedzi tekst). Środek zdjęcia też traci trochę światła, dzięki czemu
@@ -1643,7 +1795,7 @@ h1, h2, h3, h4, h5, h6 {
 .hc-title { font-size: clamp(36px, 6.8vw, 100px); font-weight: 500; line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 clamp(28px, 3.4vw, 48px) -0.03em; animation: hcUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .hc-lede { font-size: 14px; line-height: 1.7; word-spacing: -0.03em; letter-spacing: 0.01em; max-width: 52ch; opacity: 0.92; animation: hcUp 1s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 @keyframes hcUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .hc-stage img.on, .hc-title, .hc-lede { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hc-title, .hc-lede { animation: none; } }
 
 /* ── Strona projektu /portfolio/[slug] ── */
 .pp { padding-top: 64px; }
