@@ -141,7 +141,7 @@ export function Hero({ slides }: { slides: Img[] }) {
       </div>
       <div className="hc-ui shell">
         <div className="hc-text">
-          <h1 className="hc-title">Design Management</h1>
+          <h1 className="hc-title">Interior design &amp; management</h1>
           <p className="hc-lede">Prowadzę realizacje wnętrz w inwestycjach mieszkaniowych i hotelowych: zakres, budżet, akceptacje materiałowe, negocjacje z dostawcami, odbiory. Dla deweloperów, którzy chcą, żeby obietnica produktu przetrwała spotkanie z budżetem.</p>
         </div>
       </div>
