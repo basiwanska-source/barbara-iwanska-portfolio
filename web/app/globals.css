@@ -1195,6 +1195,10 @@ html { scroll-behavior: smooth; }
    wynika z proporcji samego zdjęcia — pionowe są węższe, poziome szersze,
    ale górna i dolna krawędź pasma zawsze się zgadza. Wcześniej kadry
    pionowe dostawały inne proporcje i wystawały ponad rząd. */
+/* Odstep miedzy sekcja opisowa a pasmem kadrow: 80 px. Osiagniety ujemnym
+   marginesem gornym, nie mniejszym odstepem naglowka — ten jest wspolny dla
+   wszystkich sekcji i zmiana ruszylaby rowniez kontakt i projekty. */
+.strip { margin-top: -50px; }
 .strip .carousel-track { align-items: flex-start; }
 .strip .s-card,
 .strip .s-card.tall {
@@ -1206,7 +1210,7 @@ html { scroll-behavior: smooth; }
 .strip .s-card.tall .frame {
 	/* Proporcje przychodzą stylem z danych zdjęcia; tu narzucamy tylko
 	   wysokość, więc szerokość wylicza się z nich jednoznacznie. */
-	height: clamp(220px, 34vw, 480px);
+	height: clamp(147px, 23vw, 320px);
 	width: auto;
 	max-width: min(92vw, 100%);
 }
@@ -1655,9 +1659,20 @@ h1, h2, h3, h4, h5, h6 {
 .hdr.solid { color: var(--ink); }
 .hdr.solid .hdr-nav,
 .hdr.solid .hdr-end {
-	background: rgb(255 255 255 / 0.48);
+	/* Dwie warstwy zamiast jednej. Sama biel na 0,48 nad biala sekcja daje
+	   biel — pigulka znikala i zostawal po niej sam cien. Czarny welon 0,07
+	   nalozony na mleczna warstwe sciaga bialy podklad do #ededed, a ciemny
+	   kadr zostawia jasnym: szklo jest szare, nie przygaszone. */
+	background:
+		linear-gradient(rgb(0 0 0 / 0.09), rgb(0 0 0 / 0.09)),
+		rgb(255 255 255 / 0.62);
 	backdrop-filter: blur(26px) saturate(160%);
-	box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.42), 0 10px 34px rgb(0 0 0 / 0.07);
+	/* Wewnetrzny rozblysk trzyma krawedz na ciemnym tle, zewnetrzna
+	   wloskowata linia — na jasnym. Kazda z nich dziala tam, gdzie druga ginie. */
+	box-shadow:
+		inset 0 0 0 1px rgb(255 255 255 / 0.5),
+		0 0 0 1px rgb(0 0 0 / 0.05),
+		0 10px 34px rgb(0 0 0 / 0.07);
 }
 /* Bez obslugi rozmycia tla mleczna szyba byla nieczytelna — wtedy tlo gestnieje. */
 @supports not (backdrop-filter: blur(1px)) {

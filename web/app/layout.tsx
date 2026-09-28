@@ -20,9 +20,9 @@ const caslon = Libre_Caslon_Text({ variable: "--font-caslon", subsets: ["latin",
 const kaligrafia = Herr_Von_Muellerhoff({ variable: "--font-script", subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Barbara Joanna Iwańska · Design Management · Portfolio 2026",
+  title: "Barbara Joanna Iwańska · Interior Design & Management · Portfolio 2026",
   description:
-    "Design Management: prowadzenie realizacji wnętrz w inwestycjach mieszkaniowych i hotelowych — od zakresu i budżetu, przez akceptacje materiałowe i negocjacje z dostawcami, po odbiory.",
+    "Interior Design & Management: prowadzenie realizacji wnętrz w inwestycjach mieszkaniowych i hotelowych — od zakresu i budżetu, przez akceptacje materiałowe i negocjacje z dostawcami, po odbiory.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

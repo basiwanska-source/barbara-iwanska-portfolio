@@ -34,7 +34,7 @@ export function SiteFooter() {
       etykieta: "Lokalizacja",
       tresc: (
         <>
-          <p className="stopka-nazwa">Design Management</p>
+          <p className="stopka-nazwa">Interior Design &amp; Management</p>
           <p className="stopka-linia">Warszawa, Polska</p>
         </>
       ),
@@ -76,7 +76,7 @@ export function SiteFooter() {
       <div className="shell stopka-stopka">
         <span className="stopka-znak" aria-hidden="true">BI</span>
         <span>© {new Date().getFullYear()} Barbara Joanna Iwańska.<br />Wszystkie prawa zastrzeżone.</span>
-        <span>Design Management · Portfolio 2026</span>
+        <span>Interior Design &amp; Management · Portfolio 2026</span>
         <a href="/design-system.html">Design system</a>
       </div>
     </footer>

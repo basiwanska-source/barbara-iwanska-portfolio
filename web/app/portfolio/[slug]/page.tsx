@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/portfolio/[slug]">) {
   const { slug } = await params;
   const p = projects.find((x) => x.slug === slug);
-  return { title: p ? `${p.title} · Barbara Iwańska · Design Management` : "Projekt", description: p?.context[0] };
+  return { title: p ? `${p.title} · Barbara Iwańska · Interior Design & Management` : "Projekt", description: p?.context[0] };
 }
 
 /** Kadr pionowy — w jednolitej ramce 7:5 pokazujemy go w całości, nie przycinamy. */

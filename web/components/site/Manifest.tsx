@@ -18,7 +18,7 @@ export function Manifest({ wariant = "otwarcie" }: Props = {}) {
         <Marquee
           className="bieznik bieznik-tlo bieznik-kaligrafia"
           tempo={100}
-          tresc={["Design management", "Design management"]}
+          tresc={["Interior design & management", "Interior design & management"]}
         />
         <div className="hero-text shell">
           <div className="manifest-gora">
